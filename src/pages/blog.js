@@ -1,22 +1,25 @@
 import React from 'react'
+import { Link } from 'gatsby'
+
 import Layout from '../components/layout'
 import SEO from '../components/seo'
+
 import NavContainer from './../components/navigation/NavContainer'
 import ContentWrapper from './../components/content/ContentWrapper'
 import ContentHeader from './../components/content/ContentHeader'
 import ContentContainer from './../components/content/ContentContainer'
-
-const IndexPage = () => (
-  <Layout active="about">
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <NavContainer active="" />
-    <ContentWrapper>
-      <ContentHeader headerText="About" />
-      <ContentContainer >
-        <p>Personal Portfolio of Reece Langerock</p>
-        </ContentContainer>
+const SecondPage = () => {
+  return (
+    <Layout>
+      <SEO title="Blog" />
+      <NavContainer active = "blog"/>
+      <ContentWrapper>
+      <ContentHeader headerText="blog" />
+      <ContentContainer />
     </ContentWrapper>
-  </Layout>
-)
+      
+    </Layout>
+  )
+}
 
-export default IndexPage
+export default SecondPage

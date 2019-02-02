@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 
 export default class NavItem extends Component {
   static propTypes = {
@@ -12,19 +13,23 @@ export default class NavItem extends Component {
 
     if (active) {
       return (
-        <ActiveContainer active={active}>
+        <ActiveContainer active={active} to={this.props.linkUrl}>
           <Border />
           <Content>{this.props.children}</Content>
           <Border />
         </ActiveContainer>
       )
     } else {
-      return <Container active={active}>{this.props.children}</Container>
+      return (
+        <Container active={active} to={this.props.linkUrl}>
+          {this.props.children}
+        </Container>
+      )
     }
   }
 }
 
-const Container = styled.div`
+const Container = styled(Link)`
   border: 1px solid #129542;
   box-shadow: inset 0 0 0 1px #07661e;
   border-radius: 1px;
@@ -39,9 +44,12 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  color: #21d077;
+  text-decoration: none;
 `
 
-const ActiveContainer = styled.div`
+const ActiveContainer = styled(Link)`
   display: flex;
   flex-direction: row;
   border: 1px solid #dbd9ff;
@@ -50,11 +58,23 @@ const ActiveContainer = styled.div`
   justify-content: space-between;
   margin-bottom: 6px;
   width: 100%;
+  color: #21d077;
+  text-decoration: none;
 `
 
 const Border = styled.div`
   width: 8%;
   background: #dbd9ff;
+  animation: clicked-keyframes 1s;
+
+  @keyframes clicked-keyframes {
+    from {
+      width: 0%;
+    }
+    to {
+      width: 8%;
+    }
+  }
 `
 
 const Content = styled.div`
@@ -65,4 +85,5 @@ const Content = styled.div`
   line-height: 1;
   display: flex;
   align-items: center;
+  text-align: center;
 `

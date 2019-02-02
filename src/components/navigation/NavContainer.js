@@ -9,14 +9,25 @@ export default class NavContainer extends Component {
   }
 
   render() {
+    const { active } = this.props
     return (
       <Container>
         <h1>Folders</h1>
-        <NavItem active>About</NavItem>
-        <NavItem>Blog</NavItem>
-        <NavItem>Portfolio</NavItem>
-        <NavItem>Contact</NavItem>
-        <NavItem>Shut Down</NavItem>
+        <NavItem active={active === ''} linkUrl="">
+          About
+        </NavItem>
+        <NavItem active={active === 'blog'} linkUrl="blog">
+          Blog
+        </NavItem>
+        <NavItem active={active === 'portfolio'} linkUrl="portfolio">
+          Portfolio
+        </NavItem>
+        <NavItem active={active === 'contact'} linkUrl="contact">
+          Contact
+        </NavItem>
+        <NavItem active={active === 'settings'} linkUrl="settings">
+          Settings
+        </NavItem>
       </Container>
     )
   }

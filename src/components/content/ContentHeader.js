@@ -1,13 +1,21 @@
-import React, { Component } from 'react'
+import React, { Component, useContext } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { NavConsumer } from './../../context/NavContext.js'
+
 export default class ContentHeader extends Component {
-  static propTypes = {
-    prop: PropTypes,
-  }
+  //   static propTypes = {
+  //     prop: PropTypes,
+  //   }
 
   render() {
-    return <Container>header</Container>
+    return (
+      <NavConsumer>
+        {value => {
+          return <Container>{this.props.headerText}</Container>
+        }}
+      </NavConsumer>
+    )
   }
 }
 

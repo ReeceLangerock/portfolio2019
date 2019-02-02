@@ -5,3 +5,11 @@
  */
 
 // You can delete this file if you're not using it
+
+import React from "react"
+
+import { NavProvider } from './src/context/NavContext'
+
+export const wrapRootElement = ({ element }) => (
+  <NavProvider>{element}</NavProvider>
+)

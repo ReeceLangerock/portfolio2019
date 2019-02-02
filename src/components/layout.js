@@ -7,8 +7,8 @@ import Header from './header'
 import NavContainer from './navigation/NavContainer'
 import ContentWrapper from './content/ContentWrapper'
 import Sevastopol from './Sevastopol-Interface.ttf'
-
-import { createGlobalStyle } from "styled-components";
+import NavProvider from './../context/NavContext'
+import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
    @font-face {
@@ -28,23 +28,23 @@ const Layout = ({ children }) => (
         }
       }
     `}
-    render={data => (
+    render={data => {
+      return(
       <>
-        <LayoutContainer>
-          <GlobalStyles/>
-          <Screen>
-            <InnerScreen>
-              <Header />
-              <Page>
-                <NavContainer />
-                <div> || </div>
-                <ContentWrapper />
-              </Page>
-            </InnerScreen>
-          </Screen>
-        </LayoutContainer>
+          <LayoutContainer>
+            <GlobalStyles />
+            <Screen>
+              <InnerScreen>
+                <Header />
+                <Page>
+                  {children}
+                </Page>
+              </InnerScreen>
+            </Screen>
+          </LayoutContainer>
+       
       </>
-    )}
+    )}}
   />
 )
 
