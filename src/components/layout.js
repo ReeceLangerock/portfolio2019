@@ -6,6 +6,7 @@ import './layout.css'
 import Header from './header'
 import Sevastopol from './Sevastopol-Interface.ttf'
 import { createGlobalStyle } from 'styled-components'
+import { SettingsConsumer } from '../context/SettingsContext.js'
 
 const GlobalStyles = createGlobalStyle`
    @font-face {
@@ -26,22 +27,27 @@ const Layout = ({ children }) => (
       }
     `}
     render={data => {
-      return(
-      <>
-          <LayoutContainer>
-            <GlobalStyles />
-            <Screen>
-              <InnerScreen>
-                <Header />
-                <Page>
-                  {children}
-                </Page>
-              </InnerScreen>
-            </Screen>
-          </LayoutContainer>
-       
-      </>
-    )}}
+      return (
+        <>
+          <SettingsConsumer>
+            {value => {
+              const CRT = value.settings.crt ? 'crt' : ''
+              return (
+                <LayoutContainer>
+                  <GlobalStyles />
+                  <Screen>
+                    <InnerScreen className={CRT}>
+                      <Header />
+                      <Page>{children}</Page>
+                    </InnerScreen>
+                  </Screen>
+                </LayoutContainer>
+              )
+            }}
+          </SettingsConsumer>
+        </>
+      )
+    }}
   />
 )
 
@@ -61,6 +67,9 @@ const LayoutContainer = styled.div`
   height: 100vh;
   width: 100vw;
   background: #041704;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
 `
 
 const Screen = styled.div`
@@ -70,6 +79,7 @@ const Screen = styled.div`
   border-right: 40px solid #020701;
   border-top: 20px solid #020701;
   border-bottom: 20px solid #020701;
+  /* box-shadow: inset 0px 0px 1px #fff; */
 `
 const InnerScreen = styled.div`
   height: 100%;

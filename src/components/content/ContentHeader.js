@@ -4,13 +4,15 @@ import styled from 'styled-components'
 import { SettingsConsumer } from '../../context/SettingsContext.js'
 
 export default class ContentHeader extends Component {
-
-
   render() {
     return (
       <SettingsConsumer>
         {value => {
-          return <Container>{this.props.headerText}</Container>
+          return (
+            <Container crt={value.settings.crt}>
+              {this.props.headerText}
+            </Container>
+          )
         }}
       </SettingsConsumer>
     )
@@ -32,4 +34,5 @@ const Container = styled.div`
   font-size: 30px;
   text-transform: uppercase;
   line-height: 1;
+  animation: ${props => (props.crt ? 'textShadow 1.6s infinite' : 'none')};
 `

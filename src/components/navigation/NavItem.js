@@ -2,25 +2,45 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
+import { SettingsConsumer } from '../../context/SettingsContext.js'
 
 export default class NavItem extends Component {
-
   render() {
     const { active } = this.props
 
     if (active) {
       return (
-        <ActiveContainer active={active} to={this.props.linkUrl}>
-          <Border />
-          <Content>{this.props.children}</Content>
-          <Border />
-        </ActiveContainer>
+        <SettingsConsumer>
+          {value => {
+            return (
+              <ActiveContainer
+                crt={value.settings.crt}
+                active={active}
+                to={this.props.linkUrl}
+              >
+                <Border />
+                <Content>{this.props.children}</Content>
+                <Border />
+              </ActiveContainer>
+            )
+          }}
+        </SettingsConsumer>
       )
     } else {
       return (
-        <Container active={active} to={this.props.linkUrl}>
-          {this.props.children}
-        </Container>
+        <SettingsConsumer>
+          {value => {
+            return (
+              <Container
+                crt={value.settings.crt}
+                active={active}
+                to={this.props.linkUrl}
+              >
+                {this.props.children}
+              </Container>
+            )
+          }}
+        </SettingsConsumer>
       )
     }
   }
@@ -44,6 +64,7 @@ const Container = styled(Link)`
   text-align: center;
   color: #21d077;
   text-decoration: none;
+  animation: ${props => (props.crt ? 'textShadow 1.6s infinite' : 'none')};
 `
 
 const ActiveContainer = styled(Link)`
@@ -57,6 +78,7 @@ const ActiveContainer = styled(Link)`
   width: 100%;
   color: #21d077;
   text-decoration: none;
+  animation: ${props => (props.crt ? 'textShadow 1.6s infinite' : 'none')};
 `
 
 const Border = styled.div`
