@@ -3,9 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 export default class ContentWrapper extends Component {
-  static propTypes = {
-    prop: PropTypes,
-  }
+
 
   render() {
     return <Container>{this.props.children}</Container>
@@ -22,4 +20,9 @@ const Container = styled.div`
   font-family: 'Sevastopol';
   font-size: 20px;
   position: relative;
+
+  p,h1,h2,h3{
+  font-family: 'Sevastopol';
+
+  }
 `

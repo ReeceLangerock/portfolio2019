@@ -4,10 +4,7 @@ import styled from 'styled-components'
 import NavItem from './NavItem'
 
 export default class NavContainer extends Component {
-  static propTypes = {
-    prop: PropTypes,
-  }
-
+ 
   render() {
     const { active } = this.props
     return (

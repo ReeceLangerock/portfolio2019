@@ -8,8 +8,8 @@
 
 import React from "react"
 
-import { NavProvider } from './src/context/NavContext'
+import { SettingsProvider } from './src/context/SettingsContext'
 
 export const wrapRootElement = ({ element }) => (
-  <NavProvider>{element}</NavProvider>
+  <SettingsProvider>{element}</SettingsProvider>
 )

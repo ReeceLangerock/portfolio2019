@@ -4,10 +4,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import './layout.css'
 import Header from './header'
-import NavContainer from './navigation/NavContainer'
-import ContentWrapper from './content/ContentWrapper'
 import Sevastopol from './Sevastopol-Interface.ttf'
-import NavProvider from './../context/NavContext'
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
