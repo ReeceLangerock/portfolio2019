@@ -13,7 +13,7 @@ class BlogContainer extends Component {
       return (
         <BlogPost
           post={post}
-          active={activePost === index}
+          active={activePost === post}
           onSelectPost={onSelectPost}
         />
       )
@@ -37,9 +37,4 @@ class BlogContainer extends Component {
 
 export default BlogContainer
 
-const Container = styled.div`
-  flex-basis: auto;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-`
+const Container = styled.div``

@@ -66,7 +66,7 @@ const Page = styled.div`
 const LayoutContainer = styled.div`
   height: 100vh;
   width: 100vw;
-  background: #041704;
+  background: #020701;
   max-width: 100%;
   max-height: 100%;
   overflow: hidden;
@@ -75,15 +75,19 @@ const LayoutContainer = styled.div`
 const Screen = styled.div`
   height: 100%;
   width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
   border-left: 40px solid #020701;
   border-right: 40px solid #020701;
-  border-top: 20px solid #020701;
-  border-bottom: 20px solid #020701;
+  border-top: 25px solid #020701;
+  border-bottom: 25px solid #020701;
   /* box-shadow: inset 0px 0px 1px #fff; */
 `
 const InnerScreen = styled.div`
   height: 100%;
   position: relative;
+  background: #041704;
+
   width: 100%;
   border-radius: 0.8em;
   box-shadow: 0 0 0 0.6em #020701;
