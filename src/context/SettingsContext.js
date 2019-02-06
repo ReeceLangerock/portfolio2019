@@ -11,12 +11,27 @@ class SettingsProvider extends React.Component {
       soundEffects: true,
       loadingScreen: true,
     },
+
+    blog: {
+      activePost: 2,
+    },
+  }
+  handleActivePost = postId => {
+    console.log('t', postId)
+    let blog = { ...this.state.blog }
+    blog.activePost = postId
+    console.log(blog)
+    this.setState({
+      ...this.state,
+      blog,
+    })
   }
 
   handleChangeSetting = (setting, value) => {
     let settings = { ...this.state.settings }
     settings[setting] = value
     this.setState({
+      ...this.state,
       settings,
     })
   }
@@ -27,6 +42,7 @@ class SettingsProvider extends React.Component {
         value={{
           ...this.state,
           onChangeSetting: this.handleChangeSetting,
+          onSelectPost: this.handleActivePost,
         }}
       >
         {this.props.children}

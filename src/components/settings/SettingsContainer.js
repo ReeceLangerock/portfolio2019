@@ -56,7 +56,7 @@ export default class SettingsContainer extends Component {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 10px 40px;
+  padding: 30px 70px;
   height: 100%;
 `
 

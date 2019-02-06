@@ -25,7 +25,6 @@ const Container = styled.div`
   width: 100%;
   flex: 1;
   color: white;
-  padding: 20px 30px;
   font-family: 'Sevastopol';
   position: relative;
   animation: ${props => (props.crt ? 'textShadow 2.6s infinite' : 'none')};

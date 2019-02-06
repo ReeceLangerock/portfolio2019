@@ -28,8 +28,7 @@ const SecondPage = () => {
               <span>https://github.com/ReeceLangerock</span>
             </ContactRow>
             <ContactRow>
-              <span>Twitter:</span>{' '}
-              <span>twitter</span>
+              <span>Twitter:</span> <span>twitter</span>
             </ContactRow>
           </ContactContainer>
         </ContentContainer>
@@ -43,7 +42,7 @@ export default SecondPage
 const ContactContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 10px 40px;
+  padding: 30px 70px;
   height: 100%;
 `
 

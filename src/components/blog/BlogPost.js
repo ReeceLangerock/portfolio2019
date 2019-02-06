@@ -1,26 +1,18 @@
-import React from 'react'
-import Layout from '../components/layout'
-import SEO from '../components/seo'
-import NavContainer from './../components/navigation/NavContainer'
-import ContentWrapper from './../components/content/ContentWrapper'
-import ContentHeader from './../components/content/ContentHeader'
-import ContentContainer from './../components/content/ContentContainer'
+import React, { Component } from 'react'
 import styled from 'styled-components'
-const IndexPage = () => (
-  <Layout active="about">
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <NavContainer active="" />
-    <ContentWrapper>
-      <ContentHeader headerText="About" />
-      <ContentContainer>
-        <StyledContent>
-          <h2>Personal Portfolio of Reece Langerock</h2>
+
+class BlogPost extends Component {
+  render() {
+    const { active, post, onSelectPost } = this.props
+    return (
+      <PostContainer active={active}>
+        <PostTitle active={active} onClick={e => onSelectPost(post)}>
+          Post #{post}
+          {active && <Toggle>X</Toggle>}
+        </PostTitle>
+        <PostContent active={active}>
           <p>
-            hi! my name is reece and I'm a chicago based front-end developer
-            take a look around and let me know below if you have any questions!
-          </p>
-          <p>
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip ex ea commodo consequat. Duis aute irure dolor in
@@ -41,24 +33,32 @@ const IndexPage = () => (
             aliquid ex ea commodi consequatur? Quis autem vel eum iure
             reprehenderit qui in ea voluptate velit esse quam nihil molestiae
             consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla
-            pariatur?"
+            pariatur?
           </p>
-        </StyledContent>
-      </ContentContainer>
-    </ContentWrapper>
-  </Layout>
-)
-
-export default IndexPage
-
-const StyledContent = styled.div`
-  padding: 20px 30px;
-
-  h2 {
-    font-size: 36px;
-    font-weight: bold;
+        </PostContent>
+      </PostContainer>
+    )
   }
-  p {
-    font-size: 40px;
-  }
+}
+
+export default BlogPost
+
+const PostContainer = styled.div`
+  border: 1px solid white;
+  font-size: 32px;
+  background: ${props =>
+    props.active ? 'hsla(154, 95%, 24%, 1)' : 'hsla(154, 95%, 24%, 0.5)'};
 `
+const PostTitle = styled.div`
+  border-bottom: ${props => (props.active ? '1px solid white' : 'none')};
+  padding: 6px 10px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+`
+const PostContent = styled.div`
+  display: ${props => (props.active ? 'block' : 'none')};
+  padding: 10px;
+  font-size: 24px;
+`
+const Toggle = styled.div``
