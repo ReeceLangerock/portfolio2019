@@ -25,13 +25,16 @@ export default class NavContainer extends Component {
         <NavItem active={active === 'settings'} linkUrl="settings">
           Settings
         </NavItem>
+        <NavItem active={active === 'files'} linkUrl="files">
+          Files
+        </NavItem>
       </Container>
     )
   }
 }
 
 const Container = styled.div`
-  padding-top: 100px;
+  padding-top: 70px;
   width: 20%;
   height: 100%;
   display: flex;

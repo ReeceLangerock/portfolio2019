@@ -33,13 +33,41 @@ const IndexPage = () => (
           </p>
 
           <h2>Personel Skill Set</h2>
-
-          <h4>Proficient</h4>
-
           <Row>
-            React <SkillLevel level={4.5} />
+            React <SkillLevel level={9} />
           </Row>
-
+          <Row>
+            Redux <SkillLevel level={7} />
+          </Row>
+          <Row>
+            React Native <SkillLevel level={4} />
+          </Row>
+          <Row>
+            Jest <SkillLevel level={2.5} />
+          </Row>
+          <Row>
+            Node.js / Express.js <SkillLevel level={7.5} />
+          </Row>
+          <Row>
+            Gatsby.js / Next.js <SkillLevel level={5} />
+          </Row>
+          <Row>
+            MongoDB <SkillLevel level={5} />
+          </Row>
+          <Row>
+            PL/SQL <SkillLevel level={3.5} />
+          </Row>   
+          <Row>
+            HTML/CSS/SASS <SkillLevel level={8} />
+          </Row>
+          <Row>
+            Python <SkillLevel level={2} />
+          </Row>
+       
+          <Row>
+            Java <SkillLevel level={1.5} />
+          </Row>
+    <br/>
           <h2>Terminal Specifications:</h2>
           <Row>
             Hardware Manufacture Date: <b>February 2019</b>
@@ -81,7 +109,7 @@ const Row = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
   align-items: center;
   font-size: 32px;
 `

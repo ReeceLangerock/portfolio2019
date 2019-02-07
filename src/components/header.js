@@ -2,7 +2,16 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const Header = ({ siteTitle }) => <HeaderBar>Personal terminal</HeaderBar>
+const Header = ({ siteTitle, loading }) => {
+  if(loading){
+    return null
+  }
+return (
+
+<HeaderBar>{siteTitle}</HeaderBar>
+)
+
+}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,

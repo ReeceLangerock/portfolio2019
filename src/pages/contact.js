@@ -21,14 +21,22 @@ const SecondPage = () => {
             </ContactRow>
             <ContactRow>
               <span>Github:</span>{' '}
-              <span>https://github.com/ReeceLangerock</span>
+              <a href="https://github.com/ReeceLangerock" target="_blank">
+                https://github.com/ReeceLangerock
+              </a>
             </ContactRow>
             <ContactRow>
               <span>LinkedIn:</span>{' '}
-              <span>https://github.com/ReeceLangerock</span>
+              <a
+                href="https://www.linkedin.com/in/reece-langerock/"
+                target="_blank"
+              >
+                https://www.linkedin.com/in/reece-langerock/
+              </a>
             </ContactRow>
             <ContactRow>
-              <span>Twitter:</span> <span>twitter</span>
+              <span>Twitter:</span>{' '}
+              <a href = "https://twitter.com/ReeceLangerock">https://twitter.com/ReeceLangerock</a>
             </ContactRow>
           </ContactContainer>
         </ContentContainer>
@@ -53,4 +61,15 @@ const ContactRow = styled.div`
   flex-wrap: wrap;
   align-items: center;
   font-size: 40px;
+
+  a {
+    color: white;
+    transition: .5s ease-in-out all;
+
+
+    &:hover {
+      color: #21d077;
+      transition: .25s ease-in-out all;
+    }
+  }
 `

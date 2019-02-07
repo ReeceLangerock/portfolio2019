@@ -37,7 +37,7 @@ const Layout = ({ children }) => (
                   <GlobalStyles />
                   <Screen>
                     <InnerScreen className={CRT}>
-                      <Header />
+                      <Header loading siteTitle='Personal Terminal'/>
                       <Page>{children}</Page>
                     </InnerScreen>
                   </Screen>

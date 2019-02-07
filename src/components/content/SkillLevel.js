@@ -4,21 +4,26 @@ import styled from 'styled-components'
 class SkillLevel extends Component {
   renderLevel() {
     let { level } = this.props
-    console.log(level)
     const hasHalf = level % 1 !== 0
-    console.log(hasHalf)
     level = Math.floor(level)
     let levels = []
-    for (let i = 0; i < level; i++) {
-      levels.push(<Level />)
+    let emptyLevels = []
+    for (let i = 0; i < 10; i++) {
+      if (i < level) {
+        levels.push(<Level />)
+      } else {
+        emptyLevels.push(<Level empty="inherit" />)
+      }
     }
 
     if (hasHalf) {
       levels.push(<Level half />)
+      emptyLevels.pop()
     }
-    levels.push(<Level empty="inherit" />)
 
-    return levels
+
+
+    return [...levels,...emptyLevels]
   }
   render() {
     return <Container>{this.renderLevel()}</Container>
@@ -32,8 +37,8 @@ const Container = styled.div`
 `
 
 const Level = styled.div`
-  height: 40px;
-  width: 40px;
+  height: 36px;
+  width: 36px;
   border: 1px solid #00b76e;
   margin-right: 5px;
   background: ${props =>
