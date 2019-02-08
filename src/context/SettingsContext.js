@@ -9,11 +9,14 @@ class SettingsProvider extends React.Component {
       crt: false,
       darkMode: true,
       soundEffects: true,
-      loadingScreen: true,
+      loadingScreen: false,
     },
 
     blog: {
       activePost: 2,
+    },
+    portfolio: {
+      activeItem: 2,
     },
     loadingScreenShown: false,
   }
@@ -23,6 +26,14 @@ class SettingsProvider extends React.Component {
     this.setState({
       ...this.state,
       blog,
+    })
+  }
+  handleActiveItem = itemId => {
+    let portfolio = { ...this.state.portfolio }
+    portfolio.activeItem = itemId
+    this.setState({
+      ...this.state,
+      portfolio,
     })
   }
 
@@ -49,6 +60,7 @@ class SettingsProvider extends React.Component {
           ...this.state,
           onChangeSetting: this.handleChangeSetting,
           onSelectPost: this.handleActivePost,
+          onSelectItem: this.handleActiveItem,
           onLoad: this.handleLoad,
         }}
       >

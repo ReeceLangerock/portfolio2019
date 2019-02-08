@@ -7,6 +7,7 @@ import NavContainer from '../components/navigation/NavContainer'
 import ContentWrapper from '../components/content/ContentWrapper'
 import ContentHeader from './../components/content/ContentHeader'
 import ContentContainer from './../components/content/ContentContainer'
+import PortfolioContainer from '../components/portfolio/PortfolioContainer'
 
 const Portfolio = () => {
   return (
@@ -15,7 +16,9 @@ const Portfolio = () => {
       <NavContainer active="portfolio" />
       <ContentWrapper>
         <ContentHeader headerText="portfolio" />
-        <ContentContainer />
+        <ContentContainer>
+          <PortfolioContainer />
+        </ContentContainer>
       </ContentWrapper>
     </Layout>
   )

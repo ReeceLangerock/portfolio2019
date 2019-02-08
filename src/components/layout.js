@@ -34,7 +34,7 @@ const Layout = ({ children }) => (
             {value => {
               const CRT = value.settings.crt ? 'crt' : ''
               const { loadingScreen } = value.settings
-
+              // console.log(loadingScreen, ())
               return (
                 <LayoutContainer>
                   <GlobalStyles />
@@ -44,10 +44,9 @@ const Layout = ({ children }) => (
                         <LoadingScreen />
                       )}
 
-                      {!loadingScreen ||
-                        (value.loadingScreenShown &&
-                          (<Header loading siteTitle="Personal Terminal" />,
-                          <Page>{children}</Page>))}
+                      {(!loadingScreen || value.loadingScreenShown) &&
+                        (<Header loading siteTitle="Personal Terminal" />,
+                        <Page>{children}</Page>)}
                     </InnerScreen>
                   </Screen>
                 </LayoutContainer>
