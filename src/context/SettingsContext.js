@@ -15,12 +15,11 @@ class SettingsProvider extends React.Component {
     blog: {
       activePost: 2,
     },
+    loadingScreenShown: false,
   }
   handleActivePost = postId => {
-    console.log('t', postId)
     let blog = { ...this.state.blog }
     blog.activePost = postId
-    console.log(blog)
     this.setState({
       ...this.state,
       blog,
@@ -36,6 +35,13 @@ class SettingsProvider extends React.Component {
     })
   }
 
+  handleLoad = () => {
+    this.setState({
+      ...this.state,
+      loadingScreenShown: true,
+    })
+  }
+
   render() {
     return (
       <Provider
@@ -43,6 +49,7 @@ class SettingsProvider extends React.Component {
           ...this.state,
           onChangeSetting: this.handleChangeSetting,
           onSelectPost: this.handleActivePost,
+          onLoad: this.handleLoad,
         }}
       >
         {this.props.children}

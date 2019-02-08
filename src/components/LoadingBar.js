@@ -17,6 +17,8 @@ export default class LoadingBar extends Component {
         percent: this.state.percent + percentAddition,
       })
       if (this.state.percent >= 100) {
+        console.log(this.props)
+        this.props.onLoad()
         clearInterval(interval)
       }
     }, 150)

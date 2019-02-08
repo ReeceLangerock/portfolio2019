@@ -4,9 +4,10 @@ import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import './layout.css'
 import Header from './header'
-import Sevastopol from './Sevastopol-Interface.ttf'
+import Sevastopol from './../Sevastopol-Interface.ttf'
 import { createGlobalStyle } from 'styled-components'
 import { SettingsConsumer } from '../context/SettingsContext.js'
+import LoadingScreen from './content/LoadingScreen'
 
 const GlobalStyles = createGlobalStyle`
    @font-face {
@@ -32,13 +33,21 @@ const Layout = ({ children }) => (
           <SettingsConsumer>
             {value => {
               const CRT = value.settings.crt ? 'crt' : ''
+              const { loadingScreen } = value.settings
+
               return (
                 <LayoutContainer>
                   <GlobalStyles />
                   <Screen>
                     <InnerScreen className={CRT}>
-                      <Header loading siteTitle='Personal Terminal'/>
-                      <Page>{children}</Page>
+                      {loadingScreen && !value.loadingScreenShown && (
+                        <LoadingScreen />
+                      )}
+
+                      {!loadingScreen ||
+                        (value.loadingScreenShown &&
+                          (<Header loading siteTitle="Personal Terminal" />,
+                          <Page>{children}</Page>))}
                     </InnerScreen>
                   </Screen>
                 </LayoutContainer>

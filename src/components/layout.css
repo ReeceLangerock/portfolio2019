@@ -617,6 +617,15 @@ pre tt:after {
     font-size: 100%;
   }
 }
+.sevastopol {
+  font-family: 'Sevastopol';
+}
+
+@font-face {
+  font-family: Sevastopol;
+  src: url('./../Sevastopol-Interface.ttf');
+}
+
 @keyframes flicker {
   0% {
     opacity: 0.27861;
