@@ -32,7 +32,7 @@ const IndexPage = () => (
             take a look around and let me know below if you have any questions!
           </p>
 
-          <h2>Personel Skill Set</h2>
+          <h2>Personel Skill Set:</h2>
           <Row>
             React <SkillLevel level={9} />
           </Row>
@@ -40,7 +40,7 @@ const IndexPage = () => (
             Redux <SkillLevel level={7} />
           </Row>
           <Row>
-            React Native <SkillLevel level={4} />
+            React Native <SkillLevel level={5} />
           </Row>
           <Row>
             Jest <SkillLevel level={2.5} />
@@ -52,25 +52,32 @@ const IndexPage = () => (
             Gatsby.js / Next.js <SkillLevel level={5} />
           </Row>
           <Row>
-            MongoDB <SkillLevel level={5} />
+            MongoDB <SkillLevel level={6} />
           </Row>
           <Row>
             PL/SQL <SkillLevel level={3.5} />
-          </Row>   
+          </Row>
           <Row>
-            HTML/CSS/SASS <SkillLevel level={8} />
+            HTML/CSS/SASS <SkillLevel level={9} />
+          </Row>
+
+          <Row>
+            Java <SkillLevel level={1.5} />
+          </Row>
+
+          <h3>Currently Learning:</h3>
+          <Row>
+            GraphQL <SkillLevel level={4} />
           </Row>
           <Row>
             Python <SkillLevel level={2} />
           </Row>
-       
-          <Row>
-            Java <SkillLevel level={1.5} />
-          </Row>
-    <br/>
+
+
+          <br />
           <h2>Terminal Specifications:</h2>
           <Row>
-            Hardware Manufacture Date: <b>February 2019</b>
+          Terminal Manufacture Date: <b>February 2019</b>
           </Row>
           <Row>
             Software Copyright Date: <b>February 2019</b>
@@ -100,6 +107,11 @@ const StyledContent = styled.div`
   h2 {
     font-size: 40px;
     font-weight: bold;
+  }
+  h3 {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 15px 0 10px 0;
   }
   p {
     font-size: 28px;

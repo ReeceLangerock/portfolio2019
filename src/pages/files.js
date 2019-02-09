@@ -7,6 +7,7 @@ import NavContainer from '../components/navigation/NavContainer'
 import ContentWrapper from '../components/content/ContentWrapper'
 import ContentHeader from '../components/content/ContentHeader'
 import ContentContainer from '../components/content/ContentContainer'
+import File from './../components/content/File'
 const SecondPage = () => {
   return (
     <Layout>
@@ -17,7 +18,9 @@ const SecondPage = () => {
         <ContentContainer>
           <FileContainer>
 
-          No Files
+          <File name = 'Resume'/>
+          <File/>
+          <File/>
           </FileContainer>
         </ContentContainer>
       </ContentWrapper>
@@ -29,5 +32,4 @@ export default SecondPage
 
 
 const FileContainer = styled.div`
-padding: 30px 70px;
 `
