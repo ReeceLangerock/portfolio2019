@@ -13,16 +13,16 @@ class SettingsProvider extends React.Component {
     },
 
     blog: {
-      activePost: 2,
+      activePost: 1,
     },
     portfolio: {
-      activeItem: 2,
+      activeItem: 1,
     },
     loadingScreenShown: false,
   }
   handleActivePost = postId => {
     let blog = { ...this.state.blog }
-    blog.activePost = postId
+    blog.activePost = blog.activePost === postId ? undefined : postId
     this.setState({
       ...this.state,
       blog,
@@ -30,7 +30,8 @@ class SettingsProvider extends React.Component {
   }
   handleActiveItem = itemId => {
     let portfolio = { ...this.state.portfolio }
-    portfolio.activeItem = itemId
+    portfolio.activeItem = portfolio.activeItem === itemId ? undefined : itemId
+
     this.setState({
       ...this.state,
       portfolio,
