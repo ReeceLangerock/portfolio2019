@@ -7,6 +7,7 @@ import NavContainer from '../components/navigation/NavContainer'
 import ContentWrapper from '../components/content/ContentWrapper'
 import ContentHeader from '../components/content/ContentHeader'
 import ContentContainer from '../components/content/ContentContainer'
+import ContactItem from '../components/content/ContactItem'
 const SecondPage = () => {
   return (
     <Layout>
@@ -16,28 +17,24 @@ const SecondPage = () => {
         <ContentHeader headerText="contact" />
         <ContentContainer>
           <ContactContainer>
-            <ContactRow>
-              <span>Email:</span> <span>reecelangerock@gmail.com</span>
-            </ContactRow>
-            <ContactRow>
-              <span>Github:</span>{' '}
-              <a href="https://github.com/ReeceLangerock" target="_blank">
-                https://github.com/ReeceLangerock
-              </a>
-            </ContactRow>
-            <ContactRow>
-              <span>LinkedIn:</span>{' '}
-              <a
-                href="https://www.linkedin.com/in/reece-langerock/"
-                target="_blank"
-              >
-                https://www.linkedin.com/in/reece-langerock/
-              </a>
-            </ContactRow>
-            <ContactRow>
-              <span>Twitter:</span>{' '}
-              <a href = "https://twitter.com/ReeceLangerock">https://twitter.com/ReeceLangerock</a>
-            </ContactRow>
+            <ContactItem type="email" 
+            link = "mailto:reecelangerock@gmail.com"
+            text = "Shoot me an email"/>
+            <ContactItem
+              type="linkedin"
+              link="https://www.linkedin.com/in/reece-langerock/"
+              text ="Connect with me"
+            />
+            <ContactItem
+              type="github"
+              link=" https://github.com/ReeceLangerock"
+              text = "Check out my code"
+            />
+            <ContactItem
+              type="twitter"
+              link="https://twitter.com/ReeceLangerock"
+              text = "tweet @ me"
+            />
           </ContactContainer>
         </ContentContainer>
       </ContentWrapper>
@@ -49,27 +46,9 @@ export default SecondPage
 
 const ContactContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
   padding: 30px 70px;
   height: 100%;
 `
 
-const ContactRow = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 25px;
-  flex-wrap: wrap;
-  align-items: center;
-  font-size: 40px;
-
-  a {
-    color: white;
-    transition: .5s ease-in-out all;
-
-
-    &:hover {
-      color: #21d077;
-      transition: .25s ease-in-out all;
-    }
-  }
-`
