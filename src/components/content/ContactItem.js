@@ -60,8 +60,8 @@ export default class ContactItem extends Component {
 }
 
 const Container = styled.a`
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   padding: 5px;
   transition: 0.5s ease-in-out all;
   cursor: pointer;

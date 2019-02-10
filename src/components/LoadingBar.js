@@ -12,14 +12,17 @@ export default class LoadingBar extends Component {
 
   animateBar() {
     let interval = setInterval(() => {
-      let percentAddition = Math.random() * 10
+      let percentAddition = Math.random() * 15
       this.setState({
         percent: this.state.percent + percentAddition,
       })
       if (this.state.percent >= 100) {
-        console.log(this.props)
-        this.props.onLoad()
-        clearInterval(interval)
+        let innerInterval = setInterval(() => {
+          this.props.onLoad()
+          clearInterval(interval)
+          console.log('inner')
+          clearInterval(innerInterval)
+        }, 400)
       }
     }, 150)
   }
@@ -40,12 +43,12 @@ export default class LoadingBar extends Component {
 
 const Bar = styled.div`
   width: 95%;
-  height: 50px;
-  border: 1px solid white;
+  height: 30px;
+  border: 1px solid #129542;
 `
 
 const Progress = styled.div`
   width: ${props => props.width + '%'};
-  background: green;
+  background: #129542;
   height: 100%;
 `

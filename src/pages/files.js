@@ -17,10 +17,9 @@ const SecondPage = () => {
         <ContentHeader headerText="files" />
         <ContentContainer>
           <FileContainer>
-
-          <File name = 'Resume'/>
-          <File/>
-          <File/>
+            <File name="Résumé.pdf" filename="resume.pdf" type="pdf" />
+            <File name="Résumé.doc" filename="resume.doc" />
+            <File name="Terminal Stylesheet" filename="stylesheet.json" />
           </FileContainer>
         </ContentContainer>
       </ContentWrapper>
@@ -30,6 +29,4 @@ const SecondPage = () => {
 
 export default SecondPage
 
-
-const FileContainer = styled.div`
-`
+const FileContainer = styled.div``

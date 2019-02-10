@@ -51,10 +51,16 @@ const PostContainer = styled.div`
 `
 const PostTitle = styled.div`
   border-bottom: ${props => (props.active ? '1px solid white' : 'none')};
-  padding: 6px 10px;
+  padding: 8px 12px;
   display: flex;
   justify-content: space-between;
   cursor: pointer;
+  transition: 0.25s ease-in-out all;
+
+  :hover {
+    background: #037744;
+    transition: 0.25s ease-in-out all;
+  }
 `
 const PostContent = styled.div`
   display: ${props => (props.active ? 'block' : 'none')};

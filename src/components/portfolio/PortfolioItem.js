@@ -20,8 +20,15 @@ class BlogItem extends Component {
     const { active, item, onSelectItem } = this.props
     const technologies = item.tech.join(', ')
 
-    if(item.fcc){
-      item.synopsis = <span>{item.synopsis} <a href = {item.fcc} target = '_blank'>this</a></span>
+    if (item.fcc) {
+      item.synopsis = (
+        <span>
+          {item.synopsis}{' '}
+          <a href={item.fcc} target="_blank">
+            this
+          </a>
+        </span>
+      )
     }
 
     return (
@@ -45,10 +52,14 @@ class BlogItem extends Component {
             {item.date}
           </p>
 
-          <Link href={item.siteLink} target = '_blank'>LINK TO SITE</Link>
-          <br/>
+          <Link href={item.siteLink} target="_blank">
+            LINK TO SITE
+          </Link>
+          <br />
           {(item.repoLink || !item.private) && (
-            <Link href={item.repoLink} target = '_blank'>LINK TO REPO</Link>
+            <Link href={item.repoLink} target="_blank">
+              LINK TO REPO
+            </Link>
           )}
 
           {item.private && (
@@ -79,6 +90,12 @@ const ItemTitle = styled.div`
   display: flex;
   justify-content: space-between;
   cursor: pointer;
+  transition: 0.25s ease-in-out all;
+
+  :hover {
+    background: #037744;
+    transition: 0.25s ease-in-out all;
+  }
 `
 const ItemContent = styled.div`
   display: ${props => (props.active ? 'block' : 'none')};
@@ -91,11 +108,11 @@ const ItemContent = styled.div`
     color: white;
     transition: 0.35s all;
 
-  &:hover {
-    text-decoration: underline;
-    color: #21d077;
-    transition: 0.35s all;
-  }
+    &:hover {
+      text-decoration: underline;
+      color: #21d077;
+      transition: 0.35s all;
+    }
   }
 `
 

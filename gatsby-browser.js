@@ -5,11 +5,15 @@
  */
 
 // You can delete this file if you're not using it
+import './src/components/layout.css'
+import { ThemeProvider } from 'styled-components'
 
-import React from "react"
+import React from 'react'
 
 import { SettingsProvider } from './src/context/SettingsContext'
 
 export const wrapRootElement = ({ element }) => (
-  <SettingsProvider>{element}</SettingsProvider>
+  <ThemeProvider theme={{ color: 'red' }}>
+    <SettingsProvider>{element}</SettingsProvider>
+  </ThemeProvider>
 )

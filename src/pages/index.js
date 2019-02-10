@@ -73,11 +73,10 @@ const IndexPage = () => (
             Python <SkillLevel level={2} />
           </Row>
 
-
           <br />
           <h2>Terminal Specifications:</h2>
           <Row>
-          Terminal Manufacture Date: <b>February 2019</b>
+            Terminal Manufacture Date: <b>February 2019</b>
           </Row>
           <Row>
             Software Copyright Date: <b>February 2019</b>
@@ -99,8 +98,10 @@ const IndexPage = () => (
 export default IndexPage
 
 const StyledContent = styled.div`
-  padding: 20px 30px;
+  padding: 25px 50px;
   h4 {
+    color: ${props => props.theme.color};
+
     font-size: 32px;
     font-weight: bold;
   }
@@ -123,7 +124,8 @@ const Row = styled.div`
   flex-wrap: wrap;
   margin-bottom: 6px;
   align-items: center;
-  font-size: 32px;
+  font-size: 36px;
+  color: ${props => props.theme.color};
 `
 
 const Li = styled.li`

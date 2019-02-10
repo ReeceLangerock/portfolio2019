@@ -8,7 +8,6 @@ class BlogContainer extends Component {
 
   renderBlogPosts(activePost, onSelectPost) {
     const posts = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    console.log(activePost)
     return posts.map((post, index) => {
       return (
         <BlogPost

@@ -2,17 +2,19 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
-import './layout.css'
 import Header from './header'
 import Sevastopol from './../Sevastopol-Interface.ttf'
 import { createGlobalStyle } from 'styled-components'
 import { SettingsConsumer } from '../context/SettingsContext.js'
 import LoadingScreen from './content/LoadingScreen'
+import { ThemeProvider } from 'styled-components'
+import * as themes from './../themes/theme.js'
 
 const GlobalStyles = createGlobalStyle`
    @font-face {
     font-family: Sevastopol;
-    src: url(${Sevastopol});
+    src: local
+    (${Sevastopol});
   }
 `
 
@@ -34,22 +36,26 @@ const Layout = ({ children }) => (
             {value => {
               const CRT = value.settings.crt ? 'crt' : ''
               const { loadingScreen } = value.settings
-              // console.log(loadingScreen, ())
-              return (
-                <LayoutContainer>
-                  <GlobalStyles />
-                  <Screen>
-                    <InnerScreen className={CRT}>
-                      {loadingScreen && !value.loadingScreenShown && (
-                        <LoadingScreen />
-                      )}
+              const theme = value.settings.darkMode ? themes.dark : themes.light
 
-                      {(!loadingScreen || value.loadingScreenShown) &&
-                        (<Header loading siteTitle="Personal Terminal" />,
-                        <Page>{children}</Page>)}
-                    </InnerScreen>
-                  </Screen>
-                </LayoutContainer>
+              console.log(theme)
+              return (
+                <ThemeProvider theme={theme}>
+                  <LayoutContainer>
+                    <GlobalStyles />
+                    <Screen>
+                      <InnerScreen className={CRT}>
+                        {loadingScreen && !value.loadingScreenShown && (
+                          <LoadingScreen onLoad={value.onLoad} />
+                        )}
+
+                        {(!loadingScreen || value.loadingScreenShown) &&
+                          (<Header loading siteTitle="Personal Terminal" />,
+                          <Page>{children}</Page>)}
+                      </InnerScreen>
+                    </Screen>
+                  </LayoutContainer>
+                </ThemeProvider>
               )
             }}
           </SettingsConsumer>
@@ -74,7 +80,7 @@ const Page = styled.div`
 const LayoutContainer = styled.div`
   height: 100vh;
   width: 100vw;
-  background: #020701;
+  background: ${props => props.theme.screenFrameColor};
   max-width: 100%;
   max-height: 100%;
   overflow: hidden;
@@ -103,4 +109,5 @@ const InnerScreen = styled.div`
   padding: 15px 20px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 `
