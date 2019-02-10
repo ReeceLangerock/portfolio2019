@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import NavItem from './NavItem'
 
 export default class NavContainer extends Component {
- 
   render() {
     const { active } = this.props
     return (
@@ -45,7 +44,7 @@ const Container = styled.div`
 
   h1 {
     margin-bottom: 8px;
-    color: #21d077;
+    color: ${props => props.theme.navigation.fontColor};
     text-align: left;
     align-self: flex-start;
     margin-left: 10%;

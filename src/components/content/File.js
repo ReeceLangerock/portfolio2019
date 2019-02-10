@@ -16,16 +16,16 @@ export default class File extends Component {
 const Container = styled.a`
   display: flex;
   justify-content: space-between;
-  color: white;
   text-decoration: none;
-
+  background: ${props => props.theme.content_item.background};
+  color: ${props => props.theme.content_item.fontColor};
   font-size: 32px;
-  border-bottom: 1px solid #00b968;
+  border-bottom: 1px solid ${props => props.theme.content_item.border_bottom};
   padding: 15px;
   transition: 0.25s ease-in-out all;
   cursor: pointer;
   :hover {
-    background: #037744;
+    background: ${props => props.theme.content_item.background_active};
     transition: 0.25s ease-in-out all;
   }
 `

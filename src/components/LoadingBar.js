@@ -20,7 +20,6 @@ export default class LoadingBar extends Component {
         let innerInterval = setInterval(() => {
           this.props.onLoad()
           clearInterval(interval)
-          console.log('inner')
           clearInterval(innerInterval)
         }, 400)
       }
@@ -44,11 +43,11 @@ export default class LoadingBar extends Component {
 const Bar = styled.div`
   width: 95%;
   height: 30px;
-  border: 1px solid #129542;
+  border: 1px solid ${props => props.theme.loading_bar.border};
 `
 
 const Progress = styled.div`
   width: ${props => props.width + '%'};
-  background: #129542;
   height: 100%;
+  background: ${props => props.theme.loading_bar.background};
 `

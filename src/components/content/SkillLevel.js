@@ -21,9 +21,7 @@ class SkillLevel extends Component {
       emptyLevels.pop()
     }
 
-
-
-    return [...levels,...emptyLevels]
+    return [...levels, ...emptyLevels]
   }
   render() {
     return <Container>{this.renderLevel()}</Container>
@@ -39,11 +37,17 @@ const Container = styled.div`
 const Level = styled.div`
   height: 36px;
   width: 36px;
-  border: 1px solid #00b76e;
+  border: 1px solid ${props => props.theme.skill_level.border};
   margin-right: 5px;
   background: ${props =>
     props.half
-      ? 'linear-gradient(to right, #00b76e 0%, #00b76e 50%, #091d0d 50%, #091d0d 100%)'
-      : '#00b76e'};
+      ? 'linear-gradient(to right, ' +
+        props.theme.skill_level.background +
+        ' 0%, ' +
+        props.theme.skill_level.background +
+        ' 50%, ' +
+        props.theme.skill_level.background_half +
+        ' 50%, #091d0d 100%)'
+      : props.theme.skill_level.background};
   background: ${props => props.empty};
 `

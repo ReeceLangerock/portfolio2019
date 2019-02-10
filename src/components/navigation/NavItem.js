@@ -47,8 +47,8 @@ export default class NavItem extends Component {
 }
 
 const Container = styled(Link)`
-  border: 1px solid #129542;
-  box-shadow: inset 0 0 0 1px #07661e;
+  border: 1px solid ${props => props.theme.navigation.border};
+  box-shadow: inset 0 0 0 1px ${props => props.theme.navigation.borderShadow};
   border-radius: 1px;
   padding: 10px;
   flex-grow: 1;
@@ -62,7 +62,7 @@ const Container = styled(Link)`
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: #21d077;
+  color: ${props => props.theme.navigation.fontColor};
   text-decoration: none;
   animation: ${props => (props.crt ? 'textShadow 1.6s infinite' : 'none')};
 `
@@ -70,20 +70,21 @@ const Container = styled(Link)`
 const ActiveContainer = styled(Link)`
   display: flex;
   flex-direction: row;
-  border: 1px solid #dbd9ff;
-  box-shadow: inset 0 0 0 1px #92a19f;
+  border: 1px solid ${props => props.theme.navigation.border_active};
+  box-shadow: inset 0 0 0 1px
+    ${props => props.theme.navigation.borderShadow_active};
   flex-grow: 1;
   justify-content: space-between;
   margin-bottom: 6px;
   width: 100%;
-  color: #21d077;
+  color: ${props => props.theme.navigation.fontColor};
   text-decoration: none;
   animation: ${props => (props.crt ? 'textShadow 1.6s infinite' : 'none')};
 `
 
 const Border = styled.div`
   width: 8%;
-  background: #dbd9ff;
+  background: ${props => props.theme.navigation.border_active};
   animation: clicked-keyframes 1s;
 
   @keyframes clicked-keyframes {

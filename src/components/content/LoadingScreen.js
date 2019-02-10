@@ -23,8 +23,8 @@ const Loading = styled.div`
   h1 {
     font-family: 'Sevastopol';
     font-size: 128px;
-    color: #129542;
     margin-bottom: 2rem;
+    color: ${props => props.theme.loading_bar.title_font_color};
   }
 
   p {
@@ -32,7 +32,7 @@ const Loading = styled.div`
     font-size: 28px;
     color: white;
     margin-top: 24px;
-    color: #037744;
+    color: ${props => props.theme.loading_bar.font_color};
   }
   margin: 30px auto;
   display: flex;

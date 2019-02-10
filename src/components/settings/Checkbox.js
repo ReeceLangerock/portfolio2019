@@ -26,15 +26,20 @@ const OnOff = styled.div`
   height: 50px;
   min-width: 60px;
   font-size: 28px;
-  color: ${props => (props.active ? '#00482b' : '#00b757')};
-  background: ${props => (props.active ? '#00b757' : '#00482b')};
+  color: ${props =>
+    props.active
+      ? props.theme.settings.checkbox_font_color_active
+      : props.theme.settings.checkbox_font_color};
+  background: ${props =>
+    props.active
+      ? props.theme.settings.checkbox_background_active
+      : props.theme.settings.checkbox_background};
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
 
-  /* :hover {
-    background: #00b757;
-    color: #00482b;
-  } */
+  :hover {
+    transform: scale(1.05);
+  }
 `

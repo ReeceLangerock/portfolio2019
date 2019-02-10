@@ -38,7 +38,6 @@ const Layout = ({ children }) => (
               const { loadingScreen } = value.settings
               const theme = value.settings.darkMode ? themes.dark : themes.light
 
-              console.log(theme)
               return (
                 <ThemeProvider theme={theme}>
                   <LayoutContainer>
@@ -49,9 +48,10 @@ const Layout = ({ children }) => (
                           <LoadingScreen onLoad={value.onLoad} />
                         )}
 
-                        {(!loadingScreen || value.loadingScreenShown) &&
-                          (<Header loading siteTitle="Personal Terminal" />,
-                          <Page>{children}</Page>)}
+                        {(value.loadingScreenShown || !loadingScreen) && [
+                          <Header siteTitle="Personal Terminal" />,
+                          <Page>{children}</Page>,
+                        ]}
                       </InnerScreen>
                     </Screen>
                   </LayoutContainer>
@@ -80,7 +80,7 @@ const Page = styled.div`
 const LayoutContainer = styled.div`
   height: 100vh;
   width: 100vw;
-  background: ${props => props.theme.screenFrameColor};
+  background: ${props => props.theme.monitor.frame};
   max-width: 100%;
   max-height: 100%;
   overflow: hidden;
@@ -91,21 +91,21 @@ const Screen = styled.div`
   width: 100%;
   max-width: 1600px;
   margin: 0 auto;
-  border-left: 40px solid #020701;
-  border-right: 40px solid #020701;
-  border-top: 25px solid #020701;
-  border-bottom: 25px solid #020701;
-  /* box-shadow: inset 0px 0px 1px #fff; */
+  border-left: 40px solid;
+  border-right: 40px solid;
+  border-top: 25px solid;
+  border-bottom: 25px solid;
+  border-color: ${props => props.theme.monitor.frame};
 `
 const InnerScreen = styled.div`
   height: 100%;
   position: relative;
-  background: #041704;
+  background: ${props => props.theme.monitor.screen};
 
   width: 100%;
   border-radius: 0.8em;
-  box-shadow: 0 0 0 0.6em #020701;
-  outline: 0.65em solid #020701;
+  box-shadow: 0 0 0 0.6em ${props => props.theme.monitor.frame};
+  outline: 0.65em solid ${props => props.theme.monitor.frame};
   padding: 15px 20px;
   display: flex;
   flex-direction: column;

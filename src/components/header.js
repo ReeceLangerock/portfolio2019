@@ -3,14 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 const Header = ({ siteTitle, loading }) => {
-  if(loading){
-    return null
-  }
-return (
-
-<HeaderBar>{siteTitle}</HeaderBar>
-)
-
+  return <HeaderBar>{siteTitle}</HeaderBar>
 }
 
 Header.propTypes = {
@@ -25,11 +18,11 @@ export default Header
 
 const HeaderBar = styled.div`
   width: 100%;
-  background: #00ff57;
+  background: ${props => props.theme.terminal_header.background};
   padding: 4px 8px;
-  color: black;
+  color: ${props => props.theme.terminal_header.fontColor};
   text-transform: uppercase;
-  border: 1px solid #00cd30;
+  border: 1px solid ${props => props.theme.terminal_header.border};
   font-family: 'Sevastopol';
   font-size: 30px;
   text-transform: uppercase;

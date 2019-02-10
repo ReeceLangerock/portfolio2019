@@ -79,13 +79,16 @@ class BlogItem extends Component {
 export default BlogItem
 
 const ItemContainer = styled.div`
-  border: 1px solid white;
+  border: 1px solid ${props => props.theme.content_item.border};
   font-size: 36px;
   background: ${props =>
-    props.active ? 'hsla(154, 95%, 24%, 1)' : 'hsla(154, 95%, 24%, 0.5)'};
+    props.active
+      ? props.theme.content_item.background_active
+      : props.theme.content_item.background};
 `
 const ItemTitle = styled.div`
-  border-bottom: ${props => (props.active ? '1px solid white' : 'none')};
+  border-bottom: ${props =>
+    props.active ? '1px solid' + props.theme.content_item.border : 'none'};
   padding: 10px 10px;
   display: flex;
   justify-content: space-between;
@@ -93,7 +96,7 @@ const ItemTitle = styled.div`
   transition: 0.25s ease-in-out all;
 
   :hover {
-    background: #037744;
+    background: ${props => props.theme.content_item.background_active};
     transition: 0.25s ease-in-out all;
   }
 `
@@ -105,13 +108,10 @@ const ItemContent = styled.div`
     margin-bottom: 12px;
   }
   a {
-    color: white;
-    transition: 0.35s all;
-
+    color: ${props => props.theme.content_item.fontColor};
     &:hover {
-      text-decoration: underline;
-      color: #21d077;
       transition: 0.35s all;
+      color: ${props => props.theme.content_item.link_hovered};
     }
   }
 `
@@ -134,11 +134,8 @@ const ImageContainer = styled.div`
   display: block;
 
   img {
+    ${props => props.theme.content_item.image_frame};
     max-height: 250px;
-    color: #031603;
-    box-shadow: 0 -4px #dbd8ff, 0 -8px, 4px 0 #dbd8ff, 4px -4px, 8px 0,
-      0 4px #dbd8ff, 0 8px, -4px 0 #dbd8ff, -4px 4px, -8px 0, -4px -4px, 4px 4px;
-    background: #dbd8ff;
     padding: 1px;
   }
 `
@@ -148,12 +145,14 @@ const Link = styled.a`
   margin-bottom: 10px;
   font-size: 28px;
   text-decoration: none;
-  color: white;
-  transition: 0.35s all;
+  color: ${props => props.theme.content_item.fontColor};
+
+  transition: 0.35s ease-in-out all;
 
   &:hover {
     text-decoration: underline;
-    color: #21d077;
-    transition: 0.35s all;
+    color: ${props => props.theme.content_item.link_hovered};
+
+    transition: 0.35s ease-in-out all;
   }
 `

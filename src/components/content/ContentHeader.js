@@ -20,16 +20,17 @@ export default class ContentHeader extends Component {
 }
 
 const Container = styled.div`
-  color: #bcf5e4;
+  color: ${props => props.theme.content_header.fontColor};
   width: 100%;
-  border: 1px solid #458695;
-  box-shadow: inset 0 0 0 1px #b7d2a0;
+  border: 1px solid ${props => props.theme.content_header.border};
+  box-shadow: inset 0 0 0 1px
+    ${props => props.theme.content_header.borderShadow};
   text-transform: uppercase;
   font-size: 24px;
   border-radius: 1px;
   padding: 10px;
   margin: 15px 0;
-  background: #037744;
+  background: ${props => props.theme.content_header.background};
   font-family: 'Sevastopol';
   font-size: 30px;
   text-transform: uppercase;

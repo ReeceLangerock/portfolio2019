@@ -47,10 +47,13 @@ const PostContainer = styled.div`
   border: 1px solid white;
   font-size: 32px;
   background: ${props =>
-    props.active ? 'hsla(154, 95%, 24%, 1)' : 'hsla(154, 95%, 24%, 0.5)'};
+    props.active
+      ? props.theme.content_item.background_active
+      : props.theme.content_item.background};
 `
 const PostTitle = styled.div`
-  border-bottom: ${props => (props.active ? '1px solid white' : 'none')};
+  border-bottom: ${props =>
+    props.active ? '1px solid' + props.theme.content_item.border : 'none'};
   padding: 8px 12px;
   display: flex;
   justify-content: space-between;
@@ -58,7 +61,7 @@ const PostTitle = styled.div`
   transition: 0.25s ease-in-out all;
 
   :hover {
-    background: #037744;
+    background: ${props => props.theme.content_item.background_active};
     transition: 0.25s ease-in-out all;
   }
 `
