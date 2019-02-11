@@ -28,7 +28,7 @@ const Container = styled.div`
   color: ${props => props.theme.content_container.font_color};
   font-family: 'Sevastopol';
   position: relative;
-  animation: ${props => (props.crt ? 'textShadow 2.6s infinite' : 'none')};
+  animation: ${props => (props.crt ? props.theme.textShadow : 'none')};
   &::-webkit-scrollbar {
     ${props => props.theme.scrollbar};
   }

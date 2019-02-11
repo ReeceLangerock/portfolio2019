@@ -35,5 +35,5 @@ const Container = styled.div`
   font-size: 30px;
   text-transform: uppercase;
   line-height: 1;
-  animation: ${props => (props.crt ? 'textShadow 1.6s infinite' : 'none')};
+  animation: ${props => (props.crt ? props.theme.textShadow : 'none')};
 `

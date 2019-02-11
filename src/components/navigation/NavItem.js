@@ -64,7 +64,7 @@ const Container = styled(Link)`
   text-align: center;
   color: ${props => props.theme.navigation.fontColor};
   text-decoration: none;
-  animation: ${props => (props.crt ? 'textShadow 1.6s infinite' : 'none')};
+  animation: ${props => (props.crt ? props.theme.textShadow : 'none')};
 `
 
 const ActiveContainer = styled(Link)`
@@ -79,7 +79,7 @@ const ActiveContainer = styled(Link)`
   width: 100%;
   color: ${props => props.theme.navigation.fontColor};
   text-decoration: none;
-  animation: ${props => (props.crt ? 'textShadow 1.6s infinite' : 'none')};
+  animation: ${props => (props.crt ? props.theme.textShadow : 'none')};
 `
 
 const Border = styled.div`

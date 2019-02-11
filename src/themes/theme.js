@@ -5,6 +5,8 @@ const colors = {
 }
 
 export const dark = {
+  textShadow: 'textShadow 2.6s infinite',
+
   monitor: {
     frame: '#020701',
     screen: '#041704',
@@ -85,6 +87,8 @@ export const dark = {
 }
 
 export const light = {
+  textShadow: 'textShadow 2.6s infinite',
+
   monitor: {
     frame: 'grey',
     screen: 'lightgray',

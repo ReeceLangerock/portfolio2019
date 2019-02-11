@@ -43,6 +43,14 @@ export default class SettingsContainer extends Component {
                   setting="loadingScreen"
                 />
               </Row>
+              <Row>
+                <Label>Language:</Label>
+                <Checkbox
+                  active={settings.language}
+                  onClick={onChangeSetting}
+                  setting="language"
+                />
+              </Row>
 
               <p>Preferences will be stored on this terminal only*</p>
             </Container>

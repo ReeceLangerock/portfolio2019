@@ -722,11 +722,11 @@ pre tt:after {
   }
   35% {
     text-shadow: 3.896914047650351px 0 1px rgba(0, 30, 255, 0.5),
-      -3.896914047650351px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+      -2.896914047650351px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
   }
   40% {
     text-shadow: 3.870905614848819px 0 1px rgba(0, 30, 255, 0.5),
-      -3.870905614848819px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+      -2.870905614848819px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
   }
   45% {
     text-shadow: 2.231056963361899px 0 1px rgba(0, 30, 255, 0.5),
@@ -766,7 +766,7 @@ pre tt:after {
   }
   90% {
     text-shadow: 3.443339761481782px 0 1px rgba(0, 30, 255, 0.5),
-      -3.443339761481782px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+      -2.443339761481782px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
   }
   95% {
     text-shadow: 2.1841838852799786px 0 1px rgba(0, 30, 255, 0.5),
@@ -774,7 +774,7 @@ pre tt:after {
   }
   100% {
     text-shadow: 2.6208764473832513px 0 1px rgba(0, 30, 255, 0.5),
-      -2.6208764473832513px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+      -1.6208764473832513px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
   }
 }
 .crt::after {
@@ -789,7 +789,7 @@ pre tt:after {
   opacity: 0;
   z-index: 2;
   pointer-events: none;
-  animation: flicker 0.15s infinite;
+  animation: flicker 0.05s infinite;
 }
 .crt::before {
   content: ' ';
