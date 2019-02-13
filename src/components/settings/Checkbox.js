@@ -2,14 +2,16 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 export default class Checkbox extends Component {
   render() {
-    const { active, onClick, setting } = this.props
+    const { active, onClick, setting, text } = this.props
     return (
       <StyledCheckbox>
         <OnOff active={active} onClick={e => onClick(setting, true)}>
-          Enable
+          {text && text[0]}
+          {!text && 'Enable'}
         </OnOff>
         <OnOff active={!active} onClick={e => onClick(setting, false)}>
-          Disable
+          {text && text[1]}
+          {!text && 'Disable'}
         </OnOff>
       </StyledCheckbox>
     )
@@ -34,6 +36,7 @@ const OnOff = styled.div`
     props.active
       ? props.theme.settings.checkbox_background_active
       : props.theme.settings.checkbox_background};
+
   display: flex;
   align-items: center;
   justify-content: center;

@@ -3,16 +3,19 @@ import styled from 'styled-components'
 import Label from './Label'
 import Checkbox from './Checkbox'
 import { SettingsConsumer } from '../../context/SettingsContext'
+import LE from './../content/languageElements'
 
 export default class SettingsContainer extends Component {
   render() {
     return (
       <SettingsConsumer>
         {({ settings, onChangeSetting }) => {
+          //temporary
+          const LANG = settings.language ? 'en' : 'de'
           return (
             <Container>
               <Row>
-                <Label>CRT Flicker:</Label>
+                <Label>{LE.crt[LANG]}:</Label>
                 <Checkbox
                   active={settings.crt}
                   onClick={onChangeSetting}
@@ -28,7 +31,7 @@ export default class SettingsContainer extends Component {
                 />
               </Row>
               <Row>
-                <Label>Sound Effects:</Label>
+                <Label>{LE.soundEffects[LANG]}:</Label>
                 <Checkbox
                   active={settings.soundEffects}
                   onClick={onChangeSetting}
@@ -36,7 +39,7 @@ export default class SettingsContainer extends Component {
                 />
               </Row>
               <Row>
-                <Label>Loading Screen:</Label>
+                <Label>{LE.loadingScreen[LANG]}:</Label>
                 <Checkbox
                   active={settings.loadingScreen}
                   onClick={onChangeSetting}
@@ -44,11 +47,12 @@ export default class SettingsContainer extends Component {
                 />
               </Row>
               <Row>
-                <Label>Language:</Label>
+                <Label>{LE.language[LANG]}:</Label>
                 <Checkbox
                   active={settings.language}
                   onClick={onChangeSetting}
                   setting="language"
+                  text={['English', 'German']}
                 />
               </Row>
 

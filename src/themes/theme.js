@@ -1,27 +1,37 @@
 const colors = {
-  lightGreen: '#21d077',
-  green: '#129542',
+  brightGreen: 'hsla(140, 100%, 50%, 1)',
+  lightGreen: 'hsla(149,73%,50%,1)',
+  green: 'hsla(142,78%,33%,1)',
+  darkGreen: 'hsla(120, 70%, 5%,1)',
+  darkestGreen: 'hsla(110, 75%, 2%,1)',
   pink: '#f77',
+  white: 'hsla(243,10%, 90%, 1)',
+  offwhite: 'hsla(243,100%,93%, 1)',
+}
+
+const fontSizes = {
+  h1: '2rem',
+  p: '1.4rem',
 }
 
 export const dark = {
   textShadow: 'textShadow 2.6s infinite',
 
   monitor: {
-    frame: '#020701',
-    screen: '#041704',
+    frame: colors.darkestGreen,
+    screen: colors.darkGreen,
   },
 
   navigation: {
-    border: '#129542',
+    border: colors.green,
     borderShadow: '#07661e',
-    fontColor: '#21d077',
-    border_active: '#dbd9ff',
+    fontColor: colors.lightGreen,
+    border_active: colors.offwhite,
     borderShadow_active: '#92a19f',
   },
 
   terminal_header: {
-    background: '#00ff57',
+    background: colors.brightGreen,
     border: '#00cd30',
     fontColor: '#000',
   },
@@ -34,9 +44,9 @@ export const dark = {
   },
   content_container: {
     border: '#05b96b',
-    border_top: '#00ff64',
+    border_top: colors.brightGreen,
     background: '#091d0d',
-    font_color: '#fff',
+    font_color: colors.white,
   },
   skill_level: {
     border: colors.lightGreen,
@@ -48,10 +58,10 @@ export const dark = {
     background: 'hsla(154, 95%, 24%, 0.5)',
     background_active: 'hsla(154, 95%, 24%, 1)',
     border_bottom: '#05b96b', //used only for file component
-    border: '#fff',
-    fontColor: '#fff',
-    link_color: '#21d077',
-    link_hovered: '#00ff64',
+    border: colors.white,
+    fontColor: colors.white,
+    link_color: colors.lightGreen,
+    link_hovered: colors.brightGreen,
     image_frame: {
       color: '#031603',
       'box-shadow':
