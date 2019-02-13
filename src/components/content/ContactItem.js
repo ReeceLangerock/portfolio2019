@@ -60,8 +60,8 @@ export default class ContactItem extends Component {
 }
 
 const Container = styled.a`
-  width: 250px;
-  height: 250px;
+  width: 225px;
+  height: 225px;
   padding: 5px;
   transition: 0.5s ease-in-out all;
   cursor: pointer;
@@ -78,7 +78,7 @@ const Container = styled.a`
   }
 
   :hover {
-    transform: scale(1.1) translate(0, -10px);
+    transform: scale(1.08) translate(0, -10px);
     transition: 0.5s ease-in-out all;
     margin-bottom: 10px;
 

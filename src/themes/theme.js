@@ -101,7 +101,7 @@ export const light = {
     borderShadow_active: 'blue',
   },
   terminal_header: {
-    background: 'pink',
+    background: 'blue',
     border: 'red',
     fontColor: '#000',
   },

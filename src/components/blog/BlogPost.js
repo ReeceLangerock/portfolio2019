@@ -3,16 +3,20 @@ import styled from 'styled-components'
 
 class BlogPost extends Component {
   render() {
-    const { active, post, onSelectPost } = this.props
+    const { active, post, onSelectPost, placeholder } = this.props
     return (
       <PostContainer active={active}>
-        <PostTitle active={active} onClick={e => onSelectPost(post)}>
-          Post #{post}
+        <PostTitle active={active} onClick={e => onSelectPost(post.id)}>
+          {post.title}
           {active && <Toggle>X</Toggle>}
         </PostTitle>
         <PostContent active={active}>
+          {placeholder && (
+            <div>No posts have been written yet. Please check back later!</div>
+          )}
+          {!placeholder && <div>{post.content}
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip ex ea commodo consequat. Duis aute irure dolor in
@@ -35,6 +39,7 @@ class BlogPost extends Component {
             consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla
             pariatur?
           </p>
+          </div>}
         </PostContent>
       </PostContainer>
     )
