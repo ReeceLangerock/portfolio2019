@@ -4,6 +4,20 @@ let SettingsContext
 const { Provider, Consumer } = (SettingsContext = React.createContext())
 
 class SettingsProvider extends React.Component {
+  componentDidMount() {
+    this.checkLocalStorage()
+  }
+
+  checkLocalStorage() {
+    const settings = JSON.parse(localStorage.getItem('settings'))
+    if (settings) {
+      this.setState({
+        ...this.state,
+        settings,
+      })
+    }
+  }
+
   state = {
     settings: {
       crt: false,
@@ -41,7 +55,9 @@ class SettingsProvider extends React.Component {
 
   handleChangeSetting = (setting, value) => {
     let settings = { ...this.state.settings }
+
     settings[setting] = value
+    localStorage.setItem('settings', JSON.stringify(settings))
     this.setState({
       ...this.state,
       settings,

@@ -50,8 +50,8 @@ export const dark = {
     border_bottom: '#05b96b', //used only for file component
     border: '#fff',
     fontColor: '#fff',
-    link_color: '#fff',
-    link_hovered: '#21d077',
+    link_color: '#21d077',
+    link_hovered: '#00ff64',
     image_frame: {
       color: '#031603',
       'box-shadow':

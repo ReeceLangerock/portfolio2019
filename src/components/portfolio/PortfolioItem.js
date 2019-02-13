@@ -24,9 +24,9 @@ class BlogItem extends Component {
       item.synopsis = (
         <span>
           {item.synopsis}{' '}
-          <a href={item.fcc} target="_blank">
+          <Link size={'normal'} href={item.fcc} target="_blank">
             this
-          </a>
+          </Link>
         </span>
       )
     }
@@ -107,13 +107,6 @@ const ItemContent = styled.div`
   p {
     margin-bottom: 12px;
   }
-  a {
-    color: ${props => props.theme.content_item.fontColor};
-    &:hover {
-      transition: 0.35s all;
-      color: ${props => props.theme.content_item.link_hovered};
-    }
-  }
 `
 
 const Label = styled.span`
@@ -143,9 +136,9 @@ const Toggle = styled.div``
 
 const Link = styled.a`
   margin-bottom: 10px;
-  font-size: 28px;
+  font-size: ${props => (props.normal ? '1.4rem' : '28px')};
   text-decoration: none;
-  color: ${props => props.theme.content_item.fontColor};
+  color: ${props => props.theme.content_item.link_color};
 
   transition: 0.35s ease-in-out all;
 

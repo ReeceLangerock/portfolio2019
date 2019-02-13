@@ -5,7 +5,6 @@ import ContentHeader from './ContentHeader'
 import ContentContainer from './ContentContainer'
 
 export default class ContentWrapper extends Component {
-
   render() {
     return <Container>{this.props.children}</Container>
   }
@@ -17,10 +16,9 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: space-between;
   position: relative;
-  p{
-
-    font-size: 1.3rem;
-    word-spacing: .75px;
-    letter-spacing: .4px;
+  p {
+    font-size: 1.4rem;
+    word-spacing: 0.75px;
+    letter-spacing: 0.4px;
   }
 `
