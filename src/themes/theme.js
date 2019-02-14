@@ -14,7 +14,13 @@ const fontSizes = {
   p: '1.4rem',
 }
 
+const query = {
+  tablet: '768px',
+  mobile: '650px',
+}
+
 export const dark = {
+  query: { ...query },
   textShadow: 'textShadow 2.6s infinite',
 
   monitor: {

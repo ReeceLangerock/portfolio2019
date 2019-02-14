@@ -41,6 +41,11 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  @media (max-width: ${props => props.theme.query.mobile}) {
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+  }
 
   h1 {
     margin-bottom: 8px;

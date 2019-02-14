@@ -37,7 +37,7 @@ const Layout = ({ children }) => (
               const CRT = value.settings.crt ? 'crt' : ''
               const { loadingScreen } = value.settings
               const theme = value.settings.darkMode ? themes.dark : themes.light
-
+              console.log(theme)
               return (
                 <ThemeProvider theme={theme}>
                   <LayoutContainer>
@@ -75,6 +75,9 @@ const Page = styled.div`
   display: flex;
   height: 100%;
   justify-content: space-between;
+  @media (max-width: ${props => props.theme.query.mobile}) {
+    flex-direction: column;
+  }
 `
 
 const LayoutContainer = styled.div`
@@ -96,12 +99,17 @@ const Screen = styled.div`
   border-top: 25px solid;
   border-bottom: 25px solid;
   border-color: ${props => props.theme.monitor.frame};
+  @media (max-width: ${props => props.theme.query.tablet}) {
+    border-left-width: 15px;
+    border-right-width: 15px;
+    border-bottom-width: 10px;
+    border-top-width: 10px;
+  }
 `
 const InnerScreen = styled.div`
   height: 100%;
   position: relative;
   background: ${props => props.theme.monitor.screen};
-
   width: 100%;
   border-radius: 0.8em;
   box-shadow: 0 0 0 0.6em ${props => props.theme.monitor.frame};
@@ -110,4 +118,8 @@ const InnerScreen = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @media (max-width: ${props => props.theme.query.tablet}) {
+    padding: 10px 10px;
+  }
 `

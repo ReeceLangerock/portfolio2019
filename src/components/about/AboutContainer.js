@@ -1,85 +1,67 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import SkillLevel from './SkillLevel'
 
 class AboutContainer extends Component {
   render() {
     return (
       <Container>
         <h2>Personel File: Reece Langerock</h2>
-        <Row>
+        <Row hover>
           Location: <b>Chicago</b>
         </Row>
-        <Row>
+        <Row hover>
           Employment Status: <b>Employed</b>
         </Row>
-        <Row>
+        <Row hover>
           Recruitment Status: <b>Open to new Opportunities</b>
         </Row>
         <Row>Personal Synopsis:</Row>
-
-        <p>Enter Synopsis here</p>
-
+        <p>
+          Hello, I'm Reece. I'm a Front-end Developer currently working in
+          downtown Chicago. As a self-taught programmer and lifelong learner I
+          have that constant itch to try something new. That is what drew me to
+          development in the first place, there's always a new problem to solve
+          or technology to master. You'll notice that I've included below a few
+          skills that I'm currently learning. What is not include are the many
+          technologies on my "to-do" list.
+        </p>
         <h2>Skill Set Matrix</h2>
-
-        {/* <SkillGrid>
-            <SkillRow>
-                <span>
-
-                </span>
-            </SkillRow>
-          <div>React</div>
-          <div>React</div>
-          <div>Redux</div>
-          <div>Jest</div>
-          <div>React</div>
-          <div>React</div>
-        </SkillGrid> */}
-
-        <h2>Personel Skill Set:</h2>
-        <Row>
-          React <SkillLevel level={9} />
-        </Row>
-        <Row>
-          Redux <SkillLevel level={7} />
-        </Row>
-        <Row>
-          React Native <SkillLevel level={5} />
-        </Row>
-        <Row>
-          Jest <SkillLevel level={2.5} />
-        </Row>
-        <Row>
-          Node.js / Express.js <SkillLevel level={7.5} />
-        </Row>
-        <Row>
-          Gatsby.js / Next.js <SkillLevel level={5} />
-        </Row>
-        <Row>
-          MongoDB <SkillLevel level={6} />
-        </Row>
-        <Row>
-          PL/SQL <SkillLevel level={3.5} />
-        </Row>
-        <Row>
-          HTML/CSS/SASS <SkillLevel level={9} />
-        </Row>
-
-        <Row>
-          Java <SkillLevel level={1.5} />
-        </Row>
-
-        <h3>Currently Learning:</h3>
-        <Row>
-          GraphQL <SkillLevel level={4} />
-        </Row>
-        <Row>
-          Python <SkillLevel level={2} />
-        </Row>
+        <GridLabel>Front-End:</GridLabel>
+        <SkillGrid>
+          <Skill>React</Skill>
+          <Skill>Redux</Skill>
+          <Skill>React Native</Skill>
+          <Skill>Gatsby.js</Skill>
+          <Skill>Next.js</Skill>
+          <Skill>HTML/CSS/SASS</Skill>
+        </SkillGrid>
+        <GridLabel>Back-End:</GridLabel>
+        <SkillGrid>
+          <Skill>Node.js / Express.js</Skill>
+          <Skill>MongoDB</Skill>
+          <Skill>GraphQL**</Skill>
+          <Skill>PL/SQL</Skill>
+        </SkillGrid>
+        <GridLabel>Miscellaneous:</GridLabel>
+        <SkillGrid>
+          <Skill>Python**</Skill>
+          <Skill>Git</Skill>
+          <Skill>Jest</Skill>
+          <Skill>Heroku</Skill>
+          <Skill>Java</Skill>
+        </SkillGrid>
+        <p>**currently learning this skill</p>
         <br />
-
-        <h2>Personal Interests:</h2>
-        <p>stuff</p>
+        <GridLabel>Personal Interests:</GridLabel>
+        <SkillGrid>
+          <Skill>Family</Skill>
+          <Skill>Nasa / SpaceX</Skill>
+          <Skill>NFL</Skill>
+          <Skill>Reading</Skill>
+          <Skill>Fantasy Football</Skill>
+          <Skill>Video Games</Skill>
+          <Skill>Cooking</Skill>
+        </SkillGrid>
         <h2>Terminal Specifications:</h2>
         <Row>
           Terminal Manufacture Date: <b>February 2019</b>
@@ -102,7 +84,33 @@ class AboutContainer extends Component {
 
 export default AboutContainer
 
-const SkillGrid = styled.div``
+const SkillGrid = styled.div`
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  margin-bottom: 15px;
+`
+
+const Skill = styled.div`
+  font-size: 28px;
+  font-weight: bold;
+  border: 1px solid red;
+  text-align: center;
+  padding: 10px 5px;
+  border: 1px solid ${props => props.theme.skill_level.border};
+  transition: 0.5s ease-in-out all;
+
+  color: ${props => props.theme.color};
+  :hover {
+    background: ${props => props.theme.skill_level.border};
+    transition: 0.5s ease-in-out all;
+  }
+`
+const GridLabel = styled.div`
+  color: ${props => props.theme.color};
+  font-size: 36px;
+  margin-bottom: 8px;
+`
 
 const Container = styled.div`
   padding: 25px 50px;
@@ -115,6 +123,7 @@ const Container = styled.div`
   h2 {
     font-size: 40px;
     font-weight: bold;
+    margin-bottom: 20px;
   }
   h3 {
     font-size: 36px;
@@ -132,7 +141,17 @@ const Row = styled.div`
   margin-bottom: 6px;
   align-items: center;
   font-size: 36px;
+  border-bottom: 1px solid transparent;
   color: ${props => props.theme.color};
+
+  ${props => {
+    if (props.hover) {
+      return (
+        ':hover {    border-bottom: 1px solid white;  };' +
+        'transition: .3s ease-in-out all'
+      )
+    }
+  }};
 `
 
 const Li = styled.li`
