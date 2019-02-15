@@ -52,7 +52,7 @@ const Container = styled(Link)`
   padding: 10px;
   flex-grow: 1;
   margin-bottom: 6px;
-  width: 80%;
+  width: 84%;
   font-family: 'Sevastopol';
   font-size: 30px;
   text-transform: uppercase;
@@ -64,6 +64,12 @@ const Container = styled(Link)`
   color: ${props => props.theme.navigation.fontColor};
   text-decoration: none;
   animation: ${props => (props.crt ? props.theme.textShadow : 'none')};
+  @media (max-width: ${props => props.theme.query.mobile}) {
+    width: 180px;
+    flex-grow: 0;
+    padding: 4px;
+    margin-bottom: 5px;
+  }
 `
 
 const ActiveContainer = styled(Link)`
@@ -79,6 +85,11 @@ const ActiveContainer = styled(Link)`
   color: ${props => props.theme.navigation.fontColor};
   text-decoration: none;
   animation: ${props => (props.crt ? props.theme.textShadow : 'none')};
+  @media (max-width: ${props => props.theme.query.mobile}) {
+    width: 180px;
+    flex-grow: 0;
+    margin-bottom: 5px;
+  }
 `
 
 const Border = styled.div`
@@ -94,10 +105,23 @@ const Border = styled.div`
       width: 8%;
     }
   }
+
+  @media (max-width: ${props => props.theme.query.mobile}) {
+    width: 15px;
+
+    @keyframes clicked-keyframes {
+      from {
+        width: 0px;
+      }
+      to {
+        width: 15px;
+      }
+    }
+  }
 `
 
 const Content = styled.div`
-  padding: 10px;
+  padding: 4px;
   font-family: 'Sevastopol';
   font-size: 30px;
   text-transform: uppercase;

@@ -21,6 +21,8 @@ const query = {
 
 export const dark = {
   query: { ...query },
+  fontSizes: { ...fontSizes },
+
   textShadow: 'textShadow 2.6s infinite',
 
   monitor: {
@@ -67,6 +69,7 @@ export const dark = {
     border_bottom: '#05b96b', //used only for file component
     border: colors.white,
     fontColor: colors.white,
+    fontColor_alternate: colors.green,
     link_color: colors.lightGreen,
     link_hovered: colors.brightGreen,
     image_frame: {
@@ -104,6 +107,8 @@ export const dark = {
 }
 
 export const light = {
+  query: { ...query },
+  fontSizes: { ...fontSizes },
   textShadow: 'textShadow 2.6s infinite',
 
   monitor: {

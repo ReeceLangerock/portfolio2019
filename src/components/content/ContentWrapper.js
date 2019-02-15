@@ -8,7 +8,7 @@ export default class ContentWrapper extends Component {
 }
 
 const Container = styled.div`
-  width: 75%;
+  width: 76%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -17,5 +17,14 @@ const Container = styled.div`
     font-size: 1.4rem;
     word-spacing: 0.75px;
     letter-spacing: 0.4px;
+  }
+  @media (max-width: ${props => props.theme.query.tablet}) {
+    width: 77%;
+  }
+  @media (max-width: ${props => props.theme.query.mobile}) {
+    flex: 1;
+    flex-grow: 1;
+    width: 100%;
+    overflow-y: auto;
   }
 `

@@ -35,6 +35,7 @@ class AboutContainer extends Component {
           <Skill>Next.js</Skill>
           <Skill>HTML/CSS/SASS</Skill>
         </SkillGrid>
+
         <GridLabel>Back-End:</GridLabel>
         <SkillGrid>
           <Skill>Node.js / Express.js</Skill>
@@ -42,6 +43,7 @@ class AboutContainer extends Component {
           <Skill>GraphQL**</Skill>
           <Skill>PL/SQL</Skill>
         </SkillGrid>
+
         <GridLabel>Miscellaneous:</GridLabel>
         <SkillGrid>
           <Skill>Python**</Skill>
@@ -50,6 +52,7 @@ class AboutContainer extends Component {
           <Skill>Heroku</Skill>
           <Skill>Java</Skill>
         </SkillGrid>
+
         <p>**currently learning this skill</p>
         <br />
         <GridLabel>Personal Interests:</GridLabel>
@@ -88,7 +91,7 @@ const SkillGrid = styled.div`
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 `
 
 const Skill = styled.div`
@@ -109,7 +112,7 @@ const Skill = styled.div`
 const GridLabel = styled.div`
   color: ${props => props.theme.color};
   font-size: 36px;
-  margin-bottom: 8px;
+  margin-bottom: 5px;
 `
 
 const Container = styled.div`

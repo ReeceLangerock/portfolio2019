@@ -128,5 +128,7 @@ const InnerScreen = styled.div`
 
   @media (max-width: ${props => props.theme.query.tablet}) {
     padding: 10px 10px;
+    max-height: 100%;
+    justify-content: flex-start;
   }
 `

@@ -25,7 +25,6 @@ const Container = styled.div`
   box-shadow: inset 0 0 0 1px
     ${props => props.theme.content_header.borderShadow};
   text-transform: uppercase;
-  font-size: 24px;
   border-radius: 1px;
   padding: 10px;
   margin: 15px 0;
@@ -35,4 +34,9 @@ const Container = styled.div`
   text-transform: uppercase;
   line-height: 1;
   animation: ${props => (props.crt ? props.theme.textShadow : 'none')};
+  @media (max-width: ${props => props.theme.query.tablet}) {
+    margin: 10px 0;
+    padding: 4px 10px;
+    font-size: 26px;
+  }
 `

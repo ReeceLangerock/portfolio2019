@@ -66,14 +66,15 @@ const Container = styled.a`
   transition: 0.5s ease-in-out all;
   cursor: pointer;
   margin: 10px;
-  text-decoration-color: ${props => props.theme.content_item.fontColor};
+  text-decoration-color: ${props =>
+    props.theme.content_item.fontColor_alternate};
 
   p {
     text-align: center;
-    color: ${props => props.theme.content_item.fontColor};
+    color: ${props => props.theme.content_item.fontColor_alternate};
     margin-top: 5px;
     margin-bottom: 0;
-    font-size: 24px;
+    font-size: 32px;
     display: none;
   }
 

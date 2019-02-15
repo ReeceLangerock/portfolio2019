@@ -42,4 +42,8 @@ const Container = styled.div`
   h4 {
     font-family: 'Sevastopol';
   }
+
+  @media (max-width: ${props => props.theme.query.tablet}) {
+    border-top: 20px solid ${props => props.theme.content_container.border_top};
+  }
 `

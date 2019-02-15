@@ -7,7 +7,7 @@ export default class NavContainer extends Component {
     const { active } = this.props
     return (
       <Container>
-        <h1>Folders</h1>
+        <H1>Folders</H1>
         <NavItem active={active === ''} linkUrl="">
           About
         </NavItem>
@@ -33,28 +33,40 @@ export default class NavContainer extends Component {
 
 const Container = styled.div`
   padding-top: 70px;
-  width: 20%;
+  width: 21%;
   height: 100%;
   display: flex;
   color: white;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+
+  @media (max-width: ${props => props.theme.query.tablet}) {
+    width: 22%;
+  }
+
   @media (max-width: ${props => props.theme.query.mobile}) {
+    padding-top: 10px;
+
     flex-direction: row;
     width: 100%;
     height: auto;
+    flex-wrap: wrap;
   }
+`
 
-  h1 {
-    margin-bottom: 8px;
-    color: ${props => props.theme.navigation.fontColor};
-    text-align: left;
-    align-self: flex-start;
-    margin-left: 10%;
-    font-family: 'Sevastopol';
-    font-size: 30px;
-    text-transform: uppercase;
-    line-height: 1;
+const H1 = styled.h1`
+  margin-bottom: 8px;
+  color: ${props => props.theme.navigation.fontColor};
+  text-align: left;
+  align-self: flex-start;
+  margin-left: 10%;
+  font-family: 'Sevastopol';
+  font-size: 30px;
+  text-transform: uppercase;
+  line-height: 1;
+  @media (max-width: ${props => props.theme.query.mobile}) {
+    width: 100%;
+    margin: 0 0 0 10px;
   }
 `
