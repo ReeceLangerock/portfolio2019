@@ -112,6 +112,13 @@ const Screen = styled.div`
     border-bottom-width: 10px;
     border-top-width: 10px;
   }
+
+  @media (max-width: ${props => props.theme.query.small}) {
+    border-left-width: 8px;
+    border-right-width: 8px;
+    border-bottom-width: 5px;
+    border-top-width: 5px;
+  }
 `
 const InnerScreen = styled.div`
   height: 100%;
@@ -130,5 +137,8 @@ const InnerScreen = styled.div`
     padding: 10px 10px;
     max-height: 100%;
     justify-content: flex-start;
+  }
+  @media (max-width: ${props => props.theme.query.small}) {
+    padding: 8px;
   }
 `

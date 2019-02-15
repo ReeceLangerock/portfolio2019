@@ -84,10 +84,13 @@ const ItemContainer = styled.div`
     props.active
       ? props.theme.content_item.background_active
       : props.theme.content_item.background};
+  :not(:last-child) {
+    border-bottom: none;
+  }
 `
 const ItemTitle = styled.div`
   border-bottom: ${props =>
-    props.active ? '1px solid' + props.theme.content_item.border : 'none'};
+    props.active ? '1px solid ' + props.theme.content_item.border : 'none'};
   padding: 10px 10px;
   display: flex;
   justify-content: space-between;
@@ -102,7 +105,8 @@ const ItemTitle = styled.div`
 const ItemContent = styled.div`
   display: ${props => (props.active ? 'block' : 'none')};
   padding: 10px;
-  font-size: 28px;
+  font-size: ${props => props.theme.fontSizes.p};
+
   p {
     margin-bottom: 12px;
   }
@@ -124,11 +128,27 @@ const Row = styled.div`
 
 const ImageContainer = styled.div`
   display: block;
-
   img {
     ${props => props.theme.content_item.image_frame};
     max-height: 250px;
     padding: 1px;
+  }
+
+  @media (max-width: 1100px) {
+    img {
+      max-height: 200px;
+      margin-bottom: 15px;
+    }
+  }
+  @media (max-width: 900px) {
+    img {
+      max-height: 170px;
+    }
+  }
+  @media (max-width: ${props => props.theme.query.mobile}) {
+    img {
+      max-height: 200px;
+    }
   }
 `
 const Toggle = styled.div``

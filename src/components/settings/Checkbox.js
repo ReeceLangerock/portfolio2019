@@ -45,4 +45,9 @@ const OnOff = styled.div`
   :hover {
     transform: scale(1.05);
   }
+
+  @media (max-width: ${props => props.theme.query.small}) {
+    font-size: 24px;
+    min-width: 50px;
+  }
 `

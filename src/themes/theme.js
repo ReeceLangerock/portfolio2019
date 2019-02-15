@@ -11,12 +11,13 @@ const colors = {
 
 const fontSizes = {
   h1: '2rem',
-  p: '1.4rem',
+  p: '1.5rem',
 }
 
 const query = {
   tablet: '768px',
   mobile: '650px',
+  small: '425px',
 }
 
 export const dark = {

@@ -14,7 +14,6 @@ const Container = styled.div`
   justify-content: space-between;
   position: relative;
   p {
-    font-size: 1.4rem;
     word-spacing: 0.75px;
     letter-spacing: 0.4px;
   }

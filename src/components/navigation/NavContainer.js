@@ -26,6 +26,9 @@ export default class NavContainer extends Component {
         <NavItem active={active === 'files'} linkUrl="files">
           Files
         </NavItem>
+        <NavItem active={active === 'secret'} linkUrl="secret">
+          Secret
+        </NavItem>
       </Container>
     )
   }
@@ -47,7 +50,6 @@ const Container = styled.div`
 
   @media (max-width: ${props => props.theme.query.mobile}) {
     padding-top: 10px;
-
     flex-direction: row;
     width: 100%;
     height: auto;

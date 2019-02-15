@@ -92,6 +92,11 @@ const SkillGrid = styled.div`
   grid-gap: 10px;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   margin-bottom: 25px;
+
+  @media (max-width: ${props => props.theme.query.tablet}) {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    margin-bottom: 15px;
+  }
 `
 
 const Skill = styled.div`
@@ -108,6 +113,10 @@ const Skill = styled.div`
     background: ${props => props.theme.skill_level.border};
     transition: 0.5s ease-in-out all;
   }
+
+  @media (max-width: ${props => props.theme.query.tablet}) {
+    font-size: 24px;
+  }
 `
 const GridLabel = styled.div`
   color: ${props => props.theme.color};
@@ -117,24 +126,25 @@ const GridLabel = styled.div`
 
 const Container = styled.div`
   padding: 25px 50px;
-  h4 {
-    color: ${props => props.theme.color};
 
-    font-size: 32px;
-    font-weight: bold;
-  }
   h2 {
     font-size: 40px;
     font-weight: bold;
     margin-bottom: 20px;
   }
-  h3 {
-    font-size: 36px;
-    font-weight: bold;
-    margin: 15px 0 10px 0;
-  }
+
   p {
-    font-size: 28px;
+    font-size: ${props => props.theme.fontSizes.p};
+  }
+  @media (max-width: ${props => props.theme.query.tablet}) {
+    padding: 10px 15px;
+    h2 {
+      font-size: 36px;
+    }
+
+    p {
+      font-size: 24px;
+    }
   }
 `
 const Row = styled.div`
@@ -155,6 +165,23 @@ const Row = styled.div`
       )
     }
   }};
+
+  @media (max-width: ${props => props.theme.query.tablet}) {
+    font-size: 36px;
+  }
+
+  @media (max-width: ${props => props.theme.query.mobile}) {
+    font-size: 32px;
+  }
+  @media (max-width: ${props => props.theme.query.small}) {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    b {
+      margin-top: 5px;
+    }
+  }
 `
 
 const Li = styled.li`

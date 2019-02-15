@@ -70,6 +70,12 @@ const Container = styled(Link)`
     padding: 4px;
     margin-bottom: 5px;
   }
+  @media (max-width: ${props => props.theme.query.small}) {
+    width: 95px;
+    font-size: 24px;
+    padding: 3px;
+    margin-bottom: 4px;
+  }
 `
 
 const ActiveContainer = styled(Link)`
@@ -89,6 +95,10 @@ const ActiveContainer = styled(Link)`
     width: 180px;
     flex-grow: 0;
     margin-bottom: 5px;
+  }
+  @media (max-width: ${props => props.theme.query.small}) {
+    width: 95px;
+    margin-bottom: 4px;
   }
 `
 
@@ -121,7 +131,7 @@ const Border = styled.div`
 `
 
 const Content = styled.div`
-  padding: 4px;
+  padding: 10px;
   font-family: 'Sevastopol';
   font-size: 30px;
   text-transform: uppercase;
@@ -129,4 +139,8 @@ const Content = styled.div`
   display: flex;
   align-items: center;
   text-align: center;
+  @media (max-width: ${props => props.theme.query.small}) {
+    font-size: 24px;
+    padding: 3px;
+  }
 `

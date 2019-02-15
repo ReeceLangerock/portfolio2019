@@ -24,8 +24,16 @@ const Container = styled.a`
   padding: 15px;
   transition: 0.25s ease-in-out all;
   cursor: pointer;
+  span {
+    margin-right: 5px;
+  }
   :hover {
     background: ${props => props.theme.content_item.background_active};
     transition: 0.25s ease-in-out all;
+  }
+
+  @media (max-width: ${props => props.theme.query.small}) {
+    font-size: 27px;
+    padding: 10px;
   }
 `

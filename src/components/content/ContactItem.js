@@ -87,4 +87,27 @@ const Container = styled.a`
       display: block;
     }
   }
+
+  @media (max-width: 1000px) {
+    width: 175px;
+    height: 175px;
+  }
+
+  @media (max-width: ${props => props.theme.query.tablet}) {
+    :hover {
+      transform: none;
+    }
+    width: 48%;
+    padding: 0;
+    height: auto;
+    margin: 0 0 15px 0;
+    p {
+      margin-top: 10px;
+      display: block;
+    }
+  }
+  @media (max-width: ${props => props.theme.query.small}) {
+    width: 90%;
+    margin: 0 auto 15px auto;
+  }
 `

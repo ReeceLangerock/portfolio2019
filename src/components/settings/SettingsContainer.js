@@ -69,8 +69,15 @@ export default class SettingsContainer extends Component {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 30px 70px;
+  padding: 20px 50px;
   height: 100%;
+
+  @media (max-width: 1000px) {
+    padding: 20px 30px;
+  }
+  @media (max-width: ${props => props.theme.query.tablet}) {
+    padding: 15px 20px;
+  }
 `
 
 const Row = styled.div`
@@ -79,4 +86,8 @@ const Row = styled.div`
   margin-bottom: 40px;
   flex-wrap: wrap;
   align-items: center;
+  @media (max-width: ${props => props.theme.query.small}) {
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
 `

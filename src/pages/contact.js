@@ -17,23 +17,25 @@ const SecondPage = () => {
         <ContentHeader headerText="contact" />
         <ContentContainer>
           <ContactContainer>
-            <ContactItem type="email" 
-            link = "mailto:reecelangerock@gmail.com"
-            text = "Shoot me an email"/>
+            <ContactItem
+              type="email"
+              link="mailto:reecelangerock@gmail.com"
+              text="Shoot me an email"
+            />
             <ContactItem
               type="linkedin"
               link="https://www.linkedin.com/in/reece-langerock/"
-              text ="Connect with me"
+              text="Connect with me"
             />
             <ContactItem
               type="github"
               link=" https://github.com/ReeceLangerock"
-              text = "Check out my code"
+              text="Check out my code"
             />
             <ContactItem
               type="twitter"
               link="https://twitter.com/ReeceLangerock"
-              text = "tweet @ me"
+              text="tweet @ me"
             />
           </ContactContainer>
         </ContentContainer>
@@ -48,7 +50,10 @@ const ContactContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 30px 70px;
+  padding: 20px 50px;
   height: 100%;
-`
 
+  @media (max-width: ${props => props.theme.query.tablet}) {
+    padding: 15px 30px;
+  }
+`
