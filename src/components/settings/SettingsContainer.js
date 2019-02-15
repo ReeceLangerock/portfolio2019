@@ -46,7 +46,8 @@ export default class SettingsContainer extends Component {
                   setting="loadingScreen"
                 />
               </Row>
-              <Row>
+              {/* DISABLING THIS FOR NOW */}
+              {/* <Row>
                 <Label>{LE.language[LANG]}:</Label>
                 <Checkbox
                   active={settings.language}
@@ -54,7 +55,7 @@ export default class SettingsContainer extends Component {
                   setting="language"
                   text={['English', 'German']}
                 />
-              </Row>
+              </Row> */}
 
               <p>Preferences will be stored on this terminal only*</p>
             </Container>

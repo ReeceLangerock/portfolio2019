@@ -3,13 +3,14 @@ import styled from 'styled-components'
 import LoadingBar from './../LoadingBar'
 class LoadingScreen extends Component {
   render() {
+    const { onLoad, soundEffects } = this.props
     return (
       <Loading>
         <div />
         <h1>Langerock Enterprises, Inc</h1>
 
         <BarContainer>
-          <LoadingBar onLoad={this.props.onLoad} />
+          <LoadingBar onLoad={onLoad} soundEffects={soundEffects} />
           <p>Loading screen can be disabled in settings...</p>
         </BarContainer>
       </Loading>

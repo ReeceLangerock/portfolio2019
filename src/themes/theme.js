@@ -38,8 +38,9 @@ export const dark = {
 
   terminal_header: {
     background: colors.brightGreen,
-    border: '#00cd30',
-    fontColor: '#000',
+    innerBackground: 'hsla(154, 95%, 24%, 0.5)',
+    border: colors.brightGreen,
+    fontColor: colors.darkGreen,
   },
 
   content_header: {

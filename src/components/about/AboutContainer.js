@@ -138,9 +138,9 @@ const Row = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
   align-items: center;
-  font-size: 36px;
+  font-size: 40px;
   border-bottom: 1px solid transparent;
   color: ${props => props.theme.color};
 

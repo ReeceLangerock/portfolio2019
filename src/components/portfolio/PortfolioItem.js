@@ -4,7 +4,6 @@ import styled from 'styled-components'
 class BlogItem extends Component {
   renderImages() {
     const { images } = this.props.item
-    console.log(images)
     if (!images) {
       return null
     }

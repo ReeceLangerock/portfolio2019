@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import startupSound from './../../static/startup.wav'
 export default class LoadingBar extends Component {
   constructor(props) {
     super(props)
@@ -8,6 +9,7 @@ export default class LoadingBar extends Component {
       percent: 0,
     }
     this.animateBar = this.animateBar.bind(this)
+    this.playSoundEffect = this.playSoundEffect.bind(this)
   }
 
   animateBar() {
@@ -27,7 +29,22 @@ export default class LoadingBar extends Component {
   }
 
   componentDidMount() {
+    this.playSoundEffect()
     this.animateBar()
+  }
+
+  playSoundEffect() {
+    if (this.props.soundEffects) {
+      const audio = new Audio(startupSound)
+      const playPromise = audio.play()
+      if (playPromise !== undefined) {
+        playPromise
+          .then(_ => {})
+          .catch(error => {
+            console.error(error)
+          })
+      }
+    }
   }
 
   render() {

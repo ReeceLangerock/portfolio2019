@@ -37,7 +37,6 @@ const Layout = ({ children }) => (
               const CRT = value.settings.crt ? 'crt' : ''
               const { loadingScreen } = value.settings
               const theme = value.settings.darkMode ? themes.dark : themes.light
-              console.log(theme)
               return (
                 <ThemeProvider theme={theme}>
                   <LayoutContainer>
@@ -45,7 +44,10 @@ const Layout = ({ children }) => (
                     <Screen>
                       <InnerScreen className={CRT}>
                         {loadingScreen && !value.loadingScreenShown && (
-                          <LoadingScreen onLoad={value.onLoad} />
+                          <LoadingScreen
+                            onLoad={value.onLoad}
+                            soundEffects={value.settings.soundEffects}
+                          />
                         )}
 
                         {(value.loadingScreenShown || !loadingScreen) && [
