@@ -23,6 +23,7 @@ const query = {
 export const dark = {
   query: { ...query },
   fontSizes: { ...fontSizes },
+  colors: { ...colors },
 
   textShadow: 'textShadow 2.6s infinite',
 

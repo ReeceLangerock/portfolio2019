@@ -16,7 +16,7 @@ const SecondPage = () => {
       <ContentWrapper>
         <ContentHeader headerText="secret" />
         <ContentContainer>
-          <MinigameContainer />>
+          <MinigameContainer />
         </ContentContainer>
       </ContentWrapper>
     </Layout>
