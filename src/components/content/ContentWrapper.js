@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import ContentHeader from './ContentHeader'
-import ContentContainer from './ContentContainer'
 
 export default class ContentWrapper extends Component {
   render() {

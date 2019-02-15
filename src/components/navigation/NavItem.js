@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { SettingsConsumer } from '../../context/SettingsContext.js'
@@ -14,8 +13,8 @@ export default class NavItem extends Component {
           {value => {
             return (
               <ActiveContainer
-                crt={value.settings.crt}
-                active={active}
+                crt={value.settings.crt ? 'true' : 'false'}
+                active={active ? 'true' : 'false'}
                 to={this.props.linkUrl}
               >
                 <Border />
@@ -32,8 +31,8 @@ export default class NavItem extends Component {
           {value => {
             return (
               <Container
-                crt={value.settings.crt}
-                active={active}
+                crt={value.settings.crt ? 'true' : 'false'}
+                active={active ? 'true' : 'false'}
                 to={this.props.linkUrl}
               >
                 {this.props.children}

@@ -50,10 +50,15 @@ const Layout = ({ children }) => (
                           />
                         )}
 
-                        {(value.loadingScreenShown || !loadingScreen) && [
-                          <Header siteTitle="Personal Terminal" />,
-                          <Page>{children}</Page>,
-                        ]}
+                        {(value.loadingScreenShown || !loadingScreen) && (
+                          <>
+                            <Header
+                              siteTitle="Personal Terminal"
+                              key="siteHeader"
+                            />
+                            <Page>{children}</Page>
+                          </>
+                        )}
                       </InnerScreen>
                     </Screen>
                   </LayoutContainer>

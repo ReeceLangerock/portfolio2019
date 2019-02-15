@@ -6,7 +6,6 @@ import NavContainer from '../components/navigation/NavContainer'
 import ContentWrapper from '../components/content/ContentWrapper'
 import ContentHeader from '../components/content/ContentHeader'
 import ContentContainer from '../components/content/ContentContainer'
-import SettingsContainer from '../components/settings/SettingsContainer'
 
 const NotFoundPage = () => (
   <Layout>

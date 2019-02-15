@@ -5,7 +5,7 @@ import React from 'react'
 const Header = ({ siteTitle, loading }) => {
   return (
     <HeaderBar>
-      <InnerHeaderBar>{siteTitle}</InnerHeaderBar>
+      <InnerHeaderBar>Personal Terminal</InnerHeaderBar>
     </HeaderBar>
   )
 }

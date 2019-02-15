@@ -1,5 +1,4 @@
-import React, { Component, useContext } from 'react'
-import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 import styled from 'styled-components'
 import { SettingsConsumer } from '../../context/SettingsContext.js'
 
@@ -9,7 +8,7 @@ export default class ContentHeader extends Component {
       <SettingsConsumer>
         {value => {
           return (
-            <Container crt={value.settings.crt}>
+            <Container crt={value.settings.crt === true}>
               {this.props.headerText}
             </Container>
           )

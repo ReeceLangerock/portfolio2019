@@ -3,14 +3,14 @@ import styled from 'styled-components'
 
 class BlogItem extends Component {
   renderImages() {
-    const { images } = this.props.item
+    const { images, imageAltTexts, id } = this.props.item
     if (!images) {
       return null
     }
-    return images.map(image => {
+    return images.map((image, index) => {
       return (
-        <ImageContainer>
-          <img src={image} />
+        <ImageContainer key={`item${id}-img${index}`}>
+          <img src={image} alt={imageAltTexts[index]} />
         </ImageContainer>
       )
     })

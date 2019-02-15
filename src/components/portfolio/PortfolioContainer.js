@@ -16,6 +16,7 @@ class PortfolioContainer extends Component {
           item={item}
           active={activeItem === item.id}
           onSelectItem={onSelectItem}
+          key={`portfolio-item-${item.id}`}
         />
       )
     })

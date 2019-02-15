@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { SettingsConsumer } from '../../context/SettingsContext.js'
 
@@ -9,7 +8,7 @@ export default class ContentWrapper extends Component {
       <SettingsConsumer>
         {value => {
           return (
-            <Container crt={value.settings.crt}>
+            <Container crt={value.settings.crt === true}>
               {this.props.children}
             </Container>
           )

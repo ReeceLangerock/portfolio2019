@@ -52,6 +52,7 @@ const items = [
       'https://reecelangerock.ml/static/media/Draw-Dash.f3ed75ba.png',
       'https://reecelangerock.ml/static/media/Draw-Dash-Preview.24c2f723.png',
     ],
+    imageAltTexts: ['Main Page View', 'Responsive View'],
   },
   {
     id: 4,

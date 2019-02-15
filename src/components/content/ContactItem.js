@@ -49,7 +49,7 @@ export default class ContactItem extends Component {
   }
 
   render() {
-    const { link, type, text } = this.props
+    const { link, text } = this.props
     return (
       <Container href={link} target="_blank">
         {this.renderImage()}
