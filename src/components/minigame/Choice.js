@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-class Piece extends Component {
+class Choice extends Component {
   renderSections() {
     const { data, index } = this.props
     return data.map((row, rowIndex) => {
@@ -19,13 +19,16 @@ class Piece extends Component {
   }
 }
 
-export default Piece
+export default Choice
 
 const Container = styled.div`
   max-width: 150px;
   display: flex;
   max-height: 150px;
   flex-wrap: wrap;
+  border: 2px solid white;
+  box-sizing: content-box;
+  padding: 5px;
 `
 const Section = styled.div`
   background: ${props => (props.filled ? props.theme.colors.white : '#38a54e')};
