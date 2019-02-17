@@ -11,7 +11,7 @@ export default class SettingsContainer extends Component {
       <SettingsConsumer>
         {({ settings, onChangeSetting }) => {
           //temporary
-          const LANG = settings.language ? 'en' : 'de'
+          const LANG = settings.language ? 'en' : 'en'
           return (
             <Container>
               <Row>

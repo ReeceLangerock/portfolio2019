@@ -8,6 +8,7 @@ import ContentWrapper from '../components/content/ContentWrapper'
 import ContentHeader from '../components/content/ContentHeader'
 import ContentContainer from '../components/content/ContentContainer'
 import MinigameContainer from '../components/minigame/MinigameContainer'
+import { MiniGameProvider, MiniGameConsumer } from '../context/MinigameContext';
 const SecondPage = () => {
   return (
     <Layout>
@@ -15,9 +16,20 @@ const SecondPage = () => {
       <NavContainer active="secret" />
       <ContentWrapper>
         <ContentHeader headerText="secret" />
-        <ContentContainer>
-          <MinigameContainer />
+        <MiniGameProvider>
+
+
+        <ContentContainer noHeader>
+        <MiniGameConsumer>
+        {( context) => {
+          return(
+
+            <MinigameContainer context = {context}/>
+          )
+        }}
+        </MiniGameConsumer>
         </ContentContainer>
+        </MiniGameProvider>
       </ContentWrapper>
     </Layout>
   )

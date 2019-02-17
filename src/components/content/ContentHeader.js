@@ -8,7 +8,7 @@ export default class ContentHeader extends Component {
       <SettingsConsumer>
         {value => {
           return (
-            <Container crt={value.settings.crt === true}>
+            <Container crt={value.settings.crt === true} >
               {this.props.headerText}
             </Container>
           )

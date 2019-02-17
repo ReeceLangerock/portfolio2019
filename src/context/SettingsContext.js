@@ -21,7 +21,6 @@ class SettingsProvider extends React.Component {
   state = {
     settings: {
       crt: false,
-      // darkMode: false,
       darkMode: true,
       soundEffects: true,
       loadingScreen: false,
