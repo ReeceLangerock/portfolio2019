@@ -4,6 +4,7 @@ import NavItem from './NavItem'
 
 export default class NavContainer extends Component {
   render() {
+    console.log(this.props)
     const { active } = this.props
     return (
       <Container>

@@ -14,44 +14,24 @@ class Choice extends Component {
       })
     })
   }
-
- 
   render() {
-    const { correctChoice, onClick } = this.props
-    return (
-      <OuterContainer
-        onClick={e => onClick(correctChoice, e)}
-        correctChoice={correctChoice}
-        key={this.props.index}
-      >
-        <Container>{this.renderSections()}</Container>
-      </OuterContainer>
-    )
+    return <Container key={this.props.index}>{this.renderSections()}</Container>
   }
 }
 
 export default Choice
 
-const OuterContainer = styled.div`
-  border: 3px solid transparent;
-  :hover {
-    border: 3px solid white;
-  }
-`
 const Container = styled.div`
-  max-width: 100px;
+  max-width: 125px;
+  max-height: 125px;
   display: flex;
-  max-height: 100px;
   flex-wrap: wrap;
-  border: ${props =>
-    props.correctChoice === true ? '2px solid red' : '2px solid white'};
-
+  border: 2px solid white;
   box-sizing: content-box;
-  padding: 7px 20px;
-  cursor: pointer;
+  padding: 5px;
 `
 const Section = styled.div`
   background: ${props => (props.filled ? props.theme.colors.white : '#38a54e')};
-  height: 20px;
-  width: 20px;
+  height: 25px;
+  width: 25px;
 `

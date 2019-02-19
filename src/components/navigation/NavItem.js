@@ -2,8 +2,24 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { SettingsConsumer } from '../../context/SettingsContext.js'
+import nav1 from './../../../static/page_select.mp3'
+// import nav2 from './../../../static/page_select.mp3'
 
 export default class NavItem extends Component {
+  playSoundEffect(soundEffects) {
+    if (true) {
+      const audio = new Audio(nav1)
+      const playPromise = audio.play()
+      if (playPromise !== undefined) {
+        playPromise
+          .then(_ => {})
+          .catch(error => {
+            console.error(error)
+          })
+      }
+    }
+  }
+
   render() {
     const { active } = this.props
 
@@ -16,6 +32,7 @@ export default class NavItem extends Component {
                 crt={value.settings.crt ? 'true' : 'false'}
                 active={active ? 'true' : 'false'}
                 to={this.props.linkUrl}
+                onClick={e => this.playSoundEffect(value.settings.soundEffects)}
               >
                 <Border />
                 <Content>{this.props.children}</Content>
@@ -34,6 +51,7 @@ export default class NavItem extends Component {
                 crt={value.settings.crt ? 'true' : 'false'}
                 active={active ? 'true' : 'false'}
                 to={this.props.linkUrl}
+                onClick={e => this.playSoundEffect(value.settings.soundEffects)}
               >
                 {this.props.children}
               </Container>

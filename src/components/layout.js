@@ -35,7 +35,7 @@ const Layout = ({ children }) => (
           <SettingsConsumer>
             {value => {
               const CRT = value.settings.crt ? 'crt' : ''
-              const { loadingScreen } = value.settings
+              const { loadingScreen, soundEffects } = value.settings
               const theme = value.settings.darkMode ? themes.dark : themes.light
               return (
                 <ThemeProvider theme={theme}>
@@ -46,7 +46,7 @@ const Layout = ({ children }) => (
                         {loadingScreen && !value.loadingScreenShown && (
                           <LoadingScreen
                             onLoad={value.onLoad}
-                            soundEffects={value.settings.soundEffects}
+                            soundEffects={soundEffects}
                           />
                         )}
 

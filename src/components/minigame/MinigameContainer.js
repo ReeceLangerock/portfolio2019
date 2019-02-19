@@ -4,13 +4,7 @@ import Piece from './Piece'
 import Choice from './Choice'
 import Timer from './Timer'
 
-
 class MinigameContainer extends Component {
- 
-
-
-
-
   renderPieces() {
     const { choices, pieces } = this.props.context
     if (!choices.length || !pieces.length) {
@@ -22,29 +16,43 @@ class MinigameContainer extends Component {
   }
 
   renderChoices() {
-    const { choices, pieces, pieceLocation, handleChoiceSelection } = this.props.context
+    const {
+      choices,
+      pieces,
+      pieceLocation,
+      handleChoiceSelection,
+    } = this.props.context
     if (!choices.length || !pieces.length) {
       return null
     }
     return choices.map((choice, index) => {
       const correctChoice = index === pieceLocation ? true : false
-      return <Choice data={choice} index={index} key={`choice-${index}`} correctChoice = {correctChoice} onClick = {handleChoiceSelection}/>
+      return (
+        <Choice
+          data={choice}
+          index={index}
+          key={`choice-${index}`}
+          correctChoice={correctChoice}
+          onClick={handleChoiceSelection}
+        />
+      )
     })
   }
-
-  
+  componentDidMount() {
+    const height = this.divElement.clientHeight
+    console.log(height)
+  }
 
   render() {
-    const {context} = this.props
+    const { context } = this.props
     return (
-      <Container>
-         
+      <Container ref={divElement => (this.divElement = divElement)}>
         <div>
           <Header>Callback Code</Header>
           <CodeContainer>{this.renderPieces()}</CodeContainer>
         </div>
         <div>
-          <Timer context ={context}/>
+          <Timer context={context} />
           <ChoiceContainer>{this.renderChoices()}</ChoiceContainer>
         </div>
       </Container>
@@ -66,7 +74,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  justify-content: space-between;
+  justify-content: center;
   align-items: stretch;
   text-align: center;
   padding: 10px 10px 7px 10px;
@@ -80,7 +88,7 @@ const CodeContainer = styled.div`
   border: 10px solid white;
   border-top: none;
   padding: 15px 10px;
-  margin: 0 0 15px 0;
+  margin: 0 0 35px 0;
   justify-content: center;
 `
 const ChoiceContainer = styled.div`
