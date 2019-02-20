@@ -6,12 +6,19 @@ import Timer from './Timer'
 
 class MinigameContainer extends Component {
   renderPieces() {
-    const { choices, pieces } = this.props.context
+    const { choices, pieces, level } = this.props.context
     if (!choices.length || !pieces.length) {
       return null
     }
     return pieces.map((piece, index) => {
-      return <Piece data={piece} index={index} key={`piece-${index}`} />
+      return (
+        <Piece
+          data={piece}
+          index={index}
+          active={active}
+          key={`piece-${index}`}
+        />
+      )
     })
   }
 
@@ -37,11 +44,6 @@ class MinigameContainer extends Component {
         />
       )
     })
-  }
-  componentDidMount() {
-    const height = this.divElement.clientHeight
-    console.log(height)
-    console.log(window.innerHeight)
   }
 
   render() {

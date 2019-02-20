@@ -28,6 +28,7 @@ const Container = styled.div`
   max-height: 150px;
 `
 const Section = styled.div`
+  background: ${props => (props.filled && props.active ? 'blue' : '#38a54e')};
   background: ${props => (props.filled ? props.theme.colors.white : '#38a54e')};
   height: 30px;
   width: 30px;

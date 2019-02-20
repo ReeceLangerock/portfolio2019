@@ -15,7 +15,12 @@ class Choice extends Component {
     })
   }
   render() {
-    return <Container key={this.props.index}>{this.renderSections()}</Container>
+    const { index, onClick } = this.props
+    return (
+      <Container key={index} onClick={() => onClick(index)}>
+        {this.renderSections()}
+      </Container>
+    )
   }
 }
 

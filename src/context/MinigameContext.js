@@ -1,5 +1,4 @@
 import React from 'react'
-
 let MinigameContext
 const defaultState = {
   timerActive: true,
@@ -38,7 +37,6 @@ class MiniGameProvider extends React.Component {
   }
 
   setupGame() {
-    console.log('setting up')
     const pieces = []
     const choices = []
 
@@ -55,6 +53,26 @@ class MiniGameProvider extends React.Component {
     this.setState({
       ...this.state,
       pieces,
+      choices,
+      pieceLocation: randomLocation,
+    })
+  }
+
+  updateLevel() {
+    const newLevel = this.state.level + 1
+    console.log(this.state.level, newLevel)
+    const choices = []
+
+    for (let i = 0; i < 7; i++) {
+      choices.push(this.createPieces())
+    }
+
+    const randomLocation = Math.floor(Math.random() * 7)
+    choices.splice(randomLocation, 0, this.state.pieces[newLevel])
+
+    this.setState({
+      ...this.state,
+      level: newLevel,
       choices,
       pieceLocation: randomLocation,
     })
@@ -84,15 +102,15 @@ class MiniGameProvider extends React.Component {
     return piece
   }
 
-  handleChoiceSelection(isCorrect) {
-    if (isCorrect) {
+  async handleChoiceSelection(choiceIndex) {
+    console.log(choiceIndex, this.state.pieceLocation)
+    if (choiceIndex === this.state.pieceLocation) {
       console.log('yup')
-      this.resetTimer()
-      this.setState({
-        level: this.state.level + 1,
-      })
+      await this.resetTimer()
+      this.updateLevel()
+      this.runTimer()
     } else {
-      console.log('nope')
+      this.updateTime(this.state.time - 1000)
     }
   }
 
@@ -102,8 +120,8 @@ class MiniGameProvider extends React.Component {
     })
   }
 
-  resetTimer = () => {
-    this.setState({ time: 10000 })
+  resetTimer = async () => {
+    this.setState({ time: 15000 })
   }
   updateTime = time => {
     this.setState({
@@ -111,6 +129,7 @@ class MiniGameProvider extends React.Component {
     })
   }
   runTimer() {
+    clearInterval(this.state.timerReference)
     const timer = setInterval(() => {
       this.setState({
         time: this.state.time - 113,
@@ -123,6 +142,9 @@ class MiniGameProvider extends React.Component {
         clearInterval(timer)
       }
     }, 113)
+    this.setState({
+      timerReference: timer,
+    })
   }
 
   render() {
