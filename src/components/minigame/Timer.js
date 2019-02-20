@@ -3,8 +3,7 @@ import styled from 'styled-components'
 import Moment from 'react-moment'
 export default class Timer extends Component {
   componentDidMount() {
-    const { time, timerActive, runTimer } = this.props.context
-    console.log(this.props.context)
+    const { timerActive, runTimer } = this.props.context
 
     if (timerActive) {
       runTimer()
@@ -22,8 +21,8 @@ export default class Timer extends Component {
 }
 
 const Container = styled.div`
-  font-size: 64px;
-  letter-spacing: 10px;
-  margin-bottom: 10px;
+  font-size: 72px;
+  letter-spacing: 15px;
+  margin-bottom: 20px;
   width: 100%;
 `

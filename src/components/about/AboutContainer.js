@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import Moment from 'react-moment'
 
 class AboutContainer extends Component {
   render() {
+    const NOW = new Date()
     return (
       <Container>
         <h2>Personel File: Reece Langerock</h2>
@@ -31,7 +33,7 @@ class AboutContainer extends Component {
           <Skill>React</Skill>
           <Skill>Redux</Skill>
           <Skill>React Native</Skill>
-          <Skill>Gatsby.js</Skill>
+          <Skill>Gatsby.js**</Skill>
           <Skill>Next.js</Skill>
           <Skill>HTML/CSS/SASS</Skill>
         </SkillGrid>
@@ -47,6 +49,7 @@ class AboutContainer extends Component {
         <GridLabel>Miscellaneous:</GridLabel>
         <SkillGrid>
           <Skill>Python**</Skill>
+          <Skill>Webpack</Skill>
           <Skill>Git</Skill>
           <Skill>Jest</Skill>
           <Skill>Heroku</Skill>
@@ -70,7 +73,10 @@ class AboutContainer extends Component {
           Terminal Manufacture Date: <b>February 2019</b>
         </Row>
         <Row>
-          Software Copyright Date: <b>February 2019</b>
+          Software Copyright Date:{' '}
+          <b>
+            <Moment format="MMMM YYYY">{NOW}</Moment>
+          </b>
         </Row>
         <Row>Software Built With:</Row>
         <Ul>

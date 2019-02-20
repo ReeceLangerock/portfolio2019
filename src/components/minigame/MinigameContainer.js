@@ -66,12 +66,11 @@ export default MinigameContainer
 const Header = styled.div`
   background: white;
   color: #38a54e;
-  font-size: 90px;
+  font-size: 100px;
   line-height: 0.75;
   letter-spacing: 20px;
   @media (max-height: 800px) {
-  font-size: 80px;
-
+    font-size: 75px;
   }
 `
 
@@ -79,7 +78,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  justify-content: center;
+  justify-content: space-between;
   align-items: stretch;
   text-align: center;
   padding: 10px 10px 7px 10px;
@@ -102,4 +101,5 @@ const ChoiceContainer = styled.div`
 
   justify-items: center;
   grid-gap: 10px;
+  margin-bottom: 5px;
 `

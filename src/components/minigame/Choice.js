@@ -22,13 +22,14 @@ class Choice extends Component {
 export default Choice
 
 const Container = styled.div`
-  max-width: 125px;
-  max-height: 125px;
+  max-width: 135px;
+  max-height: 135px;
   display: flex;
   flex-wrap: wrap;
   border: 2px solid white;
   box-sizing: content-box;
   padding: 5px;
+  cursor: pointer;
 
   @media (max-height: 800px) {
     max-width: 100px;
@@ -37,8 +38,8 @@ const Container = styled.div`
 `
 const Section = styled.div`
   background: ${props => (props.filled ? props.theme.colors.white : '#38a54e')};
-  height: 25px;
-  width: 25px;
+  height: 27px;
+  width: 27px;
 
   @media (max-height: 800px) {
     height: 20px;

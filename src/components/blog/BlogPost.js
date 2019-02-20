@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import Moment from 'react-moment'
 
 class BlogPost extends Component {
   render() {
@@ -9,12 +10,14 @@ class BlogPost extends Component {
         <PostTitle active={active} onClick={e => onSelectPost(post.id)}>
           {post.title}
           {active && <Toggle>X</Toggle>}
+          {!active && post.date && (
+            <Moment format="MMMM YYYY">{post.date}</Moment>
+          )}
         </PostTitle>
         <PostContent active={active}>
           {placeholder && (
             <div>No posts have been written yet. Please check back later!</div>
           )}
-          
         </PostContent>
       </PostContainer>
     )

@@ -22,17 +22,16 @@ class Piece extends Component {
 export default Piece
 
 const Container = styled.div`
-  max-width: 125px;
+  max-width: 150px;
   display: flex;
-  max-height: 125px;
   flex-wrap: wrap;
+  max-height: 150px;
 `
 const Section = styled.div`
   background: ${props => (props.filled ? props.theme.colors.white : '#38a54e')};
-  height: 25px;
-  width: 25px;
+  height: 30px;
+  width: 30px;
 
   @media (max-height: 800px) {
-
   }
 `
