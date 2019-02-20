@@ -1,7 +1,17 @@
 import React from 'react'
 
 let MinigameContext
-const { Provider, Consumer } = (MinigameContext = React.createContext())
+const defaultState = {
+  timerActive: true,
+  time: 10000,
+
+  level: 0,
+  pieces: [],
+  choices: [],
+}
+const { Provider, Consumer } = (MinigameContext = React.createContext(
+  defaultState
+))
 
 const NUM_ROWS = 5
 const NUM_COLS = 5
@@ -15,9 +25,9 @@ class MiniGameProvider extends React.Component {
       timerActive: true,
       time: 10000,
 
-        level: 0,
-        pieces: [],
-        choices: [],
+      level: 0,
+      pieces: [],
+      choices: [],
     }
     this.runTimer = this.runTimer.bind(this)
     this.handleChoiceSelection = this.handleChoiceSelection.bind(this)
@@ -46,7 +56,7 @@ class MiniGameProvider extends React.Component {
       ...this.state,
       pieces,
       choices,
-      pieceLocation: randomLocation
+      pieceLocation: randomLocation,
     })
   }
 
@@ -74,14 +84,14 @@ class MiniGameProvider extends React.Component {
     return piece
   }
 
-  handleChoiceSelection(isCorrect){
-    if(isCorrect){
+  handleChoiceSelection(isCorrect) {
+    if (isCorrect) {
       console.log('yup')
       this.resetTimer()
       this.setState({
-        level: this.state.level + 1
+        level: this.state.level + 1,
       })
-    } else{
+    } else {
       console.log('nope')
     }
   }
@@ -93,7 +103,7 @@ class MiniGameProvider extends React.Component {
   }
 
   resetTimer = () => {
-    this.setState({ time: 10000  })
+    this.setState({ time: 10000 })
   }
   updateTime = time => {
     this.setState({
@@ -124,7 +134,7 @@ class MiniGameProvider extends React.Component {
           resetTimer: this.resetTimer,
           updateTime: this.updateTime,
           runTimer: this.runTimer,
-          handleChoiceSelection: this.handleChoiceSelection
+          handleChoiceSelection: this.handleChoiceSelection,
         }}
       >
         {this.props.children}

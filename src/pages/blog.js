@@ -8,7 +8,7 @@ import ContentWrapper from './../components/content/ContentWrapper'
 import ContentHeader from './../components/content/ContentHeader'
 import ContentContainer from './../components/content/ContentContainer'
 import BlogContainer from '../components/blog/BlogContainer'
-const SecondPage = () => {
+const Blog = () => {
   return (
     <Layout>
       <SEO title="Blog" />
@@ -23,4 +23,4 @@ const SecondPage = () => {
   )
 }
 
-export default SecondPage
+export default Blog

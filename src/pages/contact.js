@@ -8,7 +8,7 @@ import ContentWrapper from '../components/content/ContentWrapper'
 import ContentHeader from '../components/content/ContentHeader'
 import ContentContainer from '../components/content/ContentContainer'
 import ContactItem from '../components/content/ContactItem'
-const SecondPage = () => {
+const Contact = () => {
   return (
     <Layout>
       <SEO title="Contact" />
@@ -44,7 +44,7 @@ const SecondPage = () => {
   )
 }
 
-export default SecondPage
+export default Contact
 
 const ContactContainer = styled.div`
   display: flex;

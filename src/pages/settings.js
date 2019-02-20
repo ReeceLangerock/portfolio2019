@@ -8,7 +8,7 @@ import ContentWrapper from '../components/content/ContentWrapper'
 import ContentHeader from '../components/content/ContentHeader'
 import ContentContainer from '../components/content/ContentContainer'
 import SettingsContainer from '../components/settings/SettingsContainer';
-const SecondPage = () => {
+const Settings = () => {
   return (
     <Layout>
       <SEO title="Settings" />
@@ -24,4 +24,4 @@ const SecondPage = () => {
   )
 }
 
-export default SecondPage
+export default Settings

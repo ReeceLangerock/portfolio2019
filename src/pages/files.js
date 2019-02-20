@@ -8,7 +8,7 @@ import ContentWrapper from '../components/content/ContentWrapper'
 import ContentHeader from '../components/content/ContentHeader'
 import ContentContainer from '../components/content/ContentContainer'
 import File from './../components/content/File'
-const SecondPage = () => {
+const Files = () => {
   return (
     <Layout>
       <SEO title="Files" />
@@ -27,6 +27,6 @@ const SecondPage = () => {
   )
 }
 
-export default SecondPage
+export default Files
 
 const FileContainer = styled.div``

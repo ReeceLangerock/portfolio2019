@@ -1,23 +1,27 @@
 import React from 'react'
 
 let SettingsContext
-const { Provider, Consumer } = (SettingsContext = React.createContext())
+const defaultState = {
+  settings: {
+    crt: false,
+    darkMode: true,
+    soundEffects: true,
+    loadingScreen: false,
+  },
+
+  blog: {
+    activePost: undefined,
+  },
+  portfolio: {
+    activeItem: undefined,
+  },
+  loadingScreenShown: false,
+}
+const { Provider, Consumer } = (SettingsContext = React.createContext(
+  defaultState
+))
 
 class SettingsProvider extends React.Component {
-  componentDidMount() {
-    this.checkLocalStorage()
-  }
-
-  checkLocalStorage() {
-    const settings = JSON.parse(localStorage.getItem('settings'))
-    if (settings) {
-      this.setState({
-        ...this.state,
-        settings,
-      })
-    }
-  }
-
   state = {
     settings: {
       crt: false,
@@ -34,6 +38,20 @@ class SettingsProvider extends React.Component {
     },
     loadingScreenShown: false,
   }
+  componentDidMount() {
+    this.checkLocalStorage()
+  }
+
+  checkLocalStorage() {
+    const settings = JSON.parse(localStorage.getItem('settings'))
+    if (settings) {
+      this.setState({
+        ...this.state,
+        settings,
+      })
+    }
+  }
+
   handleActivePost = postId => {
     let blog = { ...this.state.blog }
     blog.activePost = blog.activePost === postId ? undefined : postId

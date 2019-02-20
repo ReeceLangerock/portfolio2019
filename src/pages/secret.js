@@ -9,7 +9,7 @@ import ContentHeader from '../components/content/ContentHeader'
 import ContentContainer from '../components/content/ContentContainer'
 import MinigameContainer from '../components/minigame/MinigameContainer'
 import { MiniGameProvider, MiniGameConsumer } from '../context/MinigameContext';
-const SecondPage = () => {
+const Minigame = () => {
   return (
     <Layout>
       <SEO title="Secret" />
@@ -35,6 +35,6 @@ const SecondPage = () => {
   )
 }
 
-export default SecondPage
+export default Minigame
 
-const FileContainer = styled.div``
+
