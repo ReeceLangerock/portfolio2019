@@ -27,10 +27,10 @@ class SettingsProvider extends React.Component {
     },
 
     blog: {
-      activePost: 1,
+      activePost: undefined,
     },
     portfolio: {
-      activeItem: 1,
+      activeItem: undefined,
     },
     loadingScreenShown: false,
   }

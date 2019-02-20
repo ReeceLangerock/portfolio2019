@@ -41,6 +41,7 @@ class MinigameContainer extends Component {
   componentDidMount() {
     const height = this.divElement.clientHeight
     console.log(height)
+    console.log(window.innerHeight)
   }
 
   render() {
@@ -68,6 +69,10 @@ const Header = styled.div`
   font-size: 90px;
   line-height: 0.75;
   letter-spacing: 20px;
+  @media (max-height: 800px) {
+  font-size: 80px;
+
+  }
 `
 
 const Container = styled.div`

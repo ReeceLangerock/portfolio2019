@@ -19,7 +19,7 @@ const SecondPage = () => {
         <MiniGameProvider>
 
 
-        <ContentContainer noHeader>
+        <ContentContainer noHeader ='border-top-width: 0'>
         <MiniGameConsumer>
         {( context) => {
           return(

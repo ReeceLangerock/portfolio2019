@@ -13,7 +13,7 @@ class AboutContainer extends Component {
           Employment Status: <b>Employed</b>
         </Row>
         <Row hover>
-          Recruitment Status: <b>Open to new Opportunities</b>
+          Recruitment Status: <b>Open to Offers</b>
         </Row>
         <Row>Personal Synopsis:</Row>
         <p>

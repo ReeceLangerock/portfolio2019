@@ -29,9 +29,19 @@ const Container = styled.div`
   border: 2px solid white;
   box-sizing: content-box;
   padding: 5px;
+
+  @media (max-height: 800px) {
+    max-width: 100px;
+    max-height: 100px;
+  }
 `
 const Section = styled.div`
   background: ${props => (props.filled ? props.theme.colors.white : '#38a54e')};
   height: 25px;
   width: 25px;
+
+  @media (max-height: 800px) {
+    height: 20px;
+    width: 20px;
+  }
 `

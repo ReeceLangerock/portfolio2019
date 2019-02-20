@@ -93,7 +93,7 @@ class MiniGameProvider extends React.Component {
   }
 
   resetTimer = () => {
-    this.setState({ time: 10000 })
+    this.setState({ time: 10000  })
   }
   updateTime = time => {
     this.setState({

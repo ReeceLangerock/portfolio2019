@@ -7,7 +7,7 @@ import nav1 from './../../../static/page_select.mp3'
 
 export default class NavItem extends Component {
   playSoundEffect(soundEffects) {
-    if (true) {
+    if (soundEffects) {
       const audio = new Audio(nav1)
       const playPromise = audio.play()
       if (playPromise !== undefined) {

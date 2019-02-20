@@ -4,11 +4,12 @@ import { SettingsConsumer } from '../../context/SettingsContext.js'
 
 export default class ContentWrapper extends Component {
   render() {
+    console.log('prop',this.props)
     return (
       <SettingsConsumer>
         {value => {
           return (
-            <Container crt={value.settings.crt === true} noHeader = {this.props.noHeader ? 'true': 'false'}>
+            <Container crt={value.settings.crt === true} noHeader = {this.props.noHeader}>
               {this.props.children}
             </Container>
           )
@@ -21,7 +22,7 @@ export default class ContentWrapper extends Component {
 const Container = styled.div`
   border: 1px solid ${props => props.theme.content_container.border};
   border-top: 30px solid ${props => props.theme.content_container.border_top};
-  border-top-width: ${props => props.noHeader ? '0': ''};
+  ${props => props.noHeader};
   background: ${props => props.theme.content_container.background};
   width: 100%;
   flex: 1;
