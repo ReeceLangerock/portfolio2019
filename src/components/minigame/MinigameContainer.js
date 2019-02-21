@@ -15,7 +15,6 @@ class MinigameContainer extends Component {
         <Piece
           data={piece}
           index={index}
-          active={active}
           key={`piece-${index}`}
         />
       )
@@ -72,7 +71,7 @@ const Header = styled.div`
   line-height: 0.75;
   letter-spacing: 20px;
   @media (max-height: 800px) {
-    font-size: 75px;
+    font-size: 70px;
   }
 `
 

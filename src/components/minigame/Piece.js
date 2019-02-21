@@ -23,9 +23,13 @@ export default Piece
 
 const Container = styled.div`
   max-width: 150px;
+  max-height: 150px;
   display: flex;
   flex-wrap: wrap;
-  max-height: 150px;
+  @media (max-height: 800px) {
+    max-width: 130px;
+    max-height: 130px;
+  }
 `
 const Section = styled.div`
   background: ${props => (props.filled && props.active ? 'blue' : '#38a54e')};
@@ -34,5 +38,7 @@ const Section = styled.div`
   width: 30px;
 
   @media (max-height: 800px) {
+    height: 26px;
+    width: 26px;
   }
 `

@@ -11,10 +11,10 @@ import { MiniGameProvider, MiniGameConsumer } from '../context/MinigameContext'
 const Minigame = () => {
   return (
     <Layout>
-      <SEO title="Secret" />
-      <NavContainer active="secret" />
+      <SEO title="Security Access" />
+      <NavContainer active="restricted" />
       <ContentWrapper>
-        <ContentHeader headerText="secret" />
+        <ContentHeader headerText="Security Access" />
         <MiniGameProvider>
           <ContentContainer noHeader="border-top-width: 0">
             <MiniGameConsumer>

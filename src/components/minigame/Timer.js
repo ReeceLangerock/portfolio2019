@@ -25,4 +25,8 @@ const Container = styled.div`
   letter-spacing: 15px;
   margin-bottom: 20px;
   width: 100%;
+  @media (max-height: 800px) {
+    font-size: 64px;
+    margin-bottom: 10px;
+  }
 `

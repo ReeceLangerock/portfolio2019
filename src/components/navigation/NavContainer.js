@@ -27,8 +27,8 @@ export default class NavContainer extends Component {
         <NavItem active={active === 'files'} linkUrl="files">
           Files
         </NavItem>
-        <NavItem active={active === 'secret'} linkUrl="secret">
-          Secret
+        <NavItem active={active === 'restricted'} linkUrl="restricted">
+          Restricted
         </NavItem>
       </Container>
     )
