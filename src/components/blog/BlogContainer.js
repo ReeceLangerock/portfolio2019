@@ -13,12 +13,12 @@ class BlogContainer extends Component {
         <BlogPost
           placeholder
           active={activePost === 0}
-          post={{id:0,title: 'Nothing to see here!'}}
+          post={{id:0,title: 'Nothing to see here... yet!'}}
           onSelectPost={onSelectPost}
         />
       )
     }
-    return posts.map((post, index) => {
+    return posts.map((post) => {
       return (
         <BlogPost
           post={post}

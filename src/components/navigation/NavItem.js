@@ -29,7 +29,7 @@ export default class NavItem extends Component {
           {value => {
             return (
               <ActiveContainer
-                crt={value.settings.crt ? 'true' : 'false'}
+                crt={value.settings.crt}
                 active={active ? 'true' : 'false'}
                 to={this.props.linkUrl}
                 onClick={e => this.playSoundEffect(value.settings.soundEffects)}
@@ -48,7 +48,7 @@ export default class NavItem extends Component {
           {value => {
             return (
               <Container
-                crt={value.settings.crt ? 'true' : 'false'}
+                crt={value.settings.crt === true}
                 active={active ? 'true' : 'false'}
                 to={this.props.linkUrl}
                 onClick={e => this.playSoundEffect(value.settings.soundEffects)}
@@ -81,7 +81,7 @@ const Container = styled(Link)`
   text-align: center;
   color: ${props => props.theme.navigation.fontColor};
   text-decoration: none;
-  animation: ${props => (props.crt ? props.theme.textShadow : 'none')};
+  animation: ${props => props.crt ? props.theme.textShadow : 'none'};
   @media (max-width: ${props => props.theme.query.mobile}) {
     width: 180px;
     flex-grow: 0;
@@ -106,9 +106,9 @@ const ActiveContainer = styled(Link)`
   justify-content: space-between;
   margin-bottom: 6px;
   width: 100%;
-  color: ${props => props.theme.navigation.fontColor};
+  color: ${props => props.theme.navigation.fontColor_active};
   text-decoration: none;
-  animation: ${props => (props.crt ? props.theme.textShadow : 'none')};
+  animation: ${props => props.crt ? props.theme.textShadow : 'none'};
   @media (max-width: ${props => props.theme.query.mobile}) {
     width: 180px;
     flex-grow: 0;
@@ -124,7 +124,6 @@ const Border = styled.div`
   width: 8%;
   background: ${props => props.theme.navigation.border_active};
   animation: clicked-keyframes 1s;
-
   @keyframes clicked-keyframes {
     from {
       width: 0%;

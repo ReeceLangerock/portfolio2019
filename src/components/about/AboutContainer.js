@@ -117,6 +117,8 @@ const Skill = styled.div`
   color: ${props => props.theme.color};
   :hover {
     background: ${props => props.theme.skill_level.border};
+  color: ${props => props.theme.skill_level.color};
+
     transition: 0.5s ease-in-out all;
   }
 

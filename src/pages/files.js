@@ -19,7 +19,7 @@ const Files = () => {
           <FileContainer>
             <File name="Résumé.pdf" filename="resume.pdf" type="pdf" />
             <File name="Résumé.doc" filename="resume.doc" />
-            <File name="Terminal Stylesheet" filename="stylesheet.json" />
+            <File name="Terminal Stylesheet" filename="stylesheet.js" />
           </FileContainer>
         </ContentContainer>
       </ContentWrapper>
