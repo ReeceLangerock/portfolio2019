@@ -4,7 +4,6 @@ import NavItem from './NavItem'
 
 export default class NavContainer extends Component {
   render() {
-    console.log(this.props)
     const { active } = this.props
     return (
       <Container>
@@ -24,9 +23,9 @@ export default class NavContainer extends Component {
         <NavItem active={active === 'settings'} linkUrl="settings">
           Settings
         </NavItem>
-        <NavItem active={active === 'files'} linkUrl="files">
+        {/* <NavItem active={active === 'files'} linkUrl="files">
           Files
-        </NavItem>
+        </NavItem> */}
         {/* <NavItem active={active === 'restricted'} linkUrl="restricted">
           Restricted
         </NavItem> */}

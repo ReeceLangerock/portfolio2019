@@ -19,6 +19,7 @@ export default class SettingsContainer extends Component {
                 <Checkbox
                   active={settings.crt}
                   onClick={onChangeSetting}
+                  soundEffects={settings.soundEffects}
                   setting="crt"
                 />
               </Row>
@@ -26,6 +27,7 @@ export default class SettingsContainer extends Component {
                 <Label>Dark Mode:</Label>
                 <Checkbox
                   active={settings.darkMode}
+                  soundEffects={settings.soundEffects}
                   onClick={onChangeSetting}
                   setting="darkMode"
                 />
@@ -33,6 +35,7 @@ export default class SettingsContainer extends Component {
               <Row>
                 <Label>{LE.soundEffects[LANG]}:</Label>
                 <Checkbox
+                  soundEffects={settings.soundEffects}
                   active={settings.soundEffects}
                   onClick={onChangeSetting}
                   setting="soundEffects"
@@ -42,6 +45,7 @@ export default class SettingsContainer extends Component {
                 <Label>{LE.loadingScreen[LANG]}:</Label>
                 <Checkbox
                   active={settings.loadingScreen}
+                  soundEffects={settings.soundEffects}
                   onClick={onChangeSetting}
                   setting="loadingScreen"
                 />

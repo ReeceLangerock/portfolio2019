@@ -1,15 +1,43 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import nav1 from './../../../static/page_select.mp3'
+
 export default class Checkbox extends Component {
+  playSoundEffect(onOff) {
+    if (this.props.soundEffects) {
+      const audio = new Audio(nav1)
+      const playPromise = audio.play()
+      if (playPromise !== undefined) {
+        playPromise
+          .then(_ => {})
+          .catch(error => {
+            console.error(error)
+          })
+      }
+    }
+  }
   render() {
     const { active, onClick, setting, text } = this.props
+    console.log(this.props)
     return (
       <StyledCheckbox>
-        <OnOff active={active} onClick={e => onClick(setting, true)}>
+        <OnOff
+          active={active}
+          onClick={e => {
+            onClick(setting, true)
+            this.playSoundEffect('on')
+          }}
+        >
           {text && text[0]}
           {!text && 'Enable'}
         </OnOff>
-        <OnOff active={!active} onClick={e => onClick(setting, false)}>
+        <OnOff
+          active={!active}
+          onClick={e => {
+            onClick(setting, false)
+            this.playSoundEffect('off')
+          }}
+        >
           {text && text[1]}
           {!text && 'Disable'}
         </OnOff>

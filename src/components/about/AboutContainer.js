@@ -84,6 +84,7 @@ class AboutContainer extends Component {
           <Li>React Context API</Li>
           <Li>GraphQL</Li>
           <Li>Gatsby</Li>
+          <Li>AWS Lambda Functions</Li>
           <Li>Styled-Components</Li>
         </Ul>
       </Container>
