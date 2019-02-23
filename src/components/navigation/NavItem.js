@@ -37,6 +37,7 @@ export default class NavItem extends Component {
                 <Border />
                 <Content>{this.props.children}</Content>
                 <Border />
+                <EXTENSION/>
               </ActiveContainer>
             )
           }}
@@ -63,6 +64,11 @@ export default class NavItem extends Component {
   }
 }
 
+const EXTENSION = styled.div`
+width: 10px;
+height: 1px;
+background: white;
+`
 const Container = styled(Link)`
   border: 1px solid ${props => props.theme.navigation.border};
   box-shadow: inset 0 0 0 1px ${props => props.theme.navigation.borderShadow};
