@@ -11,28 +11,28 @@ export default class ContactItem extends Component {
       <StaticQuery
         query={graphql`
           query {
-            email: file(relativePath: { eq: "email.png" }) {
+            email: file(relativePath: { eq: "8bit_email.png" }) {
               childImageSharp {
                 fluid(maxWidth: 300) {
                   ...GatsbyImageSharpFluid
                 }
               }
             }
-            linkedin: file(relativePath: { eq: "linkedin.png" }) {
+            linkedin: file(relativePath: { eq: "8bit_linkedin.png" }) {
               childImageSharp {
                 fluid(maxWidth: 300) {
                   ...GatsbyImageSharpFluid
                 }
               }
             }
-            github: file(relativePath: { eq: "github.png" }) {
+            github: file(relativePath: { eq: "8bit_github.png" }) {
               childImageSharp {
                 fluid(maxWidth: 300) {
                   ...GatsbyImageSharpFluid
                 }
               }
             }
-            twitter: file(relativePath: { eq: "twitter.png" }) {
+            twitter: file(relativePath: { eq: "8bit_twitter.png" }) {
               childImageSharp {
                 fluid(maxWidth: 300) {
                   ...GatsbyImageSharpFluid
@@ -60,12 +60,12 @@ export default class ContactItem extends Component {
 }
 
 const Container = styled.a`
-  width: 225px;
-  height: 225px;
+  width: 200px;
+  height: 200px;
   padding: 5px;
   transition: 0.5s ease-in-out all;
   cursor: pointer;
-  margin: 10px;
+  margin: 15px;
   text-decoration-color: ${props =>
     props.theme.content_item.fontColor_alternate};
 
