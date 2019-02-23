@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { SettingsConsumer } from '../../context/SettingsContext.js'
-import nav1 from './../../../static/page_select.mp3'
-// import nav2 from './../../../static/page_select.mp3'
+import nav1 from './../../../static/nav_select.mp3'
 
 export default class NavItem extends Component {
   playSoundEffect(soundEffects) {
@@ -36,7 +35,7 @@ export default class NavItem extends Component {
               >
                 <Border />
                 <Content>{this.props.children}</Content>
-                <Border/>
+                <Border />
               </ActiveContainer>
             )
           }}
@@ -63,7 +62,6 @@ export default class NavItem extends Component {
   }
 }
 
-
 const Container = styled(Link)`
   border: 1px solid ${props => props.theme.navigation.border};
   box-shadow: inset 0 0 0 1px ${props => props.theme.navigation.borderShadow};
@@ -82,7 +80,7 @@ const Container = styled(Link)`
   text-align: center;
   color: ${props => props.theme.navigation.fontColor};
   text-decoration: none;
-  animation: ${props => props.crt ? props.theme.textShadow : 'none'};
+  animation: ${props => (props.crt ? props.theme.textShadow : 'none')};
   @media (max-width: ${props => props.theme.query.mobile}) {
     width: 180px;
     flex-grow: 0;
@@ -109,7 +107,7 @@ const ActiveContainer = styled(Link)`
   width: 100%;
   color: ${props => props.theme.navigation.fontColor_active};
   text-decoration: none;
-  animation: ${props => props.crt ? props.theme.textShadow : 'none'};
+  animation: ${props => (props.crt ? props.theme.textShadow : 'none')};
   @media (max-width: ${props => props.theme.query.mobile}) {
     width: 180px;
     flex-grow: 0;

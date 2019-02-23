@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import nav1 from './../../../static/page_select.mp3'
+import onSound from './../../../static/settings_on.mp3'
+import offSound from './../../../static/sound_effects_off.mp3'
 
 export default class Checkbox extends Component {
   playSoundEffect(onOff) {
+    const sound = onOff ? onSound : offSound
     if (this.props.soundEffects) {
-      const audio = new Audio(nav1)
+      const audio = new Audio(sound)
       const playPromise = audio.play()
       if (playPromise !== undefined) {
         playPromise
@@ -24,8 +26,8 @@ export default class Checkbox extends Component {
         <OnOff
           active={active}
           onClick={e => {
+            this.playSoundEffect(true)
             onClick(setting, true)
-            this.playSoundEffect('on')
           }}
         >
           {text && text[0]}
@@ -34,8 +36,8 @@ export default class Checkbox extends Component {
         <OnOff
           active={!active}
           onClick={e => {
+            this.playSoundEffect(false)
             onClick(setting, false)
-            this.playSoundEffect('off')
           }}
         >
           {text && text[1]}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import startupSound from './../../static/startup.wav'
+import startupSound from './../../static/startup.mp3'
 export default class LoadingBar extends Component {
   constructor(props) {
     super(props)
