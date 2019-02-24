@@ -93,5 +93,6 @@ const Row = styled.div`
   @media (max-width: ${props => props.theme.query.small}) {
     flex-direction: column;
     margin-bottom: 20px;
+    flex-wrap: nowrap;
   }
 `
