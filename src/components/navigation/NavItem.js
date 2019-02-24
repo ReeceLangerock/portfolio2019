@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { SettingsConsumer } from '../../context/SettingsContext.js'
-import nav1 from './../../../static/page_select.mp3'
+import nav1 from './../../../static/nav_select.mp3'
 
 export default class NavItem extends Component {
   playSoundEffect(soundEffects) {
@@ -35,7 +35,7 @@ export default class NavItem extends Component {
               >
                 <Border />
                 <Content>{this.props.children}</Content>
-                <Border/>
+                <Border />
               </ActiveContainer>
             )
           }}
@@ -61,7 +61,6 @@ export default class NavItem extends Component {
     }
   }
 }
-
 
 const Container = styled(Link)`
   border: 1px solid ${props => props.theme.navigation.border};
