@@ -6,7 +6,7 @@ import Timer from './Timer'
 
 class MinigameContainer extends Component {
   renderPieces() {
-    const { choices, pieces, level } = this.props.context
+    const { choices, pieces } = this.props.context
     if (!choices.length || !pieces.length) {
       return null
     }

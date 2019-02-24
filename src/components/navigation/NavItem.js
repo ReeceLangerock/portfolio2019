@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { SettingsConsumer } from '../../context/SettingsContext.js'
 import nav1 from './../../../static/page_select.mp3'
-// import nav2 from './../../../static/page_select.mp3'
 
 export default class NavItem extends Component {
   playSoundEffect(soundEffects) {
@@ -29,7 +28,7 @@ export default class NavItem extends Component {
           {value => {
             return (
               <ActiveContainer
-                crt={value.settings.crt}
+                crt={value.settings.crt.toString()}
                 active={active ? 'true' : 'false'}
                 to={this.props.linkUrl}
                 onClick={e => this.playSoundEffect(value.settings.soundEffects)}
@@ -48,7 +47,7 @@ export default class NavItem extends Component {
           {value => {
             return (
               <Container
-                crt={value.settings.crt === true}
+                crt={value.settings.crt.toString()}
                 active={active ? 'true' : 'false'}
                 to={this.props.linkUrl}
                 onClick={e => this.playSoundEffect(value.settings.soundEffects)}
@@ -82,15 +81,15 @@ const Container = styled(Link)`
   text-align: center;
   color: ${props => props.theme.navigation.fontColor};
   text-decoration: none;
-  animation: ${props => props.crt ? props.theme.textShadow : 'none'};
+  animation: ${props => props.crt === "true" ? props.theme.textShadow : 'none'};
   @media (max-width: ${props => props.theme.query.mobile}) {
     width: 180px;
     flex-grow: 0;
     padding: 4px;
-    margin-bottom: 5px;
+    margin: 0 3px 5px 3px
   }
   @media (max-width: ${props => props.theme.query.small}) {
-    width: 95px;
+    width: 90px;
     font-size: 24px;
     padding: 3px;
     margin-bottom: 4px;
@@ -109,14 +108,15 @@ const ActiveContainer = styled(Link)`
   width: 100%;
   color: ${props => props.theme.navigation.fontColor_active};
   text-decoration: none;
-  animation: ${props => props.crt ? props.theme.textShadow : 'none'};
+  animation: ${props => props.crt=== 'true' ? props.theme.textShadow : 'none'};
   @media (max-width: ${props => props.theme.query.mobile}) {
     width: 180px;
     flex-grow: 0;
-    margin-bottom: 5px;
+    margin: 0 3px 5px 3px
+
   }
   @media (max-width: ${props => props.theme.query.small}) {
-    width: 95px;
+    width: 90px;
     margin-bottom: 4px;
   }
 `
@@ -157,6 +157,9 @@ const Content = styled.div`
   display: flex;
   align-items: center;
   text-align: center;
+  @media (max-width: ${props => props.theme.query.mobile}) {
+padding: 4px;
+  }
   @media (max-width: ${props => props.theme.query.small}) {
     font-size: 24px;
     padding: 3px;

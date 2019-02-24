@@ -25,15 +25,30 @@ const Loading = styled.div`
     font-family: 'Sevastopol';
     font-size: 128px;
     margin-bottom: 2rem;
+    text-align: center;
     color: ${props => props.theme.loading_bar.title_font_color};
+
+    @media (max-width: ${props => props.theme.query.tablet}) {
+      font-size: 84px;
+    }
+    @media (max-width: ${props => props.theme.query.mobile}) {
+      font-size: 72px;
+    }
+    @media (max-width: ${props => props.theme.query.small}) {
+      font-size: 52px;
+    }
   }
 
   p {
     font-family: 'Sevastopol';
     font-size: 28px;
     color: white;
+    text-align: center;
     margin-top: 24px;
     color: ${props => props.theme.loading_bar.font_color};
+    @media (max-width: ${props => props.theme.query.small}) {
+      font-size: 22px;
+    }
   }
   margin: 30px auto;
   display: flex;

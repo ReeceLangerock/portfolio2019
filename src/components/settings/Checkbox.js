@@ -18,7 +18,6 @@ export default class Checkbox extends Component {
   }
   render() {
     const { active, onClick, setting, text } = this.props
-    console.log(this.props)
     return (
       <StyledCheckbox>
         <OnOff
