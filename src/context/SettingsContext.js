@@ -82,6 +82,7 @@ class SettingsProvider extends React.Component {
   }
 
   handleLoad = () => {
+    console.log('handling load')
     this.setState({
       ...this.state,
       loadingScreenShown: true,
