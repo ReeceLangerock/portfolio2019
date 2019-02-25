@@ -43,7 +43,7 @@ const Layout = ({ children }) => (
                     <GlobalStyles />
                     <Screen>
                       <InnerScreen className={CRT}>
-                        {loadingScreen && !value.loadingScreenShown && (
+                        {(loadingScreen && !value.loadingScreenShown) && (
                           <LoadingScreen
                             onLoad={value.onLoad}
                             soundEffects={soundEffects}
