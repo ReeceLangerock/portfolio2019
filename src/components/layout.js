@@ -34,9 +34,12 @@ const Layout = ({ children }) => (
         <>
           <SettingsConsumer>
             {value => {
+   
               const CRT = value.settings.crt ? 'crt' : ''
               const { loadingScreen, soundEffects } = value.settings
               const theme = value.settings.darkMode ? themes.dark : themes.light
+   console.log(value)
+   console.log(loadingScreen, value.loadingScreenShown)
               return (
                 <ThemeProvider theme={theme}>
                   <LayoutContainer>
