@@ -6,7 +6,6 @@ class LoadingScreen extends Component {
     const { onLoad, soundEffects } = this.props
     return (
       <Loading>
-        <div />
         <h1>Langerock Enterprises, Inc</h1>
 
         <BarContainer>

@@ -20,6 +20,7 @@ const GlobalStyles = createGlobalStyle`
 
 class Layout extends Component {
   renderLoadingScreen(value) {
+    console.log(loadingVisible)
     const loadingVisible =
       value.settings.loadingScreen && value.loadingScreenShown === false
     if (loadingVisible) {

@@ -1,23 +1,15 @@
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
-import React from 'react'
+import React, { Component } from 'react'
 
-const Header = ({ siteTitle, loading }) => {
-  return (
-    <HeaderBar>
-      <InnerHeaderBar>Personal Terminal</InnerHeaderBar>
-    </HeaderBar>
-  )
+class Header extends Component {
+  render() {
+    return (
+      <HeaderBar>
+        <InnerHeaderBar>Personal Terminal</InnerHeaderBar>
+      </HeaderBar>
+    )
+  }
 }
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
-
 export default Header
 
 const HeaderBar = styled.div`
