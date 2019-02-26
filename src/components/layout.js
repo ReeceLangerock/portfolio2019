@@ -19,6 +19,26 @@ const GlobalStyles = createGlobalStyle`
 `
 
 class Layout extends Component {
+  renderLoadingScreen(value) {
+    const loadingVisible =
+      value.settings.loadingScreen && value.loadingScreenShown === false
+    if (loadingVisible) {
+      return (
+        <LoadingScreen
+          onLoad={value.onLoad}
+          soundEffects={value.settings.soundEffects}
+          key="loading-screen"
+        />
+      )
+    } else {
+      return (
+        <>
+          <Header siteTitle="Personal Terminal" key="siteHeader" />
+          <Page>{this.props.children}</Page>
+        </>
+      )
+    }
+  }
   render() {
     return (
       <StaticQuery
@@ -36,35 +56,17 @@ class Layout extends Component {
             <SettingsConsumer>
               {value => {
                 const CRT = value.settings.crt ? 'crt' : ''
-                const { loadingScreen, soundEffects } = value.settings
                 const theme = value.settings.darkMode
                   ? themes.dark
                   : themes.light
 
-                const loadingVisible =
-                  loadingScreen && !value.loadingScreenShown
-                console.log('loadingVisible', loadingVisible)
                 return (
                   <ThemeProvider theme={theme}>
                     <LayoutContainer>
                       <GlobalStyles />
                       <Screen>
                         <InnerScreen className={CRT}>
-                          {loadingVisible && (
-                            <LoadingScreen
-                              onLoad={value.onLoad}
-                              soundEffects={soundEffects}
-                              key="loading-screen"
-                            />
-                          )}
-
-                          {(value.loadingScreenShown || !loadingScreen) && [
-                            <Header
-                              siteTitle="Personal Terminal"
-                              key="siteHeader"
-                            />,
-                            <Page>{this.props.children}</Page>,
-                          ]}
+                          {this.renderLoadingScreen(value)}
                         </InnerScreen>
                       </Screen>
                     </LayoutContainer>
