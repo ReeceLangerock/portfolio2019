@@ -20,13 +20,14 @@ const GlobalStyles = createGlobalStyle`
 
 class Layout extends Component {
   renderLoadingScreen(value) {
-    console.log(loadingVisible)
     const loadingVisible =
-      value.settings.loadingScreen && value.loadingScreenShown === false
+    value.settings.loadingScreen && value.loadingScreenShown === false
+    console.log(loadingVisible)
     if (loadingVisible) {
       return (
         <LoadingScreen
           onLoad={value.onLoad}
+          visible = {value.settings.loadingScreen}
           soundEffects={value.settings.soundEffects}
           key="loading-screen"
         />
