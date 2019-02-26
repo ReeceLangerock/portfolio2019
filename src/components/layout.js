@@ -34,19 +34,19 @@ const Layout = ({ children }) => (
         <>
           <SettingsConsumer>
             {value => {
-   
               const CRT = value.settings.crt ? 'crt' : ''
               const { loadingScreen, soundEffects } = value.settings
               const theme = value.settings.darkMode ? themes.dark : themes.light
-   console.log(value)
-   console.log(loadingScreen, value.loadingScreenShown)
+
+              const loadingVisible = loadingScreen && !value.loadingScreenShown
+              console.log('loadingVisible', loadingVisible)
               return (
                 <ThemeProvider theme={theme}>
                   <LayoutContainer>
                     <GlobalStyles />
                     <Screen>
                       <InnerScreen className={CRT}>
-                        {(loadingScreen && !value.loadingScreenShown) && (
+                        {loadingVisible && (
                           <LoadingScreen
                             onLoad={value.onLoad}
                             soundEffects={soundEffects}
