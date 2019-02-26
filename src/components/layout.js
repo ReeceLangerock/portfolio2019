@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
@@ -18,64 +18,65 @@ const GlobalStyles = createGlobalStyle`
   }
 `
 
-const Layout = ({ children }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
+class Layout extends Component {
+  render() {
+    return (
+      <StaticQuery
+        query={graphql`
+          query SiteTitleQuery {
+            site {
+              siteMetadata {
+                title
+              }
+            }
           }
-        }
-      }
-    `}
-    render={data => {
-      return (
-        <>
-          <SettingsConsumer>
-            {value => {
-              const CRT = value.settings.crt ? 'crt' : ''
-              const { loadingScreen, soundEffects } = value.settings
-              const theme = value.settings.darkMode ? themes.dark : themes.light
+        `}
+        render={data => {
+          return (
+            <SettingsConsumer>
+              {value => {
+                const CRT = value.settings.crt ? 'crt' : ''
+                const { loadingScreen, soundEffects } = value.settings
+                const theme = value.settings.darkMode
+                  ? themes.dark
+                  : themes.light
 
-              const loadingVisible = loadingScreen && !value.loadingScreenShown
-              console.log('loadingVisible', loadingVisible)
-              return (
-                <ThemeProvider theme={theme}>
-                  <LayoutContainer>
-                    <GlobalStyles />
-                    <Screen>
-                      <InnerScreen className={CRT}>
-                        {loadingVisible && (
-                          <LoadingScreen
-                            onLoad={value.onLoad}
-                            soundEffects={soundEffects}
-                            key = 'loading-screen'
-                          />
-                        )}
+                const loadingVisible =
+                  loadingScreen && !value.loadingScreenShown
+                console.log('loadingVisible', loadingVisible)
+                return (
+                  <ThemeProvider theme={theme}>
+                    <LayoutContainer>
+                      <GlobalStyles />
+                      <Screen>
+                        <InnerScreen className={CRT}>
+                          {loadingVisible && (
+                            <LoadingScreen
+                              onLoad={value.onLoad}
+                              soundEffects={soundEffects}
+                              key="loading-screen"
+                            />
+                          )}
 
-                        {(value.loadingScreenShown || !loadingScreen) && [
-                          <Header
-                            siteTitle="Personal Terminal"
-                            key="siteHeader"
-                          />,
-                          <Page>{children}</Page>,
-                        ]}
-                      </InnerScreen>
-                    </Screen>
-                  </LayoutContainer>
-                </ThemeProvider>
-              )
-            }}
-          </SettingsConsumer>
-        </>
-      )
-    }}
-  />
-)
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+                          {(value.loadingScreenShown || !loadingScreen) && [
+                            <Header
+                              siteTitle="Personal Terminal"
+                              key="siteHeader"
+                            />,
+                            <Page>{this.props.children}</Page>,
+                          ]}
+                        </InnerScreen>
+                      </Screen>
+                    </LayoutContainer>
+                  </ThemeProvider>
+                )
+              }}
+            </SettingsConsumer>
+          )
+        }}
+      />
+    )
+  }
 }
 
 export default Layout
