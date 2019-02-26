@@ -6,7 +6,7 @@ const defaultState = {
     crt: false,
     darkMode: true,
     soundEffects: true,
-    loadingScreen: true,
+    loadingScreen: false,
   },
 
   blog: {

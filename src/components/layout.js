@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import Header from './header'
@@ -22,7 +21,6 @@ class Layout extends Component {
   renderLoadingScreen(value) {
     const loadingVisible =
     value.settings.loadingScreen && value.loadingScreenShown === false
-    console.log(loadingVisible)
     if (loadingVisible) {
       return (
         <LoadingScreen
@@ -34,10 +32,10 @@ class Layout extends Component {
       )
     } else {
       return (
-        <>
-          <Header siteTitle="Personal Terminal" key="siteHeader" />
+        [
+          <Header siteTitle="Personal Terminal" key="siteHeader" />,
           <Page>{this.props.children}</Page>
-        </>
+        ]
       )
     }
   }
