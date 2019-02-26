@@ -5,8 +5,8 @@ const defaultState = {
   settings: {
     crt: false,
     darkMode: true,
-    soundEffects: true,
-    loadingScreen: false,
+    soundEffects: false,
+    loadingScreen: true,
   },
 
   blog: {
@@ -26,8 +26,8 @@ class SettingsProvider extends React.Component {
     settings: {
       crt: false,
       darkMode: true,
-      soundEffects: true,
-      loadingScreen: false,
+      soundEffects: false,
+      loadingScreen: true,
     },
 
     blog: {

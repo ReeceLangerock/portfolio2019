@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import LoadingBar from './../LoadingBar'
 class LoadingScreen extends Component {
   render() {
-    const { onLoad, soundEffects, visible } = this.props
+    const { onLoad, soundEffects } = this.props
     return (
-      <Loading visible={visible}>
+      <Loading>
         <h1>Langerock Enterprises, Inc</h1>
 
         <BarContainer>
@@ -50,7 +50,7 @@ const Loading = styled.div`
     }
   }
   margin: 30px auto;
-  display: ${props => (props.visible ? 'flex' : 'none')};
+  display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;

@@ -25,7 +25,6 @@ class Layout extends Component {
       return (
         <LoadingScreen
           onLoad={value.onLoad}
-          visible = {value.settings.loadingScreen}
           soundEffects={value.settings.soundEffects}
           key="loading-screen"
         />
