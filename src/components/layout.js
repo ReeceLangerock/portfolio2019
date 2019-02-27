@@ -20,7 +20,7 @@ const GlobalStyles = createGlobalStyle`
 class Layout extends Component {
   renderLoadingScreen(value) {
     const loadingVisible =
-    value.settings.loadingScreen && value.loadingScreenShown === false
+      value.settings.loadingScreen && value.loadingScreenShown === false
     if (loadingVisible) {
       return (
         <LoadingScreen
@@ -30,12 +30,10 @@ class Layout extends Component {
         />
       )
     } else {
-      return (
-        [
-          <Header siteTitle="Personal Terminal" key="siteHeader" />,
-          <Page>{this.props.children}</Page>
-        ]
-      )
+      return [
+        <Header siteTitle="Personal Terminal" key="siteHeader" />,
+        <Page>{this.props.children}</Page>,
+      ]
     }
   }
   render() {

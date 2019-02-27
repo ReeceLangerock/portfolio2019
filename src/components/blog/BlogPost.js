@@ -5,19 +5,21 @@ import Moment from 'react-moment'
 class BlogPost extends Component {
   render() {
     const { active, post, onSelectPost, placeholder } = this.props
+    console.log(new Date(post.createdAt))
     return (
       <PostContainer active={active}>
         <PostTitle active={active} onClick={e => onSelectPost(post.id)}>
           {post.title}
           {active && <Toggle>X</Toggle>}
-          {!active && post.date && (
-            <Moment format="MMMM YYYY">{post.date}</Moment>
+          {!active && post.createdAt && (
+            <Moment format="MMMM YYYY">{new Date(post.createdAt)}</Moment>
           )}
         </PostTitle>
         <PostContent active={active}>
           {placeholder && (
             <div>No posts have been written yet. Please check back later!</div>
           )}
+          {!placeholder && <div>{post.content}</div>}
         </PostContent>
       </PostContainer>
     )

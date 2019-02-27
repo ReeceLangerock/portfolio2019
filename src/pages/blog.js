@@ -8,7 +8,7 @@ import ContentWrapper from './../components/content/ContentWrapper'
 import ContentHeader from './../components/content/ContentHeader'
 import ContentContainer from './../components/content/ContentContainer'
 import BlogContainer from '../components/blog/BlogContainer'
-const Blog = () => {
+const Blog = ({ data }) => {
   return (
     <Layout>
       <SEO title="Blog" />
@@ -16,7 +16,7 @@ const Blog = () => {
       <ContentWrapper>
         <ContentHeader headerText="blog" />
         <ContentContainer>
-          <BlogContainer />
+          <BlogContainer data={data} />
         </ContentContainer>
       </ContentWrapper>
     </Layout>
@@ -24,3 +24,16 @@ const Blog = () => {
 }
 
 export default Blog
+
+export const query = graphql`
+  query {
+    blog {
+      getPosts {
+        id
+        title
+        content
+        createdAt
+      }
+    }
+  }
+`

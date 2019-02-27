@@ -1,8 +1,21 @@
+var proxy = require('http-proxy-middleware')
+
 module.exports = {
   siteMetadata: {
     title: `Reece Langerock Personal Terminal`,
     description: `Profile and Blog for Reece Langerock`,
     author: `@reecelangerock`,
+  },
+  developMiddleware: app => {
+    app.use(
+      '/.netlify/functions/',
+      proxy({
+        target: 'http://localhost:9000',
+        pathRewrite: {
+          '/.netlify/functions/': '',
+        },
+      })
+    )
   },
   plugins: [
     `gatsby-plugin-styled-components`,
@@ -12,6 +25,17 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        // This type will contain remote schema Query type
+        typeName: 'blog',
+        // This is the field under which it's accessible
+        fieldName: 'blog',
+        // URL to query from
+        url: 'http://localhost:9000/graphql',
       },
     },
     {
@@ -36,6 +60,7 @@ module.exports = {
         display: `minimal-ui`,
       },
     },
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',

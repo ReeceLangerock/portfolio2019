@@ -2,23 +2,25 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import BlogPost from './BlogPost'
 import { SettingsConsumer } from '../../context/SettingsContext'
+import { graphql } from 'react-apollo'
 
 class BlogContainer extends Component {
   //graphQL query for blog posts
 
   renderBlogPosts(activePost, onSelectPost) {
-    const posts = []
+    const posts = this.props.data.blog.getPosts
+    console.log(posts)
     if (posts.length === 0) {
       return (
         <BlogPost
           placeholder
           active={activePost === 0}
-          post={{id:0,title: 'Nothing to see here... yet!'}}
+          post={{ id: 0, title: 'Nothing to see here... yet!' }}
           onSelectPost={onSelectPost}
         />
       )
     }
-    return posts.map((post) => {
+    return posts.map(post => {
       return (
         <BlogPost
           post={post}
@@ -30,6 +32,8 @@ class BlogContainer extends Component {
   }
 
   render() {
+    console.log(this.props)
+
     return (
       <SettingsConsumer>
         {({ blog, onSelectPost }) => {
