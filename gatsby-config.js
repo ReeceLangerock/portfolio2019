@@ -6,17 +6,7 @@ module.exports = {
     description: `Profile and Blog for Reece Langerock`,
     author: `@reecelangerock`,
   },
-  developMiddleware: app => {
-    app.use(
-      '/.netlify/functions/',
-      proxy({
-        target: 'http://localhost:9000',
-        pathRewrite: {
-          '/.netlify/functions/': '',
-        },
-      })
-    )
-  },
+
   plugins: [
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
@@ -42,7 +32,7 @@ module.exports = {
         // This is the field under which it's accessible
         fieldName: 'blog',
         // URL to query from
-        url: 'http://localhost:9000/graphql',
+        url: '/.netlify/functions/graphql',
       },
     },
     {
