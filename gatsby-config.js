@@ -1,4 +1,6 @@
 var proxy = require('http-proxy-middleware')
+const dotenv = require('dotenv')
+dotenv.config()
 
 module.exports = {
   siteMetadata: {
@@ -6,17 +8,17 @@ module.exports = {
     description: `Profile and Blog for Reece Langerock`,
     author: `@reecelangerock`,
   },
-  // developMiddleware: app => {
-  //   app.use(
-  //     '/.netlify/functions/',
-  //     proxy({
-  //       target: 'http://localhost:9000',
-  //       pathRewrite: {
-  //         '/.netlify/functions/': '',
-  //       },
-  //     })
-  //   )
-  // },
+  developMiddleware: app => {
+    app.use(
+      '/.netlify/functions/',
+      proxy({
+        target: 'http://localhost:9000',
+        pathRewrite: {
+          '/.netlify/functions/': '',
+        },
+      })
+    )
+  },
   plugins: [
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
@@ -42,7 +44,7 @@ module.exports = {
         // This is the field under which it's accessible
         fieldName: 'blog',
         // URL to query from
-        url: `https://youthful-bartik-12f780.netlify.com/.netlify/lambda/graphql`,
+        url: `${process.env.URL}/.netlify/functions/graphql`,
       },
     },
     {
