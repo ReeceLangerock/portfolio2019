@@ -42,7 +42,8 @@ module.exports = {
         // This is the field under which it's accessible
         fieldName: 'blog',
         // URL to query from
-        url: 'https://wwww.reecelangerock.ml/.netlify/functions/graphql',
+        url:
+          'https://youthful-bartik-12f780.netlify.com/.netlify/functions/graphql',
       },
     },
     {
