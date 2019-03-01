@@ -12,7 +12,7 @@ module.exports = {
       proxy({
         target: 'http://localhost:9000',
         pathRewrite: {
-          '/.netlify/functions/': '',
+          '^/.netlify/functions/': '',
         },
       })
     )
@@ -42,7 +42,7 @@ module.exports = {
         // This is the field under which it's accessible
         fieldName: 'blog',
         // URL to query from
-        url: '/.netlify/functions/graphql',
+        url: 'https://wwww.reecelangerock.ml/.netlify/functions/graphql',
       },
     },
     {
