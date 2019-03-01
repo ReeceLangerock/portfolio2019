@@ -28,6 +28,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-netlify-functions`,
+      options: {
+        functionsSrc: `${__dirname}/src/lambda`,
+        functionsOutput: `${__dirname}/lambda`,
+      },
+    },
+    {
       resolve: 'gatsby-source-graphql',
       options: {
         // This type will contain remote schema Query type
