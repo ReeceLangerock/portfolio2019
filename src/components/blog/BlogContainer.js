@@ -8,9 +8,9 @@ class BlogContainer extends Component {
   //graphQL query for blog posts
 
   renderBlogPosts(activePost, onSelectPost) {
-    const posts = this.props.data.blog.getPosts
+    const posts = this.props.data.blog.getPosts || []
     console.log(posts)
-    if (posts.length === 0) {
+    if (posts && posts.length === 0) {
       return (
         <BlogPost
           placeholder

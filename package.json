@@ -28,7 +28,12 @@
     "react-dom": "^16.7.0",
     "react-helmet": "^5.2.0",
     "react-moment": "^0.8.4",
-    "styled-components": "^4.1.3"
+    "styled-components": "^4.1.3",
+    "apollo-server-lambda": "^2.4.6",
+    "dotenv": "^6.2.0",
+    "graphql": "^14.1.1",
+    "mongoose": "^5.4.15",
+    "netlify-lambda": "^1.4.2"
   },
   "keywords": [
     "gatsby"
@@ -38,6 +43,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "start": "npm run develop",
+    "lambda": "netlify-lambda serve src/lambda",
     "format": "prettier --write \"src/**/*.js\"",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },
