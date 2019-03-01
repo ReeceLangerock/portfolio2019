@@ -1,24 +1,25 @@
 var proxy = require('http-proxy-middleware')
 const dotenv = require('dotenv')
 dotenv.config()
-
+console.log('!!!!! ----- process.env.URL ------ !!!!!!')
+console.log(process.env.URL)
 module.exports = {
   siteMetadata: {
     title: `Reece Langerock Personal Terminal`,
     description: `Profile and Blog for Reece Langerock`,
     author: `@reecelangerock`,
   },
-  developMiddleware: app => {
-    app.use(
-      '/.netlify/functions/',
-      proxy({
-        target: 'http://localhost:9000',
-        pathRewrite: {
-          '/.netlify/functions/': '',
-        },
-      })
-    )
-  },
+  // developMiddleware: app => {
+  //   app.use(
+  //     '/.netlify/functions/',
+  //     proxy({
+  //       target: 'http://localhost:9000',
+  //       pathRewrite: {
+  //         '/.netlify/functions/': '',
+  //       },
+  //     })
+  //   )
+  // },
   plugins: [
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
