@@ -32,7 +32,7 @@ module.exports = {
         // This is the field under which it's accessible
         fieldName: 'blog',
         // URL to query from
-        url: '/.netlify/functions/graphql',
+        url: `${__dirname}/.netlify/functions/graphql`,
       },
     },
     {
