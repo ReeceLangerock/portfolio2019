@@ -2,24 +2,13 @@ var proxy = require('http-proxy-middleware')
 const dotenv = require('dotenv')
 dotenv.config()
 console.log('!!!!! ----- process.env.URL ------ !!!!!!')
-console.log(process.env.URL)
+console.log(process.env.GRAPH_CMS)
 module.exports = {
   siteMetadata: {
     title: `Reece Langerock Personal Terminal`,
     description: `Profile and Blog for Reece Langerock`,
     author: `@reecelangerock`,
   },
-  // developMiddleware: app => {
-  //   app.use(
-  //     '/.netlify/functions/',
-  //     proxy({
-  //       target: 'http://localhost:9000',
-  //       pathRewrite: {
-  //         '/.netlify/functions/': '',
-  //       },
-  //     })
-  //   )
-  // },
   plugins: [
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
@@ -31,21 +20,14 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-netlify-functions`,
-      options: {
-        functionsSrc: `${__dirname}/src/lambda`,
-        functionsOutput: `${__dirname}/lambda`,
-      },
-    },
-    {
       resolve: 'gatsby-source-graphql',
       options: {
         // This type will contain remote schema Query type
-        typeName: 'blog',
+        typeName: 'Blog',
         // This is the field under which it's accessible
         fieldName: 'blog',
         // URL to query from
-        url: `${process.env.URL}/.netlify/functions/graphql`,
+        url: process.env.GRAPH_CMS,
       },
     },
     {

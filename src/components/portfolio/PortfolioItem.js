@@ -23,9 +23,9 @@ class BlogItem extends Component {
       item.synopsis = (
         <span>
           {item.synopsis}{' '}
-          <Link size={'normal'} href={item.fcc} target="_blank">
+          <StyledLink size={'normal'} href={item.fcc} target="_blank">
             this
-          </Link>
+          </StyledLink>
         </span>
       )
     }
@@ -51,14 +51,14 @@ class BlogItem extends Component {
             {item.date}
           </p>
 
-          <Link href={item.siteLink} target="_blank">
+          <StyledLink href={item.siteLink} target="_blank">
             LINK TO SITE
-          </Link>
+          </StyledLink>
           <br />
           {(item.repoLink || !item.private) && (
-            <Link href={item.repoLink} target="_blank">
+            <StyledLink href={item.repoLink} target="_blank">
               LINK TO REPO
-            </Link>
+            </StyledLink>
           )}
 
           {item.private && (
@@ -153,7 +153,7 @@ const ImageContainer = styled.div`
 `
 const Toggle = styled.div``
 
-const Link = styled.a`
+const StyledLink = styled.a`
   margin-bottom: 10px;
   font-size: ${props => (props.normal ? '1.4rem' : '28px')};
   text-decoration: none;

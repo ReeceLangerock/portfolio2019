@@ -2,14 +2,10 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import BlogPost from './BlogPost'
 import { SettingsConsumer } from '../../context/SettingsContext'
-import { graphql } from 'react-apollo'
 
 class BlogContainer extends Component {
-  //graphQL query for blog posts
-
   renderBlogPosts(activePost, onSelectPost) {
-    const posts = this.props.data.blog.getPosts || []
-    console.log(posts)
+    const posts = this.props.data.blog.posts || []
     if (posts && posts.length === 0) {
       return (
         <BlogPost
@@ -26,14 +22,13 @@ class BlogContainer extends Component {
           post={post}
           active={activePost === post.id}
           onSelectPost={onSelectPost}
+          key = {post.id}
         />
       )
     })
   }
 
   render() {
-    console.log(this.props)
-
     return (
       <SettingsConsumer>
         {({ blog, onSelectPost }) => {

@@ -26,13 +26,13 @@ class Layout extends Component {
         <LoadingScreen
           onLoad={value.onLoad}
           soundEffects={value.settings.soundEffects}
-          key="loading-screen"
+          key="loading-screen-ind"
         />
       )
     } else {
       return [
-        <Header siteTitle="Personal Terminal" key="siteHeader" />,
-        <Page>{this.props.children}</Page>,
+        <Header siteTitle="Personal Terminal" key="siteHeader-ind" />,
+        <Page key="kidz">{this.props.children}</Page>,
       ]
     }
   }

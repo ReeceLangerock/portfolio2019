@@ -75,6 +75,10 @@ export const dark = {
     fontColor_alternate: colors.green,
     link_color: colors.lightGreen,
     link_hovered: colors.brightGreen,
+    tag_background: colors.darkGreen,
+    tag_color: colors.lightGreen,
+    tag_border: colors.lightGreen,
+    tag_border_inset: '#07661e',
     image_frame: {
       color: '#031603',
       'box-shadow':

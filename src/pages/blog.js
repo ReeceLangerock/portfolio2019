@@ -2,6 +2,7 @@ import React from 'react'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
+import {graphql} from 'gatsby'
 
 import NavContainer from './../components/navigation/NavContainer'
 import ContentWrapper from './../components/content/ContentWrapper'
@@ -28,11 +29,13 @@ export default Blog
 export const query = graphql`
   query {
     blog {
-      getPosts {
+      posts {
         id
         title
         content
         createdAt
+        hidden
+        slug
       }
     }
   }
