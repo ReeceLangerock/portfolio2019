@@ -21,10 +21,10 @@ export default class IndividualPost extends Component {
   render() {
     const post = this.props.pageContext
     return (
-      <Layout>
+      <Layout noLoading>
         <SEO title={post.slug} />
         <NavContainer active="post" />
-        <ContentWrapper>
+        <ContentWrapper >
           <ContentHeader headerText={post.title} />
           <ContentContainer>
             <PostContainer>

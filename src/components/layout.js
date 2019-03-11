@@ -21,7 +21,7 @@ class Layout extends Component {
   renderLoadingScreen(value) {
     const loadingVisible =
       value.settings.loadingScreen && value.loadingScreenShown === false
-    if (loadingVisible) {
+    if (loadingVisible && !this.props.noLoading) {
       return (
         <LoadingScreen
           onLoad={value.onLoad}
