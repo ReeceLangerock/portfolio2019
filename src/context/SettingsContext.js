@@ -1,9 +1,17 @@
 import React from 'react'
 
 let SettingsContext
-
-var settings = JSON.parse(localStorage.getItem('settings'))
-console.log(settings)
+var settings
+try {
+  settings = JSON.parse(localStorage.getItem('settings'))
+} catch (e) {
+  settings = {
+    crt: false,
+    darkMode: true,
+    soundEffects: false,
+    loadingScreen: true,
+  }
+}
 if (!settings) {
   settings = {
     crt: false,
