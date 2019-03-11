@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "portfolio-2019",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Personal Portfolio for Reece Langerock",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Reece Langerock <reecelangerock@gmail.com>",
   "dependencies": {
     "apollo": "^2.5.3",
     "apollo-client": "^2.5.0",
@@ -23,16 +23,12 @@
     "gatsby-source-filesystem": "^2.0.8",
     "gatsby-source-graphql": "^2.0.10",
     "gatsby-transformer-sharp": "^2.1.8",
-    "graphql": "^14.1.1",
-    "graphql-tag": "^2.10.1",
-    "http-proxy-middleware": "^0.19.1",
     "moment": "^2.24.0",
     "mongoose": "^5.4.15",
     "netlify-lambda": "^1.4.2",
     "npm-run-all": "^4.1.5",
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
-    "react-apollo": "^2.5.0",
     "react-dom": "^16.7.0",
     "react-helmet": "^5.2.0",
     "react-markdown": "^4.0.6",
@@ -60,9 +56,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/ReeceLangerock/portfolio2019"
   }
+ 
 }
