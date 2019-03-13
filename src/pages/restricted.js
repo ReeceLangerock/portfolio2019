@@ -16,7 +16,7 @@ const Minigame = () => {
       <ContentWrapper>
         <ContentHeader headerText="Security Access" />
         <MiniGameProvider>
-          <ContentContainer noHeader="border-top-width: 0">
+          <ContentContainer noHeader="border-top-width: 1px">
             <MiniGameConsumer>
               {context => {
                 return <MinigameContainer context={context} />

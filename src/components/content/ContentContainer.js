@@ -7,6 +7,7 @@ export default class ContentWrapper extends Component {
     return (
       <SettingsConsumer>
         {value => {
+          console.log(this.props)
           return (
             <Container
               ref={divElement => (this.divElement = divElement)}
@@ -25,7 +26,7 @@ export default class ContentWrapper extends Component {
 const Container = styled.div`
   border: 1px solid ${props => props.theme.content_container.border};
   border-top: 30px solid ${props => props.theme.content_container.border_top};
-
+  ${props => props.noHeader};
   background: ${props => props.theme.content_container.background};
   width: 100%;
   flex: 1;

@@ -5,8 +5,16 @@ import Choice from './Choice'
 import Timer from './Timer'
 
 class MinigameContainer extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      transition: true,
+    }
+  }
+
   renderPieces() {
-    const { choices, pieces } = this.props.context
+    const { choices, pieces, level } = this.props.context
     if (!choices.length || !pieces.length) {
       return null
     }
@@ -15,6 +23,7 @@ class MinigameContainer extends Component {
         <Piece
           data={piece}
           index={index}
+          visible={index + 1 > level}
           key={`piece-${index}`}
         />
       )
@@ -27,6 +36,7 @@ class MinigameContainer extends Component {
       pieces,
       pieceLocation,
       handleChoiceSelection,
+      level,
     } = this.props.context
     if (!choices.length || !pieces.length) {
       return null
@@ -38,6 +48,7 @@ class MinigameContainer extends Component {
           data={choice}
           index={index}
           key={`choice-${index}`}
+          level={level}
           correctChoice={correctChoice}
           onClick={handleChoiceSelection}
         />
@@ -47,6 +58,22 @@ class MinigameContainer extends Component {
 
   render() {
     const { context } = this.props
+
+    if (context.level === 3) {
+      return <Success>Access Granted</Success>
+    } else if (context.gameStatus === 'fail') {
+      setTimeout(() => {
+        this.setState({
+          transition: false,
+        })
+      }, 500)
+      return (
+        <Failure transition={this.state.transition}>
+          <div>Access Denied</div>
+          <Retry onClick={context.handleRetry}>Retry?</Retry>
+        </Failure>
+      )
+    }
     return (
       <Container ref={divElement => (this.divElement = divElement)}>
         <div>
@@ -63,6 +90,37 @@ class MinigameContainer extends Component {
 }
 
 export default MinigameContainer
+
+const Success = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 100px;
+  color: ${props => props.theme.colors.lightGreen};
+  padding-bottom: 50px;
+`
+const Failure = styled.div`
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 100px;
+  color: red;
+  opacity: ${props => (props.transition ? 0 : 1)};
+  transition: 1s ease-in-out all;
+`
+
+const Retry = styled.div`
+  font-size: 100px;
+  color: white;
+  cursor: pointer;
+  border: 1px solid white;
+  line-height: 1;
+  padding: 0 20px;
+`
 
 const Header = styled.div`
   background: white;
@@ -102,5 +160,5 @@ const ChoiceContainer = styled.div`
 
   justify-items: center;
   grid-gap: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 0px;
 `

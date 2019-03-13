@@ -3,10 +3,10 @@ let MinigameContext
 const defaultState = {
   timerActive: true,
   time: 10000,
-
   level: 0,
   pieces: [],
   choices: [],
+  gameStatus: 'limbo',
 }
 const { Provider, Consumer } = (MinigameContext = React.createContext(
   defaultState
@@ -27,9 +27,11 @@ class MiniGameProvider extends React.Component {
       level: 0,
       pieces: [],
       choices: [],
+      gameStatus: 'limbo',
     }
     this.runTimer = this.runTimer.bind(this)
     this.handleChoiceSelection = this.handleChoiceSelection.bind(this)
+    this.setupGame = this.setupGame.bind(this)
   }
 
   componentDidMount() {
@@ -53,14 +55,16 @@ class MiniGameProvider extends React.Component {
     this.setState({
       ...this.state,
       pieces,
+      gameStatus: 'active',
+      timerActive: true,
       choices,
       pieceLocation: randomLocation,
+      time: 10000
     })
   }
 
   updateLevel() {
     const newLevel = this.state.level + 1
-    console.log(this.state.level, newLevel)
     const choices = []
 
     for (let i = 0; i < 7; i++) {
@@ -69,7 +73,6 @@ class MiniGameProvider extends React.Component {
 
     const randomLocation = Math.floor(Math.random() * 7)
     choices.splice(randomLocation, 0, this.state.pieces[newLevel])
-
     this.setState({
       ...this.state,
       level: newLevel,
@@ -103,10 +106,12 @@ class MiniGameProvider extends React.Component {
   }
 
   async handleChoiceSelection(choiceIndex) {
-    console.log(choiceIndex, this.state.pieceLocation)
+    if (this.state.gameStatus !== 'active') {
+      return
+    }
     if (choiceIndex === this.state.pieceLocation) {
-      console.log('yup')
-      await this.resetTimer()
+      await this.updateTime(this.state.time + 5000)
+      // await this.resetTimer()
       this.updateLevel()
       this.runTimer()
     } else {
@@ -120,10 +125,7 @@ class MiniGameProvider extends React.Component {
     })
   }
 
-  resetTimer = async () => {
-    this.setState({ time: 15000 })
-  }
-  updateTime = time => {
+  updateTime = async (time) => {
     this.setState({
       time: time,
     })
@@ -137,8 +139,10 @@ class MiniGameProvider extends React.Component {
       if (this.state.time <= 0) {
         this.setState({
           timerActive: false,
+          gameStatus: 'limbo',
           time: 0,
         })
+        this.handleGameOver()
         clearInterval(timer)
       }
     }, 113)
@@ -147,16 +151,27 @@ class MiniGameProvider extends React.Component {
     })
   }
 
+
+
+  handleGameOver() {
+    setTimeout(()=> {
+      this.setState({
+        gameStatus: 'fail',
+      })
+    },1000)
+  
+  }
+
   render() {
     return (
       <Provider
         value={{
           ...this.state,
           toggleTimer: this.toggleTimer,
-          resetTimer: this.resetTimer,
           updateTime: this.updateTime,
           runTimer: this.runTimer,
           handleChoiceSelection: this.handleChoiceSelection,
+          handleRetry: this.setupGame,
         }}
       >
         {this.props.children}

@@ -2,6 +2,34 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 class Choice extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      error: false,
+    }
+  }
+
+  handleWrongChoice() {
+    this.setState({
+      error: true,
+    })
+
+    setTimeout(() => {
+      this.setState({
+        error: false,
+      })
+    }, 500)
+  }
+  shouldComponentUpdate(nextProps, nextState) {
+    if (
+      nextProps.level !== this.props.level ||
+      nextState.error !== this.state.error
+    ) {
+      return true
+    }
+    return false
+  }
   renderSections() {
     const { data, index } = this.props
     return data.map((row, rowIndex) => {
@@ -15,11 +43,23 @@ class Choice extends Component {
     })
   }
   render() {
-    const { index, onClick } = this.props
+    const { index, onClick, correctChoice } = this.props
+    const { error } = this.state
     return (
-      <Container key={index} onClick={() => onClick(index)}>
-        {this.renderSections()}
-      </Container>
+      <OuterBorder error={error}>
+        <Container
+          error={error}
+          key={index}
+          onClick={() => {
+            if (!correctChoice) {
+              this.handleWrongChoice()
+            }
+            onClick(index)
+          }}
+        >
+          {this.renderSections()}
+        </Container>
+      </OuterBorder>
     )
   }
 }
@@ -31,15 +71,39 @@ const Container = styled.div`
   max-height: 135px;
   display: flex;
   flex-wrap: wrap;
-  border: 2px solid white;
+  border: 3px solid ${props => props.theme.colors.lightGreen};
+  border-color: ${props =>
+    props.error ? 'red' : props.theme.colors.lightGreen};
+
   box-sizing: content-box;
-  padding: 5px;
   cursor: pointer;
+  padding: 5px;
+  transition: 0.4s ease-in-out;
+
+  :hover {
+    border-color: ${props => props.theme.colors.white};
+    border-color: ${props => (props.error ? 'red' : props.theme.colors.white)};
+
+    transition: 0.4s ease-in-out;
+  }
 
   @media (max-height: 800px) {
     max-width: 100px;
     max-height: 100px;
   }
+`
+
+const OuterBorder = styled.div`
+  border: 3px solid transparent;
+  transition: 0.4s ease-in-out;
+
+  :hover {
+    border-color: ${props => props.theme.colors.white};
+    border-color: ${props => (props.error ? 'red' : props.theme.colors.white)};
+
+    transition: 0.4s ease-in-out;
+  }
+  border-color: ${props => (props.error ? 'red' : 'none')};
 `
 const Section = styled.div`
   background: ${props => (props.filled ? props.theme.colors.white : '#38a54e')};

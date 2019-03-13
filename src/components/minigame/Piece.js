@@ -2,6 +2,12 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 class Piece extends Component {
+  shouldComponentUpdate(nextProps, nextState) {
+    if(nextProps.visible !== this.props.visible){
+      return true;
+    }
+    return false;
+  }
   renderSections() {
     const { data, index } = this.props
     return data.map((row, rowIndex) => {
@@ -15,17 +21,18 @@ class Piece extends Component {
     })
   }
   render() {
-    return <Container key={this.props.index}>{this.renderSections()}</Container>
+    return <Container visible = {this.props.visible} key={this.props.index}>{this.renderSections()}</Container>
   }
 }
 
 export default Piece
 
 const Container = styled.div`
-  max-width: 150px;
-  max-height: 150px;
+  max-width: 140px;
+  max-height: 140px;
   display: flex;
   flex-wrap: wrap;
+  opacity: ${props => props.visible ? 1 : 0};
   @media (max-height: 800px) {
     max-width: 130px;
     max-height: 130px;
@@ -38,7 +45,7 @@ const Section = styled.div`
   width: 30px;
 
   @media (max-height: 800px) {
-    height: 26px;
-    width: 26px;
+    height: 24px;
+    width: 24px;
   }
 `
