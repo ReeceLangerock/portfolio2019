@@ -50,11 +50,12 @@ class BlogItem extends Component {
             <Label>DATE COMPLETED: </Label>
             {item.date}
           </p>
-
-          <StyledLink href={item.siteLink} target="_blank">
-            LINK TO SITE
-          </StyledLink>
-          <br />
+          {item.siteLink && [
+            <StyledLink href={item.siteLink} target="_blank">
+              LINK TO SITE
+            </StyledLink>,
+            <br />,
+          ]}
           {(item.repoLink || !item.private) && (
             <StyledLink href={item.repoLink} target="_blank">
               LINK TO REPO

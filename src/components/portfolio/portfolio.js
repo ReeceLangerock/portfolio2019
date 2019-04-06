@@ -18,7 +18,7 @@ const items = [
     private: true,
     date: 'August 2018',
     siteLink: 'https://m538.herokuapp.com/revo',
-    repoLink: '',
+    repoLink: 'https://gitlab.com/JetsweepStudios/MaddenAnalytics',
   },
   {
     id: 2,
@@ -37,6 +37,16 @@ const items = [
     date: 'August 2018',
     siteLink:
       'https://play.google.com/store/apps/details?id=com.cfmscout&hl=en_US',
+  },
+  {
+    id: 7,
+    title: 'K12Jobspot Web Scraper',
+    synopsis:
+      'This is a Node application built for my wife to help automate her job search. It is hosted on Heroku and runs daily with the Heroku Scheduler plugin. Using puppeteer, it checks her favorite job posting site for any new jobs posted that meet her criteria and creates and email and sends them to her via NodeMailer. ',
+    tech: ['Node.js', 'Puppeteer', 'MongoDB', 'NodeMailer'],
+    private: false,
+    date: 'April 2019',
+    repoLink: 'https://github.com/ReeceLangerock/job-scraper',
   },
   {
     id: 3,
