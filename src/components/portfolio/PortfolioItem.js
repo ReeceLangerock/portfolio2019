@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import PortfolioImage from './PortfolioImage'
 
 class BlogItem extends Component {
   renderImages() {
@@ -10,25 +11,28 @@ class BlogItem extends Component {
     return images.map((image, index) => {
       return (
         <ImageContainer key={`item${id}-img${index}`}>
-          <img src={image} alt={imageAltTexts[index]} />
+          <PortfolioImage imageName={image} alt={imageAltTexts[index]} />
         </ImageContainer>
       )
     })
   }
-  render() {
-    const { active, item, onSelectItem } = this.props
-    const technologies = item.tech.join(', ')
-
+  renderSynopsis(item) {
     if (item.fcc) {
-      item.synopsis = (
+      return (
         <span>
           {item.synopsis}{' '}
           <StyledLink size={'normal'} href={item.fcc} target="_blank">
-            this
+            this.
           </StyledLink>
         </span>
       )
+    } else {
+      return item.synopsis
     }
+  }
+  render() {
+    const { active, item, onSelectItem } = this.props
+    const technologies = item.tech.join(', ')
 
     return (
       <ItemContainer active={active}>
@@ -39,7 +43,7 @@ class BlogItem extends Component {
         <ItemContent active={active}>
           <p>
             <Label>SYNOPSIS: </Label>
-            {item.synopsis}
+            {this.renderSynopsis(item)}
           </p>
           <p>
             <Label>TECHNOLOGIES: </Label>
@@ -51,10 +55,14 @@ class BlogItem extends Component {
             {item.date}
           </p>
           {item.siteLink && [
-            <StyledLink href={item.siteLink} target="_blank">
+            <StyledLink
+              href={item.siteLink}
+              target="_blank"
+              key={item.siteLink}
+            >
               LINK TO SITE
             </StyledLink>,
-            <br />,
+            <br key={'br'} />,
           ]}
           {(item.repoLink || !item.private) && (
             <StyledLink href={item.repoLink} target="_blank">
@@ -124,32 +132,28 @@ const Row = styled.div`
   position: relative;
   flex-wrap: wrap;
   padding: 15px 8px 0 8px;
-  align-items: center;
+  align-items: flex-start;
 `
 
 const ImageContainer = styled.div`
   display: block;
+  ${props => props.theme.content_item.image_frame};
+  height: 100%;
+  width: 275px;
+  padding: 1px;
+  margin: 0 5px 20px 5px;
+
   img {
-    ${props => props.theme.content_item.image_frame};
-    max-height: 250px;
-    padding: 1px;
   }
 
   @media (max-width: 1100px) {
-    img {
-      max-height: 200px;
-      margin-bottom: 15px;
-    }
+    width: 240px;
   }
   @media (max-width: 900px) {
-    img {
-      max-height: 170px;
-    }
+    width: 190px;
   }
   @media (max-width: ${props => props.theme.query.mobile}) {
-    img {
-      max-height: 200px;
-    }
+    width: 200px;
   }
 `
 const Toggle = styled.div``

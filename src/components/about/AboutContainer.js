@@ -83,8 +83,8 @@ class AboutContainer extends Component {
           <Li>React</Li>
           <Li>React Context API</Li>
           <Li>GraphQL</Li>
+          <Li>GraphCMS</Li>
           <Li>Gatsby</Li>
-          <Li>AWS Lambda Functions</Li>
           <Li>Styled-Components</Li>
         </Ul>
       </Container>
@@ -118,7 +118,7 @@ const Skill = styled.div`
   color: ${props => props.theme.color};
   :hover {
     background: ${props => props.theme.skill_level.border};
-  color: ${props => props.theme.skill_level.color};
+    color: ${props => props.theme.skill_level.color};
 
     transition: 0.5s ease-in-out all;
   }

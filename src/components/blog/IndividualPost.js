@@ -24,7 +24,7 @@ export default class IndividualPost extends Component {
       <Layout noLoading>
         <SEO title={post.slug} />
         <NavContainer active="post" />
-        <ContentWrapper >
+        <ContentWrapper>
           <ContentHeader headerText={post.title} />
           <ContentContainer>
             <PostContainer>
@@ -49,13 +49,6 @@ const PostContainer = styled.div`
   border: 1px solid white;
   font-size: 32px;
   background: ${props => props.theme.content_item.background_active};
-`
-const PostTitle = styled.div`
-  padding: 8px 12px 2px 12px;
-  display: flex;
-  justify-content: space-between;
-  transition: 0.25s ease-in-out all;
-  font-size: ${props => props.theme.fontSizes.h1};
 `
 
 const PostContent = styled.div`
