@@ -31,10 +31,12 @@ class Layout extends Component {
         />
       )
     } else {
-      return [
-        <Header siteTitle="Personal Terminal" key="siteHeader-ind" />,
-        <Page key="kidz">{this.props.children}</Page>,
-      ]
+      return (
+        <>
+          <Header siteTitle="Personal Terminal" key="siteHeader-ind" />
+          <Page key="kidz">{this.props.children}</Page>
+        </>
+      )
     }
   }
   render() {
