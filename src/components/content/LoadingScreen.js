@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import LoadingBar from './../LoadingBar'
 class LoadingScreen extends Component {
   render() {
-    const { onLoad, soundEffects } = this.props
+    const { onLoad, soundEffects, visible } = this.props
     return (
-      <Loading>
+      <Loading visible={visible.toString()}>
         <h1>Langerock Enterprises, Inc</h1>
 
         <BarContainer>
@@ -20,6 +20,7 @@ class LoadingScreen extends Component {
 export default LoadingScreen
 
 const Loading = styled.div`
+  display: ${props => (props.visible ==='true'? 'block' : 'none')};
   h1 {
     font-family: 'Sevastopol';
     font-size: 128px;

@@ -27,6 +27,7 @@ class Layout extends Component {
           onLoad={value.onLoad}
           soundEffects={value.settings.soundEffects}
           key="loading-screen-ind"
+          visible={loadingVisible}
         />
       )
     } else {
