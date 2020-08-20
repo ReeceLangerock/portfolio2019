@@ -86,6 +86,7 @@ export default Layout
 const Page = styled.div`
   display: flex;
   height: 100%;
+  overflow: hidden; 
   justify-content: space-between;
   @media (max-width: ${props => props.theme.query.mobile}) {
     flex-direction: column;
