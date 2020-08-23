@@ -27,13 +27,16 @@ class Layout extends Component {
           onLoad={value.onLoad}
           soundEffects={value.settings.soundEffects}
           key="loading-screen-ind"
+          visible={loadingVisible}
         />
       )
     } else {
-      return [
-        <Header siteTitle="Personal Terminal" key="siteHeader-ind" />,
-        <Page key="kidz">{this.props.children}</Page>,
-      ]
+      return (
+        <>
+          <Header siteTitle="Personal Terminal" key="siteHeader-ind" />
+          <Page key="kidz">{this.props.children}</Page>
+        </>
+      )
     }
   }
   render() {
@@ -83,6 +86,7 @@ export default Layout
 const Page = styled.div`
   display: flex;
   height: 100%;
+  overflow: hidden; 
   justify-content: space-between;
   @media (max-width: ${props => props.theme.query.mobile}) {
     flex-direction: column;
