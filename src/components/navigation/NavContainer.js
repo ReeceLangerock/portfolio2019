@@ -11,9 +11,9 @@ export default class NavContainer extends Component {
         <NavItem active={active === ''} linkUrl="">
           About
         </NavItem>
-        <NavItem active={active === 'blog'} linkUrl="blog">
+        {/* <NavItem active={active === 'blog'} linkUrl="blog">
           Blog
-        </NavItem>
+        </NavItem> */}
         <NavItem active={active === 'portfolio'} linkUrl="portfolio">
           Portfolio
         </NavItem>

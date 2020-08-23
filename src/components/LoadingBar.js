@@ -13,9 +13,8 @@ export default class LoadingBar extends Component {
   }
 
   animateBar() {
-
     let interval = setInterval(() => {
-      let percentAddition = Math.random() * 15
+      let percentAddition = Math.random() * 20
       this.setState({
         percent: this.state.percent + percentAddition,
       })

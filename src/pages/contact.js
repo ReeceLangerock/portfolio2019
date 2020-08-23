@@ -33,6 +33,11 @@ const Contact = () => {
               text="Check out my code"
             />
             <ContactItem
+              type="gitlab"
+              link=" https://gitlab.com/ReeceLangerock"
+              text="Check out my code"
+            />
+            <ContactItem
               type="twitter"
               link="https://twitter.com/ReeceLangerock"
               text="tweet @ me"

@@ -39,6 +39,13 @@ export default class ContactItem extends Component {
                 }
               }
             }
+            gitlab: file(relativePath: { eq: "gitlab.png" }) {
+              childImageSharp {
+                fluid(maxWidth: 300) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         `}
         render={data => {

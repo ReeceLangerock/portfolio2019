@@ -19,41 +19,41 @@ class AboutContainer extends Component {
         </Row>
         <Row>Personal Synopsis:</Row>
         <p>
-          Hello, I'm Reece. I'm a Front-end Developer currently working in
-          downtown Chicago. As a self-taught programmer and lifelong learner I
-          have that constant itch to try something new. That is what drew me to
-          development in the first place, there's always a new problem to solve
-          or technology to master. You'll notice that I've included below a few
-          skills that I'm currently learning. What is not include are the many
-          technologies on my "to-do" list.
+          Hello, I'm Reece. I'm a Fullstack Developer currently working remotely
+          from the Chicago suburbs. As a self-taught programmer and lifelong
+          learner I have that constant itch to try something new. That is what
+          drew me to development in the first place, there's always a new
+          problem to solve or technology to master. You'll notice that I've
+          included below a few skills that I'm currently learning. What is not
+          include are the many technologies on my "to-do" list.
         </p>
         <h2>Skill Set Matrix</h2>
         <GridLabel>Front-End:</GridLabel>
         <SkillGrid>
           <Skill>React</Skill>
           <Skill>Redux</Skill>
+          <Skill>Lit-HTML</Skill>
           <Skill>React Native</Skill>
           <Skill>Gatsby.js**</Skill>
           <Skill>Next.js</Skill>
-          <Skill>HTML/CSS/SASS</Skill>
         </SkillGrid>
 
         <GridLabel>Back-End:</GridLabel>
         <SkillGrid>
           <Skill>Node.js / Express.js</Skill>
           <Skill>MongoDB</Skill>
+          <Skill>AWS Lambda</Skill>
           <Skill>GraphQL**</Skill>
           <Skill>PL/SQL</Skill>
         </SkillGrid>
 
         <GridLabel>Miscellaneous:</GridLabel>
         <SkillGrid>
-          <Skill>Python**</Skill>
-          <Skill>Webpack</Skill>
           <Skill>Git</Skill>
           <Skill>Jest</Skill>
+          <Skill>Mocha / Karma</Skill>
           <Skill>Heroku</Skill>
-          <Skill>Java</Skill>
+          <Skill>SASS / Styled Components</Skill>
         </SkillGrid>
 
         <p>**currently learning this skill</p>
