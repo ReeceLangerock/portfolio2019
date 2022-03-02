@@ -21,7 +21,7 @@ class AboutContainer extends Component {
         <p>
           Hello, I'm Reece. I'm a Fullstack Developer currently working remotely
           from the Chicago suburbs. As a self-taught programmer and lifelong
-          learner I have that constant itch to try something new. That is what
+          learner, I have that constant itch to try something new. That is what
           drew me to development in the first place, there's always a new
           problem to solve or technology to master. You'll notice that I've
           included below a few skills that I'm currently learning. What is not
@@ -32,7 +32,7 @@ class AboutContainer extends Component {
         <SkillGrid>
           <Skill>React</Skill>
           <Skill>Redux</Skill>
-          <Skill>Lit-HTML</Skill>
+          <Skill>Lit</Skill>
           <Skill>React Native</Skill>
           <Skill>Gatsby.js**</Skill>
           <Skill>Next.js</Skill>
