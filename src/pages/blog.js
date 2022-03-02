@@ -26,17 +26,3 @@ const Blog = ({ data }) => {
 
 export default Blog
 
-export const query = graphql`
-  query {
-    blog {
-      posts {
-        id
-        title
-        content
-        createdAt
-        hidden
-        slug
-      }
-    }
-  }
-`

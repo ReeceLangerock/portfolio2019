@@ -2,7 +2,6 @@ var proxy = require('http-proxy-middleware')
 const dotenv = require('dotenv')
 dotenv.config()
 console.log('!!!!! ----- process.env.URL ------ !!!!!!')
-console.log(process.env.GRAPH_CMS)
 module.exports = {
   siteMetadata: {
     title: `Reece Langerock Personal Terminal`,
@@ -17,17 +16,6 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-graphql',
-      options: {
-        // This type will contain remote schema Query type
-        typeName: 'Blog',
-        // This is the field under which it's accessible
-        fieldName: 'blog',
-        // URL to query from
-        url: process.env.GRAPH_CMS,
       },
     },
     {
