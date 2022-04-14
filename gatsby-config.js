@@ -32,6 +32,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
+        failOnError: false,
         name: `gatsby-starter-default`,
         short_name: `starter`,
         start_url: `/`,

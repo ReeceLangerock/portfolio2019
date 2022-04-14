@@ -7,52 +7,7 @@ import Img from 'gatsby-image'
 export default class ContactItem extends Component {
   renderImage() {
     const type = this.props.type
-    return (
-      <StaticQuery
-        query={graphql`
-          query {
-            email: file(relativePath: { eq: "8bit_email.png" }) {
-              childImageSharp {
-                fluid(maxWidth: 300) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            linkedin: file(relativePath: { eq: "8bit_linkedin.png" }) {
-              childImageSharp {
-                fluid(maxWidth: 300) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            github: file(relativePath: { eq: "8bit_github.png" }) {
-              childImageSharp {
-                fluid(maxWidth: 300) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            twitter: file(relativePath: { eq: "8bit_twitter.png" }) {
-              childImageSharp {
-                fluid(maxWidth: 300) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            gitlab: file(relativePath: { eq: "gitlab.png" }) {
-              childImageSharp {
-                fluid(maxWidth: 300) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-        `}
-        render={data => {
-          return <Img fluid={data[type].childImageSharp.fluid} />
-        }}
-      />
-    )
+    return null
   }
 
   render() {
